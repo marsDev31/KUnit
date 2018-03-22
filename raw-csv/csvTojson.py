@@ -1,16 +1,16 @@
-def printDic():
+def printDic(tmp):
     space = 4
     tab = 0
     ans = ""
-    tmp = str(dic)
+    tmp = str(tmp)
     tmp = tmp.replace("{","{\n")
     tmp = tmp.replace("}","\n}")
     tmp = tmp.replace("\'","\"")
     tmp = tmp.replace(", ",",\n")
     for c in tmp:
-        if c == "{":
+        if c == "{" or c == "[":
             tab += 1
-        elif c == "}":
+        elif c == "}" or c == "]":
             tab -= 1
         ans += c
         if c == "\n":
@@ -34,8 +34,9 @@ for i in range(1,group+1):
             header -= 1
             continue
         #print(i,line)
-        line = _.split(",")
+        line = _.replace("\n","").split(",")
         while len(line[0]) < 8:     #Add 0 for the missing one
             line[0] = "0"+line[0]
         dic[line[0]] = str(i)
-printDic()
+        longDic[line[0]] = [str(i)]+line[1:]
+printDic(longDic)
