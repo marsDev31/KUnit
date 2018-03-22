@@ -1,8 +1,25 @@
 def printDic():
+    space = 4
+    tab = 0
+    ans = ""
     tmp = str(dic)
+    tmp = tmp.replace("{","{\n")
+    tmp = tmp.replace("}","\n}")
     tmp = tmp.replace("\'","\"")
-    tmp = tmp.replace(",",",\n")
-    print(tmp)
+    tmp = tmp.replace(", ",",\n")
+    for c in tmp:
+        if c == "{":
+            tab += 1
+        elif c == "}":
+            tab -= 1
+        ans += c
+        if c == "\n":
+            ans += " "*tab*space
+        elif c == "}":
+            ans = ans[:-((tab+1)*space)-1]  #cut a space that too much
+            ans += c
+            #print(c)
+    print(ans)
 fileName = "GenEdList - "   #1.csv
 group = 5
 tblHeader = 2
