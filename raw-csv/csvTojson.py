@@ -37,6 +37,6 @@ for i in range(1,group+1):
         line = _.replace("\n","").split(",")
         while len(line[0]) < 8:     #Add 0 for the missing one
             line[0] = "0"+line[0]
-        dic[line[0]] = str(i)
+        dic[line[0]] = [str(i),line[1],line[3]]
         longDic[line[0]] = [str(i)]+line[1:]
-printDic(longDic)
+printDic(dic)
