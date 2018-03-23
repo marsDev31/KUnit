@@ -41,4 +41,4 @@ for i in range(1,group+1):
         dic[line[0]] = [str(i),line[1],line[3]]
         longDic[line[0]] = [str(i)]+line[1:]
 #printDic(dic)
-print(json.dumps(dic))
+print(json.dumps(longDic))
