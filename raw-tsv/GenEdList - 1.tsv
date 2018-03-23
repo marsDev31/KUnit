@@ -1,0 +1,62 @@
+1. กลุ่มสาระอยู่ดีมีสุข (Wellness)		คนรับผิดชอบตอนนี้	นาย		
+SubID	SubNameENG	SubNameTHA	Credit	longCredit	belongTo
+1175111	Track and Field for Health	กรีฑาลู่-ลาน เพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175112	Badminton for Health	แบดมินตันเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175113	Tennis for Health	เทนนิสเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175114	Table Tennis for Health	เทเบิลเทนนิสเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175115	Meditation with Shooting Activity	ฝึกสมาธิด้วยกิจกรรมยิงปืน	1	0-2-1	Faculty of Education
+1175117	Meditation with Archery Activity	ฝึกสมาธิด้วยกิจกรรมยิงธนู	1	0-2-1	Faculty of Education
+1175121	Basketball for Health	บาสเกตบอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175122	Soccer for Health	ฟุตบอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175123	Volleyball for Health	วอลเลย์บอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175124	Handball for Health	แฮนด์บอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175125	Softball for Health	ซอฟท์บอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175126	Takraw for Health	ตะกร้อเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175127	Hockey for Health	ฮอกกี้เพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175128	Rugby Football for Health	รักบี้ฟุตบอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175129	Futsal for Health	ฟุตซอลเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175131	Swimming for Health	ว่ายน้ำเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175133	Diving	กระโดดน้ำ	1	0-2-1	Faculty of Education
+1175134	Water Polo	โปโลน้ำ	1	0-2-1	Faculty of Education
+1175141	Aerobic Dance for Health	การเต้นแอโรบิกเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175142	Folk Dance by Local Culture for Health	การเต้นรำพื้นเมืองตามวัฒนธรรมท้องถิ่นเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175143	Social Dance for Health	การเต้นลีลาศเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175144	Thai Classical Dance for Health	รำไทยเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175151	Martial Art with Thai Sword	ศิลปะการป้องกันตัวและการต่อสู้ด้วยดาบไทย	1	0-2-1	Faculty of Education
+1175152	Martial Art with Fencing	ศิลปะการป้องกันตัวและการต่อสู้ด้วยดาบสากล	1	0-2-1	Faculty of Education
+1175153	Martial Art with Thai Boxing	ศิลปะการป้องกันตัวและการต่อสู้ด้วยมวยไทย	1	0-2-1	Faculty of Education
+1175154	Martial Art with Boxing	ศิลปะการป้องกันตัวและการต่อสู้ด้วยมวยสากล	1	0-2-1	Faculty of Education
+1175155	Martial Art with Judo	ศิลปะการป้องกันตัวและการต่อสู้ด้วยยูโด	1	0-2-1	Faculty of Education
+1175156	Martial Art with Aikido	ศิลปะการป้องกันตัวและการต่อสู้ด้วยไอกิโด	1	0-2-1	Faculty of Education
+1175157	Martial Art with Krabi-Krabong	ศิลปะการป้องกันตัวและการต่อสู้ด้วยกระบี่กระบอง	1	0-2-1	Faculty of Education
+1175159	Martial Art with Karate	ศิลปะการป้องกันตัวและการต่อสู้ด้วยคาราเต้	1	0-2-1	Faculty of Education
+1175161	Brain Training with Playing Bridge	ฝึกสมองด้วยการเล่นบริดจ์	1	0-2-1	Faculty of Education
+1175162	Bowling for Health	โบว์ลิ่งเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175163	Golf for Health	กอล์ฟเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175164	Cycling for Health	จักรยานเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175165	Weight Training for Health	การฝึกด้วยน้ำหนักเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175166	Martial Art with Taekwondo	ศิลปะการป้องกันตัวและการต่อสู้ด้วยเทควันโด	1	0-2-1	Faculty of Education
+1175168	Jogging for Health	การวิ่งเหยาะเพื่อสุขภาพ	1	0-2-1	Faculty of Education
+1175169	Exercise for developing Holistic Health	การออกกาลังกายเพื่อพัฒนาสุขภาพแบบองค์รวม	2	1-2-3	Faculty of Education
+3768111	Pe’tanque	เปตอง	1	0-2-1	Faculty of Management Science Sri Racha Campus
+3768112	Weight Training	การฝึกโดยการใช้น้ำหนัก 	1	0-2-1	Faculty of Management Science Sri Racha Campus
+3768121	Basketball	บาสเกตบอล	1	0-2-1	Faculty of Management Science Sri Racha Campus
+3768141	Thai Classical and Social Dances	นาฏศิลป์และลีลาศ	1	0-2-1	Faculty of Management Science Sri Racha Campus
+3768151	Sword and Pole Fighting	กระบี่กระบอง	1	0-2-1	Faculty of Management Science Sri Racha Campus
+1173151	AIDS Education	เอดส์ศึกษา	2	2-0-4	Faculty of Education
+1174231	Introduction to Recreation	นันทนาการเบื้องต้น1	2	2-0-4	Faculty of Education
+1387101	The Art of Living with Others	ศิลปะการอยู่ร่วมกับผู้อื่น	3	3-0-6	Faculty of Humanities
+1387103	Philosophy of Sufficiency Economics and Buddhism	ปรัชญาเศรษฐกิจพอเพียงกับพุทธศาสนา	3	3-0-6	Faculty of Humanities
+1459101	Psychology for Modern Life	จิตวิทยาเพื่อชีวิตสมัยใหม่	3	3-0-6	Faculty of Social Sciences
+1459102	Psychology and Human Diversity	จิตวิทยากับความหลากหลายของมนุษย์	3	3-0-6	Faculty of Social Sciences
+1999011	Food for Mankind	อาหารเพื่อมนุษยชาติ	3	3-0-6	Integration Section of General Education
+1999012	Health for Life	สุขภาพเพื่อชีวิต	3	3-0-6	Integration Section of General Education
+1999033	Arts of Living	ศิลปะการดำเนินชีวิต	3	3-0-6	Integration Section of General Education
+1999036	Happiness amongst Life Dynamics	ความสุขในพลวัตของชีวิต	3	3-0-6	Integration Section of General Education
+1999048	Innovation for Environment and Health	นวัตกรรมเพื่อสิ่งแวดล้อมและสุขภาวะ	3	3-0-6	Integration Section of General Education
+1999213	Environment, Technology and Life	สิ่งแวดล้อม เทคโนโลยี และชีวิต	3	3-0-6	Integration Section of General Education
+2032303	Agriculture and Quality of Life	การเกษตรกับคุณภาพชีวิตที่ดี	3	3-0-6	Faculty of Agriculture Kamphaeng Saen Campus
+2999044	Sufficiency Economy for Living	เศรษฐกิจพอเพียงเพื่อการดำรงชีวิต	3	3-0-6	Integration Section of General Education Kamphaeng Saen Campus
+2999045	Enhancement of Living Value Through Rural Community Path	การเพิ่มคุณค่าชีวิตด้วยวิถีชุมชนชนบท	3	3-0-6	Integration Section of General Education Kamphaeng Saen Campus
+4401112	Personality and Social Etiquette for Community Service	บุคลิกภาพและมารยาททางสังคมสาหรับการบริการชุมชน	1	1-0-2	Faculty of Public Health Chalermphrakiat Sakon Nakhon Province Campus
+4804311	Philosophy of Sufficiency Economy	ปรัชญาเศรษฐกิจพอเพียง	3	3-0-6	Faculty of Natural Resources and Agro Industry Chalermphrakiat Sakon Nakhon Province Campus
