@@ -1,28 +1,7 @@
 import json
-def printDic(tmp):
-    space = 4
-    tab = 0
-    ans = ""
-    tmp = str(tmp)
-    tmp = tmp.replace("{","{\n")
-    tmp = tmp.replace("}","\n}")
-    tmp = tmp.replace("\'","\"")
-    tmp = tmp.replace(", ",",\n")
-    for c in tmp:
-        if c == "{" or c == "[":
-            tab += 1
-        elif c == "}" or c == "]":
-            tab -= 1
-        ans += c
-        if c == "\n":
-            ans += " "*tab*space
-        elif c == "}":
-            ans = ans[:-((tab+1)*space)-1]  #cut a space that too much
-            ans += c
-            #print(c)
-    print(ans)
+CONFIG = eval(open("../config.kunit.json").read())
 fileName = "GenEdList - "   #1.csv
-group = 5
+group = CONFIG["NumberOfGroup"]
 tblHeader = 2
 dic = {}        #For finding the group of subject
 longDic = {}    #For detail the subject
@@ -40,5 +19,4 @@ for i in range(1,group+1):
             line[0] = "0"+line[0]
         dic[line[0]] = [str(i),line[1],line[3]]
         longDic[line[0]] = [str(i)]+line[1:]
-#printDic(dic)
 print(json.dumps(dic,indent=4, separators=(',', ': ')))
