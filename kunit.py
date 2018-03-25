@@ -17,7 +17,17 @@ def add(table,subject):
     return table
 
 def remove(table,subject):
-    #...
+    group = int(REF[subject][0])
+    name = REF[subject][1]
+    credit = int(REF[subject][2])
+
+    if subject in table[group]:
+        table[0][0] -= credit
+        table[0][group] -= credit
+        table[group].remove(subject)
+        print(f"{name} [{subject}] was removed")
+    else:
+        print(f"No {name} [{subject}] in here")
     return table
 
 def print_list(table):
