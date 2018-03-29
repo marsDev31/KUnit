@@ -22,10 +22,10 @@ def add_to_table(inp):
 @app.route('/remove/<inp>')
 def del_from_table(inp):
     try:
-	table = inp[:inp.index('d')]
-	subject = inp[inp.index('d')+1:]
- 	listOfTable = eval(table)
-	return str(kunit.remove(listOfTable,subject)).replace(" ","")
+        table = inp[:inp.index('d')]
+        subject = inp[inp.index('d')+1:]
+        listOfTable = eval(table)
+        return str(kunit.remove(listOfTable,subject)).replace(" ","")
     except:
         return "invalid syntax (read API DOC in trello)"
 
