@@ -7,17 +7,20 @@ import 'react-virtualized-select/styles.css'
 import './Search.css'
 
 class Search extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          subjects: ['heelo']
-        };
-        
+    constructor(props){
+        super(props)
+          this.state={
+            selectedOption: []
+        }
+        this.handleChange=this.handleChange.bind(this)
+      }
+    handleChange = (e) => {
+        var subject = e.value + ","
+        var selected=this.state.selectedOption
+        selected.push(subject)
+        this.setState({selectedOption:selected})
       }
     
-    sub(e) {
-        this.setState({ subjects: e.target.subjects });
-      }
     
     render(){
         const options = [
@@ -194,7 +197,8 @@ class Search extends Component{
         ];
          
         const filterOptions = createFilterOptions({ options });
-        let {subjects} = this.state
+        let { selectedOption } = this.state
+        const value = selectedOption && selectedOption.value;
        
         return(
             
@@ -202,23 +206,23 @@ class Search extends Component{
                 <p/>
                 <Select
                     name="subject"
-                    value="one"
+                    value={value}
                     placeholder="เลือกวิชาที่ต้องการคำนวน"
+                    onChange={this.handleChange}
                     options={options}
                     filterOptions={filterOptions}
-                    onChange={val => console.log(val)}
                     onBlurResetsInput={false}
-                    onValueClick={(e)=>this.setState({subjects: e.target.value})}
+                    
                     autosize
                     autoFocus
-                    onBlurResetsInput={false}
-                    simpleValue
+                    
+                   
                     
                  />
                 
-            <div>
-                {subjects.map(sub => {sub})}
-            </div>  
+            <h1>
+            {this.state.selectedOption}
+            </h1>  
             </div>
 
         );
