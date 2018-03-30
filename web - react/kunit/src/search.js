@@ -10,15 +10,13 @@ class Search extends Component{
     constructor(props){
         super(props)
           this.state={
-            selectedOption: []
+            selectedOption: ""
         }
         this.handleChange=this.handleChange.bind(this)
       }
     handleChange = (e) => {
-        var subject = e.value + ","
-        var selected=this.state.selectedOption
-        selected.push(subject)
-        this.setState({selectedOption:selected})
+        
+        this.setState({selectedOption:"a"+e.value})
       }
     
     
