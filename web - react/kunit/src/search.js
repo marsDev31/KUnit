@@ -200,7 +200,7 @@ class Search extends Component{
        
         return(
             
-            <div classname="Search">
+            <div className="Search">
                 <p/>
                 <Select
                     name="subject"
