@@ -5,21 +5,23 @@ import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
 import './Search.css'
+import axios from 'axios'
 
 class Search extends Component{
     constructor(props){
         super(props)
           this.state={
-            selectedOption: ""
+            selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
         }
         this.handleChange=this.handleChange.bind(this)
-      }
+    }
     handleChange = (e) => {
-        
-        this.setState({selectedOption:"a"+e.value})
-      }
-    
-    
+        var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
+        axios.get(Url)
+            .then(res =>{
+                this.setState({selectedOption: res.data.replace("{data : ", "").replace("}", "") })
+            })
+    }
     render(){
         const options = [
             { value: '01175111', label: '01175111 Track and Field for Health' },
@@ -191,37 +193,28 @@ class Search extends Component{
 { value: '01999035', label: '01999035 Music Culture in Life' },
 { value: '02708102', label: '02708102 Literature and Science' },
 { value: '03600012', label: '03600012 Green Technology' },
-{ value: '03751111', label: '03751111 Man and Environment' },
+{ value: '03751111', label: '03751111 Man and Environment' , clearableValue: false},
         ];
-         
-        const filterOptions = createFilterOptions({ options });
-        let { selectedOption } = this.state
-        const value = selectedOption && selectedOption.value;
-       
+    const filterOptions = createFilterOptions({ options });
+    let { selectedOption } = this.state
+    const value = selectedOption && selectedOption.value;
         return(
-            
-            <div className="Search">
-                <p/>
+        <div className="Search">
+            <p/>
                 <Select
                     name="subject"
+                    autosize={false}
                     value={value}
                     placeholder="เลือกวิชาที่ต้องการคำนวน"
                     onChange={this.handleChange}
                     options={options}
                     filterOptions={filterOptions}
-                    onBlurResetsInput={false}
-                    
-                    autosize
-                    autoFocus
-                    
-                   
-                    
-                 />
-                
+                    style={{ fontSize: 15 }}
+                />
             <h1>
-            {this.state.selectedOption}
-            </h1>  
-            </div>
+                {this.state.selectedOption}
+            </h1>
+        </div>
 
         );
     }
