@@ -7,5 +7,5 @@ RUN pip3 install -r requirements.txt
 ENTRYPOINT ["python3"]
 CMD ["portal.py"]
 
-#docker build -t flask-dockering .
-#docker run -p 5000:5000 flask-dockering
+#docker build -t kunit-be .
+#docker run -p 5000:5000 kunit-be
