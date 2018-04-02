@@ -6,21 +6,89 @@ import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
 import './Search.css'
 import axios from 'axios'
+import Table from './table'
+import MyJson from './long.json'
 
 class Search extends Component{
     constructor(props){
         super(props)
           this.state={
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
+            table: "[]",
+            wordS: "Search",
+            program1: 0,
+            program2: 0,
+            program3: 0,
+            program4: 0,
+            program5: 0,
+            programTable: "[]"
         }
         this.handleChange=this.handleChange.bind(this)
+        this.handleData=this.handleData.bind(this)
+        this.major=this.major.bind(this)
     }
+
+    major = (e) =>{
+        switch (e) {
+            case "1":
+                var program1 = this.state.program1+1
+                this.setState({ program1 })
+                return "Wellness"
+                
+            case "2":
+                var program2 = this.state.program2+1
+                this.setState({ program2 })
+                return "Entrepreneursship"
+                
+            case "3":
+                var program3 = this.state.program3+1
+                this.setState({ program3 })
+                return "Thai Citizen and Global Citizen"
+                
+            case "4":
+                var program4 = this.state.program4+1
+                this.setState({ program4 })
+                return "Language and Communication"
+                
+            case "5":
+                var program5 = this.state.program5+1
+                this.setState({ program5 })
+                return"Aesthetics"
+                
+            }
+        
+    }
+
+    handleData = (e) =>{
+        
+        var tableBefore = this.state.table
+        var major = ",{major:" + "\""+ this.major(MyJson[e][0])+ "\""
+        var subject = ",subject:" + "\""+ MyJson[e][1] + "\""
+        var credit = ",credit:" + "\""+ MyJson[e][3] + "(" + MyJson[e][4] + ")" + "\""
+        var by = ",by:"+ "\"" + MyJson[e][5]+ "\""+"}]"
+        this.setState({table : tableBefore.replace("]","")+major+subject+credit+by })
+        var Program= this.state.program
+        var Wellness = "1:" +  "\""+this.state.program1+ "\""+","
+        var Entrepreneursship = "2:" +  "\""+this.state.program2+ "\""+","
+        var Thai = "3:" +  "\""+this.state.program3+ "\""+","
+        var Language = "4:" +  "\""+this.state.program4+ "\""+","
+        var Aesthetics = "5:" +  "\""+this.state.program5+ "\""
+        this.setState({programTable: "[{"+Wellness+Entrepreneursship+Thai+Language+Aesthetics+"}]"})
+    }
+
     handleChange = (e) => {
-        var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
-        axios.get(Url)
+        if (this.state.selectedOption.indexOf(e.value) == -1) {
+            this.setState({wordS : e.label})
+            var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
+            axios.get(Url)
             .then(res =>{
                 this.setState({selectedOption: res.data.replace("{data : ", "").replace("}", "") })
             })
+            this.handleData(e.value)
+            
+        }else{
+            alert("This subject has been selected.")
+        }
     }
     render(){
         const options = [
@@ -201,20 +269,23 @@ class Search extends Component{
         return(
         <div className="Search">
             <p/>
+                
+                
                 <Select
                     name="subject"
                     autosize={false}
                     value={value}
-                    placeholder="เลือกวิชาที่ต้องการคำนวน"
+                    placeholder={this.state.wordS}
                     onChange={this.handleChange}
                     options={options}
                     filterOptions={filterOptions}
                     style={{ fontSize: 15 }}
                 />
-            <h1>
-                {this.state.selectedOption}
-            </h1>
+                <br/>
+            <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>    
         </div>
+
+
 
         );
     }
