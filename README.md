@@ -8,6 +8,6 @@
 3|นาย ฌานณโชตน์ บุญเขียว|60105|วิศวกรรมศาสตร์
 4|นาย ธันยา ตันศรีประภาศิริ|6010500389|วิศวกรรมศาสตร์
 
-##Faculty of engineering-kasetsart university
+## Faculty of engineering - kasetsart university
 
 
