@@ -16,11 +16,6 @@ class Search extends Component{
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "Search",
-            program1: 0,
-            program2: 0,
-            program3: 0,
-            program4: 0,
-            program5: 0,
             programTable: "[]"
         }
         this.handleChange=this.handleChange.bind(this)
@@ -31,28 +26,18 @@ class Search extends Component{
     major = (e) =>{
         switch (e) {
             case "1":
-                var program1 = this.state.program1+1
-                this.setState({ program1 })
                 return "Wellness"
                 
             case "2":
-                var program2 = this.state.program2+1
-                this.setState({ program2 })
                 return "Entrepreneursship"
                 
             case "3":
-                var program3 = this.state.program3+1
-                this.setState({ program3 })
                 return "Thai Citizen and Global Citizen"
                 
             case "4":
-                var program4 = this.state.program4+1
-                this.setState({ program4 })
                 return "Language and Communication"
                 
             case "5":
-                var program5 = this.state.program5+1
-                this.setState({ program5 })
                 return"Aesthetics"
                 
             }
@@ -68,11 +53,11 @@ class Search extends Component{
         var by = ",by:"+ "\"" + MyJson[e][5]+ "\""+"}]"
         this.setState({table : tableBefore.replace("]","")+major+subject+credit+by })
         var Program= this.state.program
-        var Wellness = "1:" +  "\""+this.state.program1+ "\""+","
-        var Entrepreneursship = "2:" +  "\""+this.state.program2+ "\""+","
-        var Thai = "3:" +  "\""+this.state.program3+ "\""+","
-        var Language = "4:" +  "\""+this.state.program4+ "\""+","
-        var Aesthetics = "5:" +  "\""+this.state.program5+ "\""
+        var Wellness = "1:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+","
+        var Entrepreneursship = "2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+","
+        var Thai = "3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+","
+        var Language = "4:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+","
+        var Aesthetics = "5:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""
         this.setState({programTable: "[{"+Wellness+Entrepreneursship+Thai+Language+Aesthetics+"}]"})
     }
 
@@ -83,8 +68,9 @@ class Search extends Component{
             axios.get(Url)
             .then(res =>{
                 this.setState({selectedOption: res.data.replace("{data : ", "").replace("}", "") })
+                this.handleData(e.value)
             })
-            this.handleData(e.value)
+            
             
         }else{
             alert("This subject has been selected.")
@@ -284,9 +270,6 @@ class Search extends Component{
                 <br/>
             <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>    
         </div>
-
-
-
         );
     }
 }
