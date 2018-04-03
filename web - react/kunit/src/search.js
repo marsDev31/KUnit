@@ -16,8 +16,8 @@ class Search extends Component{
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "Search",
-            programTable: "[]"
-        }
+            programTable: "[{1:" +  "\""+"Wellness"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Aesthetics"+  "\""+",2:" + "0"+"},"+"{1:" +  "\""+"Sum"+  "\""+",2:" +  "0"+"}]"
+          }
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
@@ -53,12 +53,13 @@ class Search extends Component{
         var by = ",by:"+ "\"" + MyJson[e][5]+ "\""+"}]"
         this.setState({table : tableBefore.replace("]","")+major+subject+credit+by })
         var Program= this.state.program
-        var Wellness = "1:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+","
-        var Entrepreneursship = "2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+","
-        var Thai = "3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+","
-        var Language = "4:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+","
-        var Aesthetics = "5:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""
-        this.setState({programTable: "[{"+Wellness+Entrepreneursship+Thai+Language+Aesthetics+"}]"})
+        var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
+        var Entrepreneursship = "{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
+        var Thai = "{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+"},"
+        var Language = "{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+"},"
+        var Aesthetics = "{1:" +  "\""+"Aesthetics"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+"},"
+        var All = "{1:" +  "\""+"Sum"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+"}"
+        this.setState({programTable: "["+Wellness+Entrepreneursship+Thai+Language+Aesthetics+All+"]"})
     }
 
     handleChange = (e) => {
@@ -268,7 +269,7 @@ class Search extends Component{
                     style={{ fontSize: 15 }}
                 />
                 <br/>
-            <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>    
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>  
         </div>
         );
     }
