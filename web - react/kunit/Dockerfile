@@ -8,6 +8,9 @@ RUN create-react-app kunit-fe
 RUN yarn add react-select
 RUN npm install react-virtualized-select --save
 RUN npm install react-select-fast-filter-options --save
+RUN npm install react-bootstrap-table-next --save
+RUN npm install bootstrap
+RUN npm install axios
 WORKDIR kunit-fe
 
 COPY ./src/ ./src/
