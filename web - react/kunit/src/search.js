@@ -5,21 +5,77 @@ import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
 import './Search.css'
+import axios from 'axios'
+import Table from './table'
+import MyJson from './long.json'
 
 class Search extends Component{
     constructor(props){
         super(props)
           this.state={
-            selectedOption: ""
+            selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
+            table: "[]",
+            wordS: "Search",
+            programTable: "[]"
         }
         this.handleChange=this.handleChange.bind(this)
-      }
-    handleChange = (e) => {
+        this.handleData=this.handleData.bind(this)
+        this.major=this.major.bind(this)
+    }
+
+    major = (e) =>{
+        switch (e) {
+            case "1":
+                return "Wellness"
+                
+            case "2":
+                return "Entrepreneursship"
+                
+            case "3":
+                return "Thai Citizen and Global Citizen"
+                
+            case "4":
+                return "Language and Communication"
+                
+            case "5":
+                return"Aesthetics"
+                
+            }
         
-        this.setState({selectedOption:"a"+e.value})
-      }
-    
-    
+    }
+
+    handleData = (e) =>{
+        
+        var tableBefore = this.state.table
+        var major = ",{major:" + "\""+ this.major(MyJson[e][0])+ "\""
+        var subject = ",subject:" + "\""+ MyJson[e][1] + "\""
+        var credit = ",credit:" + "\""+ MyJson[e][3] + "(" + MyJson[e][4] + ")" + "\""
+        var by = ",by:"+ "\"" + MyJson[e][5]+ "\""+"}]"
+        this.setState({table : tableBefore.replace("]","")+major+subject+credit+by })
+        var Program= this.state.program
+        var Wellness = "1:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+","
+        var Entrepreneursship = "2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+","
+        var Thai = "3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+","
+        var Language = "4:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+","
+        var Aesthetics = "5:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""
+        this.setState({programTable: "[{"+Wellness+Entrepreneursship+Thai+Language+Aesthetics+"}]"})
+    }
+
+    handleChange = (e) => {
+        if (this.state.selectedOption.indexOf(e.value) == -1) {
+            this.setState({wordS : e.label})
+            var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
+            axios.get(Url)
+            .then(res =>{
+                this.setState({selectedOption: res.data.replace("{data : ", "").replace("}", "") })
+                this.handleData(e.value)
+            })
+            
+            
+        }else{
+            alert("This subject has been selected.")
+        }
+    }
     render(){
         const options = [
             { value: '01175111', label: '01175111 Track and Field for Health' },
@@ -191,38 +247,29 @@ class Search extends Component{
 { value: '01999035', label: '01999035 Music Culture in Life' },
 { value: '02708102', label: '02708102 Literature and Science' },
 { value: '03600012', label: '03600012 Green Technology' },
-{ value: '03751111', label: '03751111 Man and Environment' },
+{ value: '03751111', label: '03751111 Man and Environment' , clearableValue: false},
         ];
-         
-        const filterOptions = createFilterOptions({ options });
-        let { selectedOption } = this.state
-        const value = selectedOption && selectedOption.value;
-       
+    const filterOptions = createFilterOptions({ options });
+    let { selectedOption } = this.state
+    const value = selectedOption && selectedOption.value;
         return(
-            
-            <div className="Search">
-                <p/>
+        <div className="Search">
+            <p/>
+                
+                
                 <Select
                     name="subject"
+                    autosize={false}
                     value={value}
-                    placeholder="เลือกวิชาที่ต้องการคำนวน"
+                    placeholder={this.state.wordS}
                     onChange={this.handleChange}
                     options={options}
                     filterOptions={filterOptions}
-                    onBlurResetsInput={false}
-                    
-                    autosize
-                    autoFocus
-                    
-                   
-                    
-                 />
-                
-            <h1>
-            {this.state.selectedOption}
-            </h1>  
-            </div>
-
+                    style={{ fontSize: 15 }}
+                />
+                <br/>
+            <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>    
+        </div>
         );
     }
 }
