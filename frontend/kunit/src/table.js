@@ -24,7 +24,7 @@ class Table extends Component {
 
     const columns1 = [{
       dataField: "1",
-      text: 'All Subjects'
+      text: 'Group of Subjects'
     },{
       dataField: "2",
       text: 'Credits'
