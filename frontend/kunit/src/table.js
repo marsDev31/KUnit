@@ -32,7 +32,7 @@ class Table extends Component {
     return (
       <div>
       <h3>
-        Subject you should
+        Subject you choose	
       </h3>  
       <br/>
       <BootstrapTable keyField="id" isKey={true} data={eval(this.props.table) } columns={ columns } tdStyle={ { whiteSpace: 'normal'}}/>
