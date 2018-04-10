@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Kunit</h1>
+          <h1 className="App-title">KUnit</h1>
         </header>
         <Search/>
       </div>
