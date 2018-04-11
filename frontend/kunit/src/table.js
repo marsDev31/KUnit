@@ -7,45 +7,41 @@ class Table extends Component {
   constructor(props){
   	super(props)
 		this.state={
-				selected:[]
+        subject:"",
+        checked:""
 		}
-		this.handleSelected=this.handleSelected.bind(this)
+    this.handleSetIndex=this.handleSetIndex.bind(this)
+    this.handleChecked=this.handleChecked.bind(this)
   }
+  
+  handleChecked = (e) =>{
+      this.setState({checked:e})
+    }
+    
+  handleDel = () =>{
+    console.log("subject: "+this.state.subject)
+    console.log("cmd: "+this.state.checked)
+  }
+    
+  
 
-	handleSelected=(e) =>{
-		var selectedBefore=this.state.selected
-		var i =selectedBefore.indexOf(e)
-		if (i != -1){
-			selectedBefore.splice(i,1)			
-		}else{		selectedBefore.push(e)}
+  handleSetIndex = (e) =>{
+    this.setState({subject:e})
 
-		this.setState({selected: selectedBefore})
-	}
+
+  }
   
   
   render()
   { 
     const rowEvents = {
-		onClick: (e,row,rowIndex,colIndex) => {
-			this.handleSelected(rowIndex)
-			alert(row.by)
-		},
-		bgColor: (row,rowIndex)=>{
-			var rowIndex=1
-			return 'red'			
-			
-		}
-		}
-		
-	const selectRow={
-		mode:"checkbox",
-		clickToSelect: true,
-		//selected: this.state.selected,
-		bgColor: 'red',
-		hideSelectColumn: true
-		}
-		
+      onClick: (e,row,rowIndex) => {
+        this.handleSetIndex(row.subject)
+        
+      }
+      }
 	const columns = [{
+    
       dataField: 'major',
       text: 'All Subjects'
     },{
@@ -58,6 +54,11 @@ class Table extends Component {
       dataField: 'by',
       text: 'From'
     },{
+      events:{
+        onClick: ()=>{this.handleChecked("del")
+                     
+      }
+      },
       dataField: 'del',
       text:'Delete'
     }
@@ -70,23 +71,25 @@ class Table extends Component {
       dataField: "2",
       text: 'Credits'
     }]
+  
+    
     return (
       <div>
       <h3>
         Subject you choose
       </h3>  
       <br/>
-      <BootstrapTable keyField={"From","subject"}  selectRow={selectRow} rowEvents={rowEvents} data={eval(this.props.table) } columns={ columns } tdStyle={ { whiteSpace: 'normal'}}/>
+      <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
       <br/>
       <h3>
       Sum credit
       </h3>
       <br/>  
-      <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 } tdStyle={ { whiteSpace: 'normal'}}/>
-	  <div>
-	  {this.state.selected}
-	  </div>
+      <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}}/>
+      <div>
+      {this.handleDel()}
       </div>
+	  </div>
     );
   }
 }
