@@ -50,8 +50,9 @@ class Search extends Component{
         var major = ",{major:" + "\""+ this.major(MyJson[e][0])+ "\""
         var subject = ",subject:" + "\""+ MyJson[e][1] + "\""
         var credit = ",credit:" + "\""+ MyJson[e][3] + "(" + MyJson[e][4] + ")" + "\""
-        var by = ",by:"+ "\"" + MyJson[e][5]+ "\""+"}]"
-        this.setState({table : tableBefore.replace("]","")+major+subject+credit+by })
+        var by = ",by:"+ "\"" + MyJson[e][5]+ "\""
+        var del = ",del:"+ "\"" +"delete"+ "\""+"}]"
+        this.setState({table : tableBefore.replace("]","")+major+subject+credit+by+del })
         var Program= this.state.program
         var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
         var Entrepreneursship = "{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
@@ -253,7 +254,8 @@ class Search extends Component{
     const filterOptions = createFilterOptions({ options });
     let { selectedOption } = this.state
     const value = selectedOption && selectedOption.value;
-        return(
+   // console.log(this.state.programTable)
+		return(
         <div className="Search">
             <p/>
                 
@@ -270,7 +272,8 @@ class Search extends Component{
                 />
                 <br/>
                 <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>  
-        </div>
+		
+		</div>
         );
     }
 }
