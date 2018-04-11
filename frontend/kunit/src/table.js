@@ -19,18 +19,14 @@ class Table extends Component {
     }
     
   handleDel = () =>{
-    console.log("subject: "+this.state.subject)
-    console.log("cmd: "+this.state.checked)
-  }
     
-  
-
+  }
+   
   handleSetIndex = (e) =>{
     this.setState({subject:e})
 
 
   }
-  
   
   render()
   { 
@@ -75,20 +71,20 @@ class Table extends Component {
     
     return (
       <div>
-      <h3>
-        Subject you choose
-      </h3>  
-      <br/>
-      <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
-      <br/>
-      <h3>
-      Sum credit
-      </h3>
-      <br/>  
-      <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}}/>
-      <div>
-      {this.handleDel()}
-      </div>
+        <h3>
+          Subject you choose
+        </h3>  
+        <br/>
+          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
+        <br/>
+        <h3>
+          Sum credit
+        </h3>
+        <br/>  
+          <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}}/>
+        <div>
+          {this.handleDel()}
+        </div>
 	  </div>
     );
   }
