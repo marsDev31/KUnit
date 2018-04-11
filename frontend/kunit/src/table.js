@@ -23,8 +23,9 @@ class Table extends Component {
   { 
     const rowEvents = {
 		mode: 'checkbox',	
+		hideSelectColumn: true,	
 		clickToSelect:true,	
-		bgColor:"red"
+		bgColor:'#c8e6c9'
 	}
 
 		
