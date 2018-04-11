@@ -7,32 +7,45 @@ class Table extends Component {
   constructor(props){
   	super(props)
 		this.state={
-				selected:"[]"
+				selected:[]
 		}
 		this.handleSelected=this.handleSelected.bind(this)
   }
 
 	handleSelected=(e) =>{
 		var selectedBefore=this.state.selected
-			
-		this.setState({selected: selectedBefore.replace("]",",")+e+"]" })
+		var i =selectedBefore.indexOf(e)
+		if (i != -1){
+			selectedBefore.splice(i,1)			
+		}else{		selectedBefore.push(e)}
+
+		this.setState({selected: selectedBefore})
+	}
   
-  }
   
   render()
   { 
     const rowEvents = {
-		mode: 'checkbox',	
-		hideSelectColumn: true,	
-		clickToSelect:true,	
-		bgColor:'#c8e6c9'
-	}
-
+		onClick: (e,row,rowIndex,colIndex) => {
+			this.handleSelected(rowIndex)
+			alert(row.by)
+		},
+		bgColor: (row,rowIndex)=>{
+			var rowIndex=1
+			return 'red'			
+			
+		}
+		}
 		
-	
-	
-
-    const columns = [{
+	const selectRow={
+		mode:"checkbox",
+		clickToSelect: true,
+		//selected: this.state.selected,
+		bgColor: 'red',
+		hideSelectColumn: true
+		}
+		
+	const columns = [{
       dataField: 'major',
       text: 'All Subjects'
     },{
@@ -44,7 +57,11 @@ class Table extends Component {
     },{
       dataField: 'by',
       text: 'From'
-    }]
+    },{
+      dataField: 'del',
+      text:'Delete'
+    }
+    ]
 
     const columns1 = [{
       dataField: "1",
@@ -56,18 +73,18 @@ class Table extends Component {
     return (
       <div>
       <h3>
-        Subject you choose	
+        Subject you choose
       </h3>  
       <br/>
-      <BootstrapTable keyField="subject"  selectRow={rowEvents} data={eval(this.props.table) } columns={ columns } tdStyle={ { whiteSpace: 'normal'}}/>
+      <BootstrapTable keyField={"From","subject"}  selectRow={selectRow} rowEvents={rowEvents} data={eval(this.props.table) } columns={ columns } tdStyle={ { whiteSpace: 'normal'}}/>
       <br/>
       <h3>
-        Sum credit
+      Sum credit
       </h3>
       <br/>  
-      <BootstrapTable keyField="id" isKey={true} data={eval(this.props.programTable)} columns={ columns1 } tdStyle={ { whiteSpace: 'normal'}}/>
+      <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 } tdStyle={ { whiteSpace: 'normal'}}/>
 	  <div>
-			 {this.state.selected}
+	  {this.state.selected}
 	  </div>
       </div>
     );
