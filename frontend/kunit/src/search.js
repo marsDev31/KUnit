@@ -21,23 +21,33 @@ class Search extends Component{
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
-        this.handleChangeDle=this.handleChangeDle.bind(this)
+        this.handleChangeDelete=this.handleChangeDle.bind(this)
+    }
+
+    componentWillMoun(){
+        this.setState({
+            selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]"
+        })
     }
 
     handleChangeDle = (e) =>{
         if(e != ""){
-            console.log(e)
+            
             var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
-            console.log(Url)
+            
             var xmlHttp = new XMLHttpRequest()
             xmlHttp.open("GET",Url,false)
             xmlHttp.send(null)
-            console.log(xmlHttp.responseText)
-            this.setState({selectedOption: xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") })
-            this.handleData(e)
+            var data = xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") 
+            console.log("data: "+data)
+            
+            this.setState({selectedOption: data})
+            console.log(this.state.selectedOption)
+            this.handleData()
            }
+          
     }
-
+    
     major = (e) =>{
         switch (e) {
             case "1":
@@ -59,16 +69,36 @@ class Search extends Component{
         
     }
 
-    handleData = (e) =>{
+    handleData = () =>{
+        var i
+        var selected = eval(this.state.selectedOption)
+        var newTablej = ""
+        var  newTablei ="" 
+        var len = selected.length
         
-        var tableBefore = this.state.table
-        var major = ",{major:" + "\""+ this.major(MyJson[e][0])+ "\""
-        var subject = ",subject:" + "\""+ MyJson[e][1] + "\""
-        var subjectid = ",subjectid:" + "\""+ e + "\""
-        var credit = ",credit:" + "\""+ MyJson[e][3] + "(" + MyJson[e][4] + ")" + "\""
-        var by = ",by:"+ "\"" + MyJson[e][5]+ "\""
-        var del = ",del:"+ "\"" +"delete"+ "\""+"}]"
-        this.setState({table : tableBefore.replace("]","")+major+subject+subjectid+credit+by+del })
+        for (i = 1; i<len;i++){
+            var j
+            var len1 = selected[i].length
+            
+            for(j=0; j< len1;j++){
+                
+                var sub = selected[i][j]
+                
+                var major = ",{major:" + "\""+ MyJson[sub][0]+ "\""
+                var subject = ",subject:" + "\""+ MyJson[sub][1] + "\""
+                var subjectid = ",subjectid:" + "\""+ sub + "\""
+                var credit = ",credit:" + "\""+ MyJson[sub][3] + "(" + MyJson[sub][4] + ")" + "\""
+                var by = ",by:"+ "\"" + MyJson[sub][5]+ "\""
+                var del = ",del:"+ "\"" +"delete"+ "\""+"}"
+                var newTablej  = newTablej+major+subject+subjectid+credit+by+del
+            }
+            
+            var newTablei=newTablei+newTablej
+            var newTablej=""
+            
+        }
+        this.setState({table : "["+newTablei+"]"})
+        
         var Program= this.state.program
         var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
         var Entrepreneursship = "{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
@@ -89,8 +119,9 @@ class Search extends Component{
 
                 
                 this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
+                console.log(this.state.selectedOption)
+                this.handleData()
                 
-                this.handleData(e.value)
             })
             
             
@@ -291,7 +322,7 @@ class Search extends Component{
                     style={{ fontSize: 15 }}
                 />
                 <br/>
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDle}/>  
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/>  
                
 		</div>
         );
