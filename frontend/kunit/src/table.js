@@ -100,7 +100,7 @@ class Table extends Component {
           Subject you choose
         </h3>  
         <br/>
-          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped />
+          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped bordered={ false }/>
         <br/>
         <h3>
           Sum credit
