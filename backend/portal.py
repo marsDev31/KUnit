@@ -17,7 +17,7 @@ def add_to_table(inp):
         subject = inp[inp.index('a')+1:]
         listOfTable = eval(table)
         #print(lt,subject)
-        return "{data : "+str(kunit.add(listOfTable,subject)).replace(" ","")+"}"
+        return "{\"data\" : "+str(kunit.add(listOfTable,subject)).replace(" ","")+"}"
     except:
         return "invalid syntax (read API DOC in trello)"
     #return "still alive"
@@ -28,7 +28,7 @@ def del_from_table(inp):
         table = inp[:inp.index('d')]
         subject = inp[inp.index('d')+1:]
         listOfTable = eval(table)
-        return str(kunit.remove(listOfTable,subject)).replace(" ","")
+        return "{\"data\" : "+str(kunit.remove(listOfTable,subject)).replace(" ","")+"}"
     except:
         return "invalid syntax (read API DOC in trello)"
 
