@@ -14,6 +14,9 @@ class Table extends Component {
     this.handleChecked=this.handleChecked.bind(this)
     this.handleDel=this.handleDel.bind(this)
   }
+  componentDidMount(){
+    
+  }
   
   handleChecked = (e) =>{
       this.setState({checked:e})
