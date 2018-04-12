@@ -12,31 +12,24 @@ class Table extends Component {
 		}
     this.handleSetIndex=this.handleSetIndex.bind(this)
     this.handleChecked=this.handleChecked.bind(this)
-    this.handleDel=this.handleDel.bind(this)
-  }
-  componentDidMount(){
     
   }
-  
-  handleChecked = (e) =>{
-      this.setState({checked:e})
-    }
-    
-  handleDel = () =>{
+
+  componentDidUpdate(){
     if (this.state.checked == "del"){
       this.props.del(this.state.subject)
       this.setState({checked : ""})
     }else{ 
       this.props.del("")
     }
-
-    
   }
-   
+  
+  handleChecked = (e) =>{
+      this.setState({checked:e})
+    }
+     
   handleSetIndex = (e) =>{
     this.setState({subject:e})
-
-
   }
   
   render()
@@ -44,9 +37,8 @@ class Table extends Component {
     const rowEvents = {
       onClick: (e,row,rowIndex) => {
         this.handleSetIndex(row.subjectid)
-        
-      }
-      }
+    }}
+
 	const columns = [{
     
       dataField: 'major',
@@ -65,15 +57,15 @@ class Table extends Component {
       text: 'From'
     },{
       events:{
+        
         onClick: ()=>{this.handleChecked("del")
                      
       }
       },
       dataField: 'del',
       text:'Delete'
-    }
-    ]
-
+    }]
+  
     const columns1 = [{
       dataField: "1",
       text: 'Group of Subjects'
@@ -97,7 +89,7 @@ class Table extends Component {
         <br/>  
           <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}}/>
         <div>
-          {this.handleDel()}
+          
         </div>
 	  </div>
     );
