@@ -286,8 +286,9 @@ class Search extends Component{
     let { selectedOption } = this.state
     const value = selectedOption && selectedOption.value;
 		return(
-        <div className="Search">
+        <div >
             <p/>
+                <div className="Search">
                 <Select
                     name="subject"
                     autosize={false}
@@ -298,6 +299,7 @@ class Search extends Component{
                     filterOptions={filterOptions}
                     style={{ fontSize: 15 }}
                 />
+                </div>
                 <br/>
                 
                 <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/> 
