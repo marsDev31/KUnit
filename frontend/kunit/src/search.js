@@ -23,29 +23,16 @@ class Search extends Component{
         this.major=this.major.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
     }
-
-    componentWillMoun(){
-        this.setState({
-            selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]"
-        })
-    }
-
+    
     handleChangeDle = (e) =>{
         if(e != ""){
-            
             var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
-            
             var xmlHttp = new XMLHttpRequest()
             xmlHttp.open("GET",Url,false)
             xmlHttp.send(null)
             var data = xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") 
-            console.log("data: "+data)
-            
-            this.setState({selectedOption: data})
-            console.log(this.state.selectedOption)
-            this.handleData()
-           }
-          
+            this.setState({selectedOption: data},()=>{this.handleData()})
+           }  
     }
     
     major = (e) =>{
@@ -115,16 +102,9 @@ class Search extends Component{
             var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
             .then(res =>{
-                
-
-                
-                this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
-                console.log(this.state.selectedOption)
-                this.handleData()
-                
-            })
-            
-            
+            this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
+            this.handleData()   
+            })   
         }else{
             alert("This subject has been selected.")
         }
@@ -305,12 +285,9 @@ class Search extends Component{
     const filterOptions = createFilterOptions({ options });
     let { selectedOption } = this.state
     const value = selectedOption && selectedOption.value;
-   // console.log(this.state.programTable)
 		return(
         <div className="Search">
             <p/>
-                
-                
                 <Select
                     name="subject"
                     autosize={false}
@@ -322,8 +299,7 @@ class Search extends Component{
                     style={{ fontSize: 15 }}
                 />
                 <br/>
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/>  
-               
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/>        
 		</div>
         );
     }
