@@ -21,6 +21,21 @@ class Search extends Component{
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
+        this.handleChangeDle=this.handleChangeDle.bind(this)
+    }
+
+    handleChangeDle = (e) =>{
+        if(e != ""){
+            console.log(e)
+            var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
+            console.log(Url)
+            var xmlHttp = new XMLHttpRequest()
+            xmlHttp.open("GET",Url,false)
+            xmlHttp.send(null)
+            console.log(xmlHttp.responseText)
+            this.setState({selectedOption: xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") })
+            this.handleData(e)
+           }
     }
 
     major = (e) =>{
@@ -49,10 +64,11 @@ class Search extends Component{
         var tableBefore = this.state.table
         var major = ",{major:" + "\""+ this.major(MyJson[e][0])+ "\""
         var subject = ",subject:" + "\""+ MyJson[e][1] + "\""
+        var subjectid = ",subjectid:" + "\""+ e + "\""
         var credit = ",credit:" + "\""+ MyJson[e][3] + "(" + MyJson[e][4] + ")" + "\""
         var by = ",by:"+ "\"" + MyJson[e][5]+ "\""
         var del = ",del:"+ "\"" +"delete"+ "\""+"}]"
-        this.setState({table : tableBefore.replace("]","")+major+subject+credit+by+del })
+        this.setState({table : tableBefore.replace("]","")+major+subject+subjectid+credit+by+del })
         var Program= this.state.program
         var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
         var Entrepreneursship = "{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
@@ -69,7 +85,11 @@ class Search extends Component{
             var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
             .then(res =>{
-                this.setState({selectedOption: res.data.replace("{data : ", "").replace("}", "") })
+                
+
+                
+                this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
+                
                 this.handleData(e.value)
             })
             
@@ -271,8 +291,8 @@ class Search extends Component{
                     style={{ fontSize: 15 }}
                 />
                 <br/>
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable}/>  
-		
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDle}/>  
+               
 		</div>
         );
     }
