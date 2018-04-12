@@ -42,7 +42,7 @@ class Table extends Component {
 	const columns = [{
     
       dataField: 'major',
-      text: 'All Subjects'
+      text: 'Group of Subjects'
     },{
       dataField: 'subject',
       text: 'Subject'
