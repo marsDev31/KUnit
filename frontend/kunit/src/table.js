@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'bootstrap/dist/css/bootstrap.css';
+import './Table.css'
 require('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
 
 class Table extends Component {
@@ -40,21 +41,32 @@ class Table extends Component {
     }}
 
 	const columns = [{
-    
+      
       dataField: 'major',
-      text: 'Group of Subjects'
+      text: 'Group of Subjects',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     },{
       dataField: 'subject',
-      text: 'Subject'
+      text: 'Subject',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     },{
       dataField: 'subjectid',
-      text: 'Subject Id'
+      text: 'Subject Id',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
+      
     },{
       dataField: 'credit',
-      text: 'Credit'
+      text: 'Credit',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     },{
       dataField: 'by',
-      text: 'From'
+      text: 'From',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     },{
       events:{
         
@@ -63,31 +75,38 @@ class Table extends Component {
       }
       },
       dataField: 'del',
-      text:'Delete'
+      text:'Delete',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
+      
     }]
   
     const columns1 = [{
       dataField: "1",
-      text: 'Group of Subjects'
+      text: 'Group of Subjects',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     },{
       dataField: "2",
-      text: 'Credits'
+      text: 'Credits',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
     }]
   
     
     return (
-      <div>
+      <div className="Table">
         <h3>
           Subject you choose
         </h3>  
         <br/>
-          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
+          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped />
         <br/>
         <h3>
           Sum credit
         </h3>
         <br/>  
-          <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}}/>
+          <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}} bodyStyle={{overflow: 'overlay'}} bordered={ false }/>
         <div>
           
         </div>
