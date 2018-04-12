@@ -71,7 +71,7 @@ class Search extends Component{
                 
                 var sub = selected[i][j]
                 
-                var major = ",{major:" + "\""+ MyJson[sub][0]+ "\""
+                var major = ",{major:" + "\""+ this.major(MyJson[sub][0])+ "\""
                 var subject = ",subject:" + "\""+ MyJson[sub][1] + "\""
                 var subjectid = ",subjectid:" + "\""+ sub + "\""
                 var credit = ",credit:" + "\""+ MyJson[sub][3] + "(" + MyJson[sub][4] + ")" + "\""
