@@ -299,7 +299,9 @@ class Search extends Component{
                     style={{ fontSize: 15 }}
                 />
                 <br/>
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/>        
+                
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/> 
+                    
 		</div>
         );
     }
