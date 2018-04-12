@@ -12,6 +12,7 @@ class Table extends Component {
 		}
     this.handleSetIndex=this.handleSetIndex.bind(this)
     this.handleChecked=this.handleChecked.bind(this)
+    this.handleDel=this.handleDel.bind(this)
   }
   
   handleChecked = (e) =>{
@@ -19,6 +20,13 @@ class Table extends Component {
     }
     
   handleDel = () =>{
+    if (this.state.checked == "del"){
+      this.props.del(this.state.subject)
+      this.setState({checked : ""})
+    }else{ 
+      this.props.del("")
+    }
+
     
   }
    
@@ -32,7 +40,7 @@ class Table extends Component {
   { 
     const rowEvents = {
       onClick: (e,row,rowIndex) => {
-        this.handleSetIndex(row.subject)
+        this.handleSetIndex(row.subjectid)
         
       }
       }
@@ -43,6 +51,9 @@ class Table extends Component {
     },{
       dataField: 'subject',
       text: 'Subject'
+    },{
+      dataField: 'subjectid',
+      text: 'Subject Id'
     },{
       dataField: 'credit',
       text: 'Credit'
@@ -75,7 +86,7 @@ class Table extends Component {
           Subject you choose
         </h3>  
         <br/>
-          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
+          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'}}/>
         <br/>
         <h3>
           Sum credit
