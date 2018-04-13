@@ -52,12 +52,6 @@ class Table extends Component {
     }
 
 	const columns = [{
-      
-      dataField: 'major',
-      text: 'Group of Subjects',
-      align: (column, colIndex) => 'left',
-      headerAlign: (column, colIndex) => 'left'
-    },{
       dataField: 'subject',
       text: 'Subject',
       align: (column, colIndex) => 'left',
