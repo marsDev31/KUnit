@@ -25,6 +25,8 @@ class Table extends Component {
     }
   }
   
+  
+
   handleChecked = (e) =>{
       this.setState({checked:e})
     }
@@ -34,11 +36,20 @@ class Table extends Component {
   }
   
   render()
-  { 
+  {
     const rowEvents = {
       onClick: (e,row,rowIndex) => {
-        this.handleSetIndex(row.subjectid)
+        this.handleSetIndex(row.subject.slice(0,8))
     }}
+
+    function delSubject(cell,row,rowIndex){
+      
+      return(
+        <button>
+          Delete
+        </button>
+      )
+    }
 
 	const columns = [{
       
@@ -51,12 +62,6 @@ class Table extends Component {
       text: 'Subject',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
-    },{
-      dataField: 'subjectid',
-      text: 'Subject Id',
-      align: (column, colIndex) => 'left',
-      headerAlign: (column, colIndex) => 'left'
-      
     },{
       dataField: 'credit',
       text: 'Credit',
@@ -75,9 +80,8 @@ class Table extends Component {
       }
       },
       dataField: 'del',
-      text:'Delete',
-      align: (column, colIndex) => 'left',
-      headerAlign: (column, colIndex) => 'left'
+      text: 'Delete',
+      formatter: delSubject
       
     }]
   
@@ -100,7 +104,7 @@ class Table extends Component {
           Subject you choose
         </h3>  
         <br/>
-          <BootstrapTable keyField="subjectid"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped bordered={ false }/>
+          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped bordered={ false }/>
         <br/>
         <h3>
           Sum credit
@@ -108,7 +112,6 @@ class Table extends Component {
         <br/>  
           <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}} bodyStyle={{overflow: 'overlay'}} bordered={ false }/>
         <div>
-          
         </div>
 	  </div>
     );
