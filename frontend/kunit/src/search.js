@@ -44,7 +44,7 @@ class Search extends Component{
                 return "Wellness"
                 
             case "2":
-                return "Entrepreneursship"
+                return "Entrepreneurship"
                 
             case "3":
                 return "Thai Citizen and Global Citizen"
@@ -75,11 +75,11 @@ class Search extends Component{
                 var sub = selected[i][j]
                 
                 var major = ",{major:" + "\""+ this.major(MyJson[sub][0])+ "\""
-                var subject = ",subject:" + "\""+ sub+" "+ MyJson[sub][1] + "\""
+                var subject = ",{subject:" + "\""+ sub+" "+ MyJson[sub][1] +" ("+ this.major(MyJson[sub][0]) + ")\""
                 var credit = ",credit:" + "\""+ MyJson[sub][3] + "(" + MyJson[sub][4] + ")" + "\""
                 var by = ",by:"+ "\"" + MyJson[sub][5]+ "\""+"}"
-                var del = ",del:"+ "\""+"Delete"+ "\""+"}"
-                var newTablej  = newTablej+major+subject+credit+by
+                
+                var newTablej  = newTablej+subject+credit+by
             }
             
             var newTablei=newTablei+newTablej
