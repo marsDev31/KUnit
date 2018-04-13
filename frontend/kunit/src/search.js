@@ -16,7 +16,7 @@ class Search extends Component{
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "Enter subject you would like to add",
-            programTable: "[{1:" +  "\""+"Wellness"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Aesthetics"+  "\""+",2:" + "0"+"},"+"{1:" +  "\""+"Sum"+  "\""+",2:" +  "0"+"}]"
+            programTable: "[{1:" +  "\""+"Wellness"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Entrepreneurship"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Aesthetics"+  "\""+",2:" + "0"+"},"+"{1:" +  "\""+"Sum"+  "\""+",2:" +  "0"+"}]"
           }
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
@@ -90,12 +90,12 @@ class Search extends Component{
         
         var Program= this.state.program
         var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
-        var Entrepreneursship = "{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
+        var Entrepreneurship = "{1:" +  "\""+"Entrepreneurship"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
         var Thai = "{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+"},"
         var Language = "{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+"},"
         var Aesthetics = "{1:" +  "\""+"Aesthetics"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+"},"
         var All = "{1:" +  "\""+"Sum"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+"}"
-        this.setState({programTable: "["+Wellness+Entrepreneursship+Thai+Language+Aesthetics+All+"]"})
+        this.setState({programTable: "["+Wellness+Entrepreneurship+Thai+Language+Aesthetics+All+"]"})
     }
 
     handleChange = (e) => {
