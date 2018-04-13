@@ -15,7 +15,7 @@ class Search extends Component{
           this.state={
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
-            wordS: "Search",
+            wordS: "Enter subject you would like to add",
             programTable: "[{1:" +  "\""+"Wellness"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Entrepreneursship"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"Thai Citizen and Global Citizen"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Language and Communication"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"Aesthetics"+  "\""+",2:" + "0"+"},"+"{1:" +  "\""+"Sum"+  "\""+",2:" +  "0"+"}]"
           }
         this.handleChange=this.handleChange.bind(this)
@@ -25,14 +25,17 @@ class Search extends Component{
     }
     
     handleChangeDle = (e) =>{
+        
         if(e != ""){
-            var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
-            var xmlHttp = new XMLHttpRequest()
-            xmlHttp.open("GET",Url,false)
-            xmlHttp.send(null)
-            var data = xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") 
-            this.setState({selectedOption: data},()=>{this.handleData()})
-           }  
+            if(window.confirm('Are you sure you want to delete this subject?')){
+                var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
+                var xmlHttp = new XMLHttpRequest()
+                xmlHttp.open("GET",Url,false)
+                xmlHttp.send(null)
+                var data = xmlHttp.responseText.replace("{\"data\" : ", "").replace("}", "") 
+                this.setState({selectedOption: data},()=>{this.handleData()})
+            }
+        }  
     }
     
     major = (e) =>{
@@ -72,12 +75,11 @@ class Search extends Component{
                 var sub = selected[i][j]
                 
                 var major = ",{major:" + "\""+ this.major(MyJson[sub][0])+ "\""
-                var subject = ",subject:" + "\""+ MyJson[sub][1] + "\""
-                var subjectid = ",subjectid:" + "\""+ sub + "\""
+                var subject = ",subject:" + "\""+ sub+" "+ MyJson[sub][1] + "\""
                 var credit = ",credit:" + "\""+ MyJson[sub][3] + "(" + MyJson[sub][4] + ")" + "\""
-                var by = ",by:"+ "\"" + MyJson[sub][5]+ "\""
-                var del = ",del:"+ "\"" +"delete"+ "\""+"}"
-                var newTablej  = newTablej+major+subject+subjectid+credit+by+del
+                var by = ",by:"+ "\"" + MyJson[sub][5]+ "\""+"}"
+                var del = ",del:"+ "\""+"Delete"+ "\""+"}"
+                var newTablej  = newTablej+major+subject+credit+by
             }
             
             var newTablei=newTablei+newTablej
@@ -288,6 +290,7 @@ class Search extends Component{
 		return(
         <div >
             <p/>
+                
                 <div className="Search">
                 <Select
                     name="subject"
