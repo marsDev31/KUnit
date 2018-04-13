@@ -5,6 +5,7 @@ group = CONFIG["NumberOfGroup"]
 tblHeader = 2
 dic = {}        #For finding the group of subject
 longDic = {}    #For detail the subject
+thDic = {}    #Dic with TH/EN name only
 for i in range(1,group+1):
     f = open(fileName+str(i)+".tsv")
     header = tblHeader
@@ -19,5 +20,6 @@ for i in range(1,group+1):
             line[0] = "0"+line[0]
         dic[line[0]] = [str(i),line[1],line[3]]
         longDic[line[0]] = [str(i)]+line[1:]
-print(json.dumps(dic,indent=4, separators=(',', ': ')))
+        thDic[line[0]] = [line[1],line[2]]
+print(json.dumps(thDic,indent=4, separators=(',', ': ')))
 #print(dic)
