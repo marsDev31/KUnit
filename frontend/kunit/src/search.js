@@ -295,8 +295,7 @@ class Search extends Component{
                 <Select
                     name="subject"
                     autosize={true}
-                    autofocus={false}
-                    autoFocus={false}
+                    
                     value={value}
                     placeholder={this.state.wordS}
                     onChange={this.handleChange}
