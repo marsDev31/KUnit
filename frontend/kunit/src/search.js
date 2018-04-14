@@ -26,7 +26,7 @@ class Search extends Component{
     
     handleChangeDle = (e) =>{
         
-        if(e != ""){
+        if(e !== ""){
             if(window.confirm('Are you sure you want to delete this subject?')){
                 var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
                 var xmlHttp = new XMLHttpRequest()
@@ -79,14 +79,15 @@ class Search extends Component{
                 var credit = ",credit:" + "\""+ MyJson[sub][3] + "(" + MyJson[sub][4] + ")" + "\""
                 var by = ",by:"+ "\"" + MyJson[sub][5]+ "\""+"}"
                 
-                var newTablej  = newTablej+subject+credit+by
+                newTablej  = newTablej+subject+credit+by
             }
             
-            var newTablei=newTablei+newTablej
-            var newTablej=""
+            newTablei=newTablei+newTablej
+            newTablej=""
             
         }
         this.setState({table : "["+newTablei+"]"})
+        
         
         var Program= this.state.program
         var Wellness = "{1:" +  "\""+"Wellness"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
@@ -99,7 +100,7 @@ class Search extends Component{
     }
 
     handleChange = (e) => {
-        if (this.state.selectedOption.indexOf(e.value) == -1) {
+        if (this.state.selectedOption.indexOf(e.value) === -1) {
             this.setState({wordS : e.label})
             var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
