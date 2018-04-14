@@ -294,15 +294,13 @@ class Search extends Component{
                 <div className="Search">
                 <Select
                     name="subject"
-                    autosize={true}
-                    
+                    autosize={false}
                     value={value}
                     placeholder={this.state.wordS}
                     onChange={this.handleChange}
                     options={options}
                     filterOptions={filterOptions}
                     style={{ fontSize: 15 }}
-                    noResultsText={"No result"}
                 />
                 </div>
                 <br/>
