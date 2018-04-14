@@ -1,5 +1,6 @@
 import json
 CONFIG = eval(open("config.kunit.json").read())
+facTH = eval(open("facultyTH.json").read())
 fileName = "GenEdList - "   #1.csv
 group = CONFIG["NumberOfGroup"]
 tblHeader = 2
@@ -20,6 +21,7 @@ for i in range(1,group+1):
             line[0] = "0"+line[0]
         dic[line[0]] = [str(i),line[1],line[3]]
         longDic[line[0]] = [str(i)]+line[1:]
-        thDic[line[0]] = [line[1],line[2]]
+#        print(i)
+        thDic[line[0]] = [line[1],line[2],line[5],facTH[line[5]]]
 print(json.dumps(thDic,indent=4, separators=(',', ': ')))
-#print(dic)
+#print(thDic)
