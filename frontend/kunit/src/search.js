@@ -26,7 +26,7 @@ class Search extends Component{
     
     handleChangeDle = (e) =>{
         
-        if(e !== ""){
+        if(e != ""){
             if(window.confirm('Are you sure you want to delete this subject?')){
                 var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
                 var xmlHttp = new XMLHttpRequest()
@@ -100,7 +100,7 @@ class Search extends Component{
     }
 
     handleChange = (e) => {
-        if (this.state.selectedOption.indexOf(e.value) === -1) {
+        if (this.state.selectedOption.indexOf(e.value) == -1) {
             this.setState({wordS : e.label})
             var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
