@@ -1,0 +1,122 @@
+A04	Soil Science	ปฐพีวิทยา	Faculty of Agriculture
+A08	Home Economics	คหกรรมศาสตร์	Faculty of Agriculture
+A11	Agricultural Extension and Communication	ส่งเสริมและนิเทศศาสตร์เกษตร	Faculty of Agriculture
+A13	Agricultural Chemistry	เคมีการเกษตร	Faculty of Agriculture
+A15	Agricultural Science	วิทยาศาสตร์เกษตร	Faculty of Agriculture
+A17	Tropical Agriculture	เกษตรเขตร้อน	Faculty of Agriculture
+A18	Food and Nutrition	อาหารและโภชนาการ	Faculty of Agriculture
+A19	Pest Management	การจัดการศัตรูพืชและสัตว์	Faculty of Agriculture
+A20	Industrial Animal Science	สัตวศาสตร์อุตสาหกรรม	Faculty of Agriculture
+B00	Not Affiliated with the Department	ยังไม่สังกัดภาควิชา	Faculty of Fisheries
+B01	Fishery Management	การจัดการประมง	Faculty of Fisheries
+B02	Fishery Biology	ชีววิทยาประมง	Faculty of Fisheries
+B03	Aquaculture	เพาะเลี้ยงสัตว์น้ำ	Faculty of Fisheries
+B04	Fishery Products	ผลิตภัณฑ์ประมง	Faculty of Fisheries
+B05	Marine Science	วิทยาศาสตร์ทางทะเล	Faculty of Fisheries
+C00	Not Affiliated with the Department	ยังไม่สังกัดภาควิชา	Faculty of Forestry
+C02	Forest Biology	วิทยาศาสตร์ชีวภาพป่าไม้	Faculty of Forestry
+C04	Silvery	วนวัฒนวิทยา	Faculty of Forestry
+C05	Forest Engineering	วิศวกรรมป่าไม้	Faculty of Forestry
+C07	Community Forestry	วนศาสตร์ชุมชน	Faculty of Forestry
+C08	Watershed Management and Environment	การจัดการลุ่มน้ำและสิ่งแวดล้อม	Faculty of Forestry
+C09	Recreation and Tourism Park	อุทยานนันทนาการและการท่องเที่ยว	Faculty of Forestry
+C10	Wildlife Management and Pasture	การจัดการสัตว์ป่าและทุ่งหญ้า	Faculty of Forestry
+C11	Community Forestry - Sociology and Anthropology	วนศาสตร์ชุมชน-สังคมวิทยาและมานุษยวิทยา	Faculty of Forestry
+C12	Forest Management	การจัดการป่าไม้	Faculty of Forestry
+C31	Wood Science and Technology	วิทยาศาสตร์และเทคโนโลยีทางไม้	Faculty of Forestry
+C32	Pulp and Paper Technology	เทคโนโลยีเยื่อและกระดาษ	Faculty of Forestry
+C33	Wood and Paper Products Technology	เทคโนโลยีผลิตภัณฑ์ไม้และกระดาษ	Faculty of Forestry
+D01	Mathematics	คณิตศาสตร์	Faculty of Science
+D02	Chemistry	เคมี	Faculty of Science
+D03	Biology	ชีววิทยา	Faculty of Science
+D04	Statistics	สถิติ	Faculty of Science
+D06	Applied Radiation and Isotopes	รังสีประยุกต์และไอโซโทป	Faculty of Science
+D07	Physics	ฟิสิกส์	Faculty of Science
+D09	Microbiology	จุลชีววิทยา	Faculty of Science
+D10	Genetics	พันธุศาสตร์	Faculty of Science
+D11	Botany	พฤกษศาสตร์	Faculty of Science
+D12	Zoology	สัตววิทยา	Faculty of Science
+D13	Biochemistry	ชีวเคมี	Faculty of Science
+D14	Computer Science	วิทยาการคอมพิวเตอร์	Faculty of Science
+D16	Earth Science	วิทยาศาสตร์พื้นพิภพ	Faculty of Science
+D17	Industrial Chemistry	เคมีอุตสาหกรรม	Faculty of Science
+D18	Radiation Biosciences	วิทยาศาสตร์ชีีวภาพรังสี	Faculty of Science
+D19	Nuclear Science	วิทยาศาสตร์นิวเคลียร์	Faculty of Science
+D20	Life Science and Technology	วิทยาศาสตร์ชีวภาพและเทคโนโลยี	Faculty of Science
+D32	Prepare the Medicine	เตรียมแพทยศาสตร์	Faculty of Science
+E03	Mechanical Engineering	วิศวกรรมเครื่องกล	Faculty of Engineering
+E05	Electrical Engineering	วิศวกรรมไฟฟ้า	Faculty of Engineering
+E06	Civil engineering	วิศวกรรมโยธา	Faculty of Engineering
+E08	Industrial Engineering	วิศวกรรมอุตสาหการ	Faculty of Engineering
+E09	Computer Engineering	วิศวกรรมคอมพิวเตอร์	Faculty of Engineering
+E10	Chemical Engineering	วิศวกรรมเคมี	Faculty of Engineering
+E11	Electrical Engineering	วิศวกรรมไฟฟ้าเครื่องกลการผลิต	Faculty of Engineering
+E13	Aerospace Engineering	วิศวกรรมการบินและอวกาศ	Faculty of Engineering
+E14	Environmental Engineering	วิศวกรรมสิ่งแวดล้อม	Faculty of Engineering
+E16	Materials Engineering	วิศวกรรมวัสดุ	Faculty of Engineering
+E17	Software Knowledge Engineering	วิศวกรรมซอฟต์แวร์และความรู้	Faculty of Engineering
+E18	Geological Surveying and Engineering	วิศวกรรมสำรวจและสารสนเทศภูมิศาสตร์	Faculty of Engineering
+E21	Civil Engineering - Water Resources	วิศวกรรมโยธา-ทรัพยากรน้ำ	Faculty of Engineering
+E22	Aviation Technology Management	การจัดการเทคโนโลยีการบิน	Faculty of Engineering
+E23	Aerospace Engineering - Business Administration	วิศวกรรมการบินและอวกาศ-บริหารธุรกิจ	Faculty of Engineering
+E26	Electrical Engineering (International Program)	วิศวกรรมไฟฟ้า(ภาคภาษาอังกฤษ)	Faculty of Engineering
+E27	Industrial Engineering (International Program)	วิศวกรรมอุตสาหการ(ภาคภาษาอังกฤษ)	Faculty of Engineering
+E28	Environmental Engineering (International Program)	วิศวกรรมสิ่งแวดล้อม(ภาคภาษาอังกฤษ)	Faculty of Engineering
+E35	Not Affiliated with the Department	ปี1วิศวกรรมศาสตร์(บางเขน)	Faculty of Engineering
+F11	Gymnastics	พลศึกษา	Faculty of Education
+F12	Health Education	สุขศึกษา	Faculty of Education
+F14	Home Economics	คหกรรมศาสตรศึกษา	Faculty of Education
+F16	Teaching Mathematics	การสอนคณิตศาสตร์	Faculty of Education
+F17	Teaching Science	การสอนวิทยาศาสตร์	Faculty of Education
+F18	Business and Computer Education	ธุรกิจและคอมพิวเตอร์ศึกษา	Faculty of Education
+G01	Economics	เศรษฐศาสตร์	Faculty of Economics
+G02	Agricultural Economics	เศรษฐศาสตร์เกษตร	Faculty of Economics
+G03	Cooperatives Economics	เศรษฐศาสตร์สหกรณ์	Faculty of Economics
+G04	Agricultural and Resource Economics	เศรษฐศาสตร์เกษตรและทรัพยากร	Faculty of Economics
+G11	Entrepreneurial Economics	เศรษฐศาสตร์การประกอบการ	Faculty of Economics
+G12	Enterpreneurial Economics (International Program)	เศรษฐศาสตร์(หลักสูตรภาษาอังกฤษ)	Faculty of Economics
+G21	Agribusiness	ธุรกิจการเกษตร	Faculty of Economics
+H01	Sociology and Anthropology	สังคมวิทยาและมานุษยวิทยา	Faculty of Social Sciences 
+H02	Psychology	จิตวิทยา	Faculty of Social Sciences 
+H03	Political Science	รัฐศาสตร์	Faculty of Social Sciences 
+H04	Geography	ภูมิศาสตร์	Faculty of Social Sciences 
+H06	Laws	นิติศาสตร์	Faculty of Social Sciences 
+H07	History	ประวัติศาสตร์	Faculty of Social Sciences 
+H08	Southeast Asian Studies	เอเชียตะวันออกเฉียงใต้ศึกษา	Faculty of Social Sciences 
+H09	Public Administration	รัฐประศาสนศาสตร์	Faculty of Social Sciences 
+I00	Not Affiliated with the Department	ยังไม่สังกัดภาควิชา	Faculty of Veterinary Medicine
+K01	Packing Technology	เทคโนโลยีการบรรจุ	Faculty of Agro-Industry
+K02	Biotechnology	เทคโนโลยีชีวภาพ	Faculty of Agro-Industry
+K03	Agro-Industrial Product Development	พัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร	Faculty of Agro-Industry
+K04	Food Science and Technology	วิทยาศาสตร์และเทคโนโลยีการอาหาร	Faculty of Agro-Industry
+K05	Textile Science and Technology	วิทยาศาสตร์และเทคโนโลยีสิ่งทอ	Faculty of Agro-Industry
+K07	Innovation and Technology of Agro-Industry	นวัตกรรมและเทคโนโลยีอุตสาหกรรมเกษตร	Faculty of Agro-Industry
+K41	Food Engineering	วิศวกรรมอาหาร	Faculty of Agro-Industry
+L02	Philosophy and Religion	ปรัชญาและศาสนา	Faculty of Humanities
+L32	English	ภาษาอังกฤษ	Faculty of Humanities
+L33	French	ภาษาฝรั่งเศส	Faculty of Humanities
+L34	German	ภาษาเยอรมัน	Faculty of Humanities
+L35	Japanese	ภาษาญี่ปุ่น	Faculty of Humanities
+L36	Chinese	ภาษาจีน	Faculty of Humanities
+L50	Literature	วรรณคดีี	Faculty of Humanities
+L71	Mass Communication	สื่อสารมวลชน	Faculty of Humanities
+L72	Thai Music	ดนตรีไทย	Faculty of Humanities
+L73	Western Music	ดนตรีีตะวันตก	Faculty of Humanities
+L81	Thai	ภาษาไทย	Faculty of Humanities
+L85	Communicative Thai Language for Foreigners	ภาษาไทยเพื่อการสื่อสารสำหรับชาวต่างประเทศ	Faculty of Humanities
+L86	Integrated Tourism Management	การจัดการการท่องเที่ยวเชิงบูรณาการ	Faculty of Humanities
+L87	Tourism	การท่องเที่ยว	Faculty of Humanities
+L88	Eastern Languages	ภาษาตะวันออก	Faculty of Humanities
+L89	Tourism Innovation	นวัตกรรมการท่องเที่ยว	Faculty of Humanities
+R01	Architecture	สถาปัตยกรรมศาสตร์	Faculty of Architecture
+R02	Landscape Architecture	ภูมิิสถาปัตยกรรมศาสตร์	Faculty of Architecture
+R03	Architecture	สถาปัตยกรรม	Faculty of Architecture
+N01	Finance	การเงิน	Faculty of Business Administration
+N02	Management	การจัดการ	Faculty of Business Administration
+N03	Operations Management	การจัดการการผลิต	Faculty of Business Administration
+N04	Marketing	การตลาด	Faculty of Business Administration
+N05	Accounting	บัญชี	Faculty of Business Administration
+P01	Veterinary Technician	เทคนิคการสัตวแพทย์	Faculty of Veterinary Technology
+P02	Animal Nursing	การพยาบาลสัตว์	Faculty of Veterinary Technology
+T01	Environmental Science	วิทยาศาสตร์สิ่งแวดล้อม	Faculty of Environment
+T02	Environmental Science and Technology	วิทยาศาสตร์และเทคโนโลยีสิ่งแวดล้อม	Faculty of Environment
