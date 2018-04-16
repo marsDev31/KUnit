@@ -9,7 +9,7 @@
 
 .App {
   max-width:720px;
-  height: 95%;
+  height: 900px;
   
   margin: auto;
   text-align: center;
@@ -26,7 +26,7 @@
 
 .text-box{
   margin: auto;
-  max-width:540px;
+  
   
   
 }
@@ -35,7 +35,7 @@
   
   background-color: #1B2635;
   text-align: center;
-  max-height:540px;
+  
   
   padding: 20px;
   color: white;
