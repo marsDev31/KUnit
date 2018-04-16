@@ -3,31 +3,47 @@
   height: 100vh;
   margin: auto;
   align-content: center;
-  background-color: #222;
+  
+  background-color: #1B2635;
 }
 
 .App {
   max-width:720px;
   height: 95%;
+  
   margin: auto;
   text-align: center;
   background-color: white;
   
 }
 
+.App-text {
+  
+  font-size: 15px;
+  
+  
+}
 
+.text-box{
+  margin: auto;
+  max-width:540px;
+  
+  
+}
 
 .App-header {
-  background-color: #222;
+  
+  background-color: #1B2635;
   text-align: center;
-  height: 60px;
+  max-height:540px;
   
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  color: #ADFF2F;
+  font-size: 60px;
 }
 
 .App-search{

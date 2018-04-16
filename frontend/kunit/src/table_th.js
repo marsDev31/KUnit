@@ -98,7 +98,7 @@ class Table extends Component {
           วิชาที่ลงทะเบียน
         </h3>  
         <br/>
-          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped bordered={ false }/>
+          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "ยังไม่ได้เลือกวิชาที่จะลง" } condensed striped bordered={ false }/>
         <br/>
         <h3>
           หน่วยกิตรวม
