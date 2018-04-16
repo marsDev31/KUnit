@@ -1,6 +1,7 @@
 .pre-app{
   width:100%;
-  height: 100vh;
+  height: 120%;
+  max-height: 1920;
   margin: auto;
   align-content: center;
   
