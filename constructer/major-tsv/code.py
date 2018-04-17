@@ -1,6 +1,6 @@
 import json
 x=open("upm.tsv").read()
-y=open("stdl.tsv").read()
+y=open("stdList.tsv").read()
 alx=x.split()
 aly=y.split()
 ansx=[]
