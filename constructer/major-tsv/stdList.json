@@ -1,0 +1,612 @@
+{
+    "A04": [
+        "Soil Science",
+        "\u0e1b\u0e10\u0e1e\u0e35\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Agriculture"
+    ],
+    "A08": [
+        "Home Economics",
+        "\u0e04\u0e2b\u0e01\u0e23\u0e23\u0e21\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Agriculture"
+    ],
+    "A11": [
+        "Agricultural Extension and Communication",
+        "\u0e2a\u0e48\u0e07\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e41\u0e25\u0e30\u0e19\u0e34\u0e40\u0e17\u0e28\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Agriculture"
+    ],
+    "A13": [
+        "Agricultural Chemistry",
+        "\u0e40\u0e04\u0e21\u0e35\u0e01\u0e32\u0e23\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Agriculture"
+    ],
+    "A15": [
+        "Agricultural Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Agriculture"
+    ],
+    "A17": [
+        "Tropical Agriculture",
+        "\u0e40\u0e01\u0e29\u0e15\u0e23\u0e40\u0e02\u0e15\u0e23\u0e49\u0e2d\u0e19",
+        "Faculty of Agriculture"
+    ],
+    "A18": [
+        "Food and Nutrition",
+        "\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e42\u0e20\u0e0a\u0e19\u0e32\u0e01\u0e32\u0e23",
+        "Faculty of Agriculture"
+    ],
+    "A19": [
+        "Pest Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e28\u0e31\u0e15\u0e23\u0e39\u0e1e\u0e37\u0e0a\u0e41\u0e25\u0e30\u0e2a\u0e31\u0e15\u0e27\u0e4c",
+        "Faculty of Agriculture"
+    ],
+    "A20": [
+        "Industrial Animal Science",
+        "\u0e2a\u0e31\u0e15\u0e27\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21",
+        "Faculty of Agriculture"
+    ],
+    "B00": [
+        "Not Affiliated with the Department",
+        "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e2a\u0e31\u0e07\u0e01\u0e31\u0e14\u0e20\u0e32\u0e04\u0e27\u0e34\u0e0a\u0e32",
+        "Faculty of Fisheries"
+    ],
+    "B01": [
+        "Fishery Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e21\u0e07",
+        "Faculty of Fisheries"
+    ],
+    "B02": [
+        "Fishery Biology",
+        "\u0e0a\u0e35\u0e27\u0e27\u0e34\u0e17\u0e22\u0e32\u0e1b\u0e23\u0e30\u0e21\u0e07",
+        "Faculty of Fisheries"
+    ],
+    "B03": [
+        "Aquaculture",
+        "\u0e40\u0e1e\u0e32\u0e30\u0e40\u0e25\u0e35\u0e49\u0e22\u0e07\u0e2a\u0e31\u0e15\u0e27\u0e4c\u0e19\u0e49\u0e33",
+        "Faculty of Fisheries"
+    ],
+    "B04": [
+        "Fishery Products",
+        "\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e1b\u0e23\u0e30\u0e21\u0e07",
+        "Faculty of Fisheries"
+    ],
+    "B05": [
+        "Marine Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e17\u0e32\u0e07\u0e17\u0e30\u0e40\u0e25",
+        "Faculty of Fisheries"
+    ],
+    "C00": [
+        "Not Affiliated with the Department",
+        "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e2a\u0e31\u0e07\u0e01\u0e31\u0e14\u0e20\u0e32\u0e04\u0e27\u0e34\u0e0a\u0e32",
+        "Faculty of Forestry"
+    ],
+    "C02": [
+        "Forest Biology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e0a\u0e35\u0e27\u0e20\u0e32\u0e1e\u0e1b\u0e48\u0e32\u0e44\u0e21\u0e49",
+        "Faculty of Forestry"
+    ],
+    "C04": [
+        "Silvery",
+        "\u0e27\u0e19\u0e27\u0e31\u0e12\u0e19\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Forestry"
+    ],
+    "C05": [
+        "Forest Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e1b\u0e48\u0e32\u0e44\u0e21\u0e49",
+        "Faculty of Forestry"
+    ],
+    "C07": [
+        "Community Forestry",
+        "\u0e27\u0e19\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e0a\u0e38\u0e21\u0e0a\u0e19",
+        "Faculty of Forestry"
+    ],
+    "C08": [
+        "Watershed Management and Environment",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e25\u0e38\u0e48\u0e21\u0e19\u0e49\u0e33\u0e41\u0e25\u0e30\u0e2a\u0e34\u0e48\u0e07\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21",
+        "Faculty of Forestry"
+    ],
+    "C09": [
+        "Recreation and Tourism Park",
+        "\u0e2d\u0e38\u0e17\u0e22\u0e32\u0e19\u0e19\u0e31\u0e19\u0e17\u0e19\u0e32\u0e01\u0e32\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e27",
+        "Faculty of Forestry"
+    ],
+    "C10": [
+        "Wildlife Management and Pasture",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e2a\u0e31\u0e15\u0e27\u0e4c\u0e1b\u0e48\u0e32\u0e41\u0e25\u0e30\u0e17\u0e38\u0e48\u0e07\u0e2b\u0e0d\u0e49\u0e32",
+        "Faculty of Forestry"
+    ],
+    "C11": [
+        "Community Forestry - Sociology and Anthropology",
+        "\u0e27\u0e19\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e0a\u0e38\u0e21\u0e0a\u0e19-\u0e2a\u0e31\u0e07\u0e04\u0e21\u0e27\u0e34\u0e17\u0e22\u0e32\u0e41\u0e25\u0e30\u0e21\u0e32\u0e19\u0e38\u0e29\u0e22\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Forestry"
+    ],
+    "C12": [
+        "Forest Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e1b\u0e48\u0e32\u0e44\u0e21\u0e49",
+        "Faculty of Forestry"
+    ],
+    "C31": [
+        "Wood Science and Technology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e17\u0e32\u0e07\u0e44\u0e21\u0e49",
+        "Faculty of Forestry"
+    ],
+    "C32": [
+        "Pulp and Paper Technology",
+        "\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e40\u0e22\u0e37\u0e48\u0e2d\u0e41\u0e25\u0e30\u0e01\u0e23\u0e30\u0e14\u0e32\u0e29",
+        "Faculty of Forestry"
+    ],
+    "C33": [
+        "Wood and Paper Products Technology",
+        "\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e44\u0e21\u0e49\u0e41\u0e25\u0e30\u0e01\u0e23\u0e30\u0e14\u0e32\u0e29",
+        "Faculty of Forestry"
+    ],
+    "D01": [
+        "Mathematics",
+        "\u0e04\u0e13\u0e34\u0e15\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "D02": [
+        "Chemistry",
+        "\u0e40\u0e04\u0e21\u0e35",
+        "Faculty of Science"
+    ],
+    "D03": [
+        "Biology",
+        "\u0e0a\u0e35\u0e27\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Science"
+    ],
+    "D04": [
+        "Statistics",
+        "\u0e2a\u0e16\u0e34\u0e15\u0e34",
+        "Faculty of Science"
+    ],
+    "D06": [
+        "Applied Radiation and Isotopes",
+        "\u0e23\u0e31\u0e07\u0e2a\u0e35\u0e1b\u0e23\u0e30\u0e22\u0e38\u0e01\u0e15\u0e4c\u0e41\u0e25\u0e30\u0e44\u0e2d\u0e42\u0e0b\u0e42\u0e17\u0e1b",
+        "Faculty of Science"
+    ],
+    "D07": [
+        "Physics",
+        "\u0e1f\u0e34\u0e2a\u0e34\u0e01\u0e2a\u0e4c",
+        "Faculty of Science"
+    ],
+    "D09": [
+        "Microbiology",
+        "\u0e08\u0e38\u0e25\u0e0a\u0e35\u0e27\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Science"
+    ],
+    "D10": [
+        "Genetics",
+        "\u0e1e\u0e31\u0e19\u0e18\u0e38\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "D11": [
+        "Botany",
+        "\u0e1e\u0e24\u0e01\u0e29\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "D12": [
+        "Zoology",
+        "\u0e2a\u0e31\u0e15\u0e27\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Science"
+    ],
+    "D13": [
+        "Biochemistry",
+        "\u0e0a\u0e35\u0e27\u0e40\u0e04\u0e21\u0e35",
+        "Faculty of Science"
+    ],
+    "D14": [
+        "Computer Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e01\u0e32\u0e23\u0e04\u0e2d\u0e21\u0e1e\u0e34\u0e27\u0e40\u0e15\u0e2d\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "D16": [
+        "Earth Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e1e\u0e37\u0e49\u0e19\u0e1e\u0e34\u0e20\u0e1e",
+        "Faculty of Science"
+    ],
+    "D17": [
+        "Industrial Chemistry",
+        "\u0e40\u0e04\u0e21\u0e35\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21",
+        "Faculty of Science"
+    ],
+    "D18": [
+        "Radiation Biosciences",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e0a\u0e35\u0e35\u0e27\u0e20\u0e32\u0e1e\u0e23\u0e31\u0e07\u0e2a\u0e35",
+        "Faculty of Science"
+    ],
+    "D19": [
+        "Nuclear Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e19\u0e34\u0e27\u0e40\u0e04\u0e25\u0e35\u0e22\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "D20": [
+        "Life Science and Technology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e0a\u0e35\u0e27\u0e20\u0e32\u0e1e\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35",
+        "Faculty of Science"
+    ],
+    "D32": [
+        "Prepare the Medicine",
+        "\u0e40\u0e15\u0e23\u0e35\u0e22\u0e21\u0e41\u0e1e\u0e17\u0e22\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Science"
+    ],
+    "E03": [
+        "Mechanical Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e25",
+        "Faculty of Engineering"
+    ],
+    "E05": [
+        "Electrical Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e44\u0e1f\u0e1f\u0e49\u0e32",
+        "Faculty of Engineering"
+    ],
+    "E06": [
+        "Civil engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e42\u0e22\u0e18\u0e32",
+        "Faculty of Engineering"
+    ],
+    "E08": [
+        "Industrial Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e32\u0e23",
+        "Faculty of Engineering"
+    ],
+    "E09": [
+        "Computer Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e04\u0e2d\u0e21\u0e1e\u0e34\u0e27\u0e40\u0e15\u0e2d\u0e23\u0e4c",
+        "Faculty of Engineering"
+    ],
+    "E10": [
+        "Chemical Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e40\u0e04\u0e21\u0e35",
+        "Faculty of Engineering"
+    ],
+    "E11": [
+        "Electrical Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e44\u0e1f\u0e1f\u0e49\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e25\u0e01\u0e32\u0e23\u0e1c\u0e25\u0e34\u0e15",
+        "Faculty of Engineering"
+    ],
+    "E13": [
+        "Aerospace Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e1a\u0e34\u0e19\u0e41\u0e25\u0e30\u0e2d\u0e27\u0e01\u0e32\u0e28",
+        "Faculty of Engineering"
+    ],
+    "E14": [
+        "Environmental Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2a\u0e34\u0e48\u0e07\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21",
+        "Faculty of Engineering"
+    ],
+    "E16": [
+        "Materials Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e27\u0e31\u0e2a\u0e14\u0e38",
+        "Faculty of Engineering"
+    ],
+    "E17": [
+        "Software Knowledge Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e0b\u0e2d\u0e1f\u0e15\u0e4c\u0e41\u0e27\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49",
+        "Faculty of Engineering"
+    ],
+    "E18": [
+        "Geological Surveying and Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e41\u0e25\u0e30\u0e2a\u0e32\u0e23\u0e2a\u0e19\u0e40\u0e17\u0e28\u0e20\u0e39\u0e21\u0e34\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Engineering"
+    ],
+    "E21": [
+        "Civil Engineering - Water Resources",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e42\u0e22\u0e18\u0e32-\u0e17\u0e23\u0e31\u0e1e\u0e22\u0e32\u0e01\u0e23\u0e19\u0e49\u0e33",
+        "Faculty of Engineering"
+    ],
+    "E22": [
+        "Aviation Technology Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e01\u0e32\u0e23\u0e1a\u0e34\u0e19",
+        "Faculty of Engineering"
+    ],
+    "E23": [
+        "Aerospace Engineering - Business Administration",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e1a\u0e34\u0e19\u0e41\u0e25\u0e30\u0e2d\u0e27\u0e01\u0e32\u0e28-\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08",
+        "Faculty of Engineering"
+    ],
+    "E26": [
+        "Electrical Engineering (International Program)",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e44\u0e1f\u0e1f\u0e49\u0e32(\u0e20\u0e32\u0e04\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29)",
+        "Faculty of Engineering"
+    ],
+    "E27": [
+        "Industrial Engineering (International Program)",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e32\u0e23(\u0e20\u0e32\u0e04\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29)",
+        "Faculty of Engineering"
+    ],
+    "E28": [
+        "Environmental Engineering (International Program)",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2a\u0e34\u0e48\u0e07\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21(\u0e20\u0e32\u0e04\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29)",
+        "Faculty of Engineering"
+    ],
+    "E35": [
+        "Not Affiliated with the Department",
+        "\u0e1b\u0e351\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c(\u0e1a\u0e32\u0e07\u0e40\u0e02\u0e19)",
+        "Faculty of Engineering"
+    ],
+    "F11": [
+        "Gymnastics",
+        "\u0e1e\u0e25\u0e28\u0e36\u0e01\u0e29\u0e32",
+        "Faculty of Education"
+    ],
+    "F12": [
+        "Health Education",
+        "\u0e2a\u0e38\u0e02\u0e28\u0e36\u0e01\u0e29\u0e32",
+        "Faculty of Education"
+    ],
+    "F14": [
+        "Home Economics",
+        "\u0e04\u0e2b\u0e01\u0e23\u0e23\u0e21\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e28\u0e36\u0e01\u0e29\u0e32",
+        "Faculty of Education"
+    ],
+    "F16": [
+        "Teaching Mathematics",
+        "\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e04\u0e13\u0e34\u0e15\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Education"
+    ],
+    "F17": [
+        "Teaching Science",
+        "\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e19\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Education"
+    ],
+    "F18": [
+        "Business and Computer Education",
+        "\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08\u0e41\u0e25\u0e30\u0e04\u0e2d\u0e21\u0e1e\u0e34\u0e27\u0e40\u0e15\u0e2d\u0e23\u0e4c\u0e28\u0e36\u0e01\u0e29\u0e32",
+        "Faculty of Education"
+    ],
+    "G01": [
+        "Economics",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Economics"
+    ],
+    "G02": [
+        "Agricultural Economics",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Economics"
+    ],
+    "G03": [
+        "Cooperatives Economics",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e2a\u0e2b\u0e01\u0e23\u0e13\u0e4c",
+        "Faculty of Economics"
+    ],
+    "G04": [
+        "Agricultural and Resource Economics",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e40\u0e01\u0e29\u0e15\u0e23\u0e41\u0e25\u0e30\u0e17\u0e23\u0e31\u0e1e\u0e22\u0e32\u0e01\u0e23",
+        "Faculty of Economics"
+    ],
+    "G11": [
+        "Entrepreneurial Economics",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e01\u0e32\u0e23",
+        "Faculty of Economics"
+    ],
+    "G12": [
+        "Enterpreneurial Economics (International Program)",
+        "\u0e40\u0e28\u0e23\u0e29\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c(\u0e2b\u0e25\u0e31\u0e01\u0e2a\u0e39\u0e15\u0e23\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29)",
+        "Faculty of Economics"
+    ],
+    "G21": [
+        "Agribusiness",
+        "\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08\u0e01\u0e32\u0e23\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Economics"
+    ],
+    "H01": [
+        "Sociology and Anthropology",
+        "\u0e2a\u0e31\u0e07\u0e04\u0e21\u0e27\u0e34\u0e17\u0e22\u0e32\u0e41\u0e25\u0e30\u0e21\u0e32\u0e19\u0e38\u0e29\u0e22\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Social Sciences "
+    ],
+    "H02": [
+        "Psychology",
+        "\u0e08\u0e34\u0e15\u0e27\u0e34\u0e17\u0e22\u0e32",
+        "Faculty of Social Sciences "
+    ],
+    "H03": [
+        "Political Science",
+        "\u0e23\u0e31\u0e10\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Social Sciences "
+    ],
+    "H04": [
+        "Geography",
+        "\u0e20\u0e39\u0e21\u0e34\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Social Sciences "
+    ],
+    "H06": [
+        "Laws",
+        "\u0e19\u0e34\u0e15\u0e34\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Social Sciences "
+    ],
+    "H07": [
+        "History",
+        "\u0e1b\u0e23\u0e30\u0e27\u0e31\u0e15\u0e34\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Social Sciences "
+    ],
+    "H08": [
+        "Southeast Asian Studies",
+        "\u0e40\u0e2d\u0e40\u0e0a\u0e35\u0e22\u0e15\u0e30\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01\u0e40\u0e09\u0e35\u0e22\u0e07\u0e43\u0e15\u0e49\u0e28\u0e36\u0e01\u0e29\u0e32",
+        "Faculty of Social Sciences "
+    ],
+    "H09": [
+        "Public Administration",
+        "\u0e23\u0e31\u0e10\u0e1b\u0e23\u0e30\u0e28\u0e32\u0e2a\u0e19\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Social Sciences "
+    ],
+    "I00": [
+        "Not Affiliated with the Department",
+        "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e2a\u0e31\u0e07\u0e01\u0e31\u0e14\u0e20\u0e32\u0e04\u0e27\u0e34\u0e0a\u0e32",
+        "Faculty of Veterinary Medicine"
+    ],
+    "K01": [
+        "Packing Technology",
+        "\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e23\u0e08\u0e38",
+        "Faculty of Agro-Industry"
+    ],
+    "K02": [
+        "Biotechnology",
+        "\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e0a\u0e35\u0e27\u0e20\u0e32\u0e1e",
+        "Faculty of Agro-Industry"
+    ],
+    "K03": [
+        "Agro-Industrial Product Development",
+        "\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Agro-Industry"
+    ],
+    "K04": [
+        "Food Science and Technology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e01\u0e32\u0e23\u0e2d\u0e32\u0e2b\u0e32\u0e23",
+        "Faculty of Agro-Industry"
+    ],
+    "K05": [
+        "Textile Science and Technology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e2d",
+        "Faculty of Agro-Industry"
+    ],
+    "K07": [
+        "Innovation and Technology of Agro-Industry",
+        "\u0e19\u0e27\u0e31\u0e15\u0e01\u0e23\u0e23\u0e21\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21\u0e40\u0e01\u0e29\u0e15\u0e23",
+        "Faculty of Agro-Industry"
+    ],
+    "K41": [
+        "Food Engineering",
+        "\u0e27\u0e34\u0e28\u0e27\u0e01\u0e23\u0e23\u0e21\u0e2d\u0e32\u0e2b\u0e32\u0e23",
+        "Faculty of Agro-Industry"
+    ],
+    "L02": [
+        "Philosophy and Religion",
+        "\u0e1b\u0e23\u0e31\u0e0a\u0e0d\u0e32\u0e41\u0e25\u0e30\u0e28\u0e32\u0e2a\u0e19\u0e32",
+        "Faculty of Humanities"
+    ],
+    "L32": [
+        "English",
+        "\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29",
+        "Faculty of Humanities"
+    ],
+    "L33": [
+        "French",
+        "\u0e20\u0e32\u0e29\u0e32\u0e1d\u0e23\u0e31\u0e48\u0e07\u0e40\u0e28\u0e2a",
+        "Faculty of Humanities"
+    ],
+    "L34": [
+        "German",
+        "\u0e20\u0e32\u0e29\u0e32\u0e40\u0e22\u0e2d\u0e23\u0e21\u0e31\u0e19",
+        "Faculty of Humanities"
+    ],
+    "L35": [
+        "Japanese",
+        "\u0e20\u0e32\u0e29\u0e32\u0e0d\u0e35\u0e48\u0e1b\u0e38\u0e48\u0e19",
+        "Faculty of Humanities"
+    ],
+    "L36": [
+        "Chinese",
+        "\u0e20\u0e32\u0e29\u0e32\u0e08\u0e35\u0e19",
+        "Faculty of Humanities"
+    ],
+    "L50": [
+        "Literature",
+        "\u0e27\u0e23\u0e23\u0e13\u0e04\u0e14\u0e35\u0e35",
+        "Faculty of Humanities"
+    ],
+    "L71": [
+        "Mass Communication",
+        "\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e21\u0e27\u0e25\u0e0a\u0e19",
+        "Faculty of Humanities"
+    ],
+    "L72": [
+        "Thai Music",
+        "\u0e14\u0e19\u0e15\u0e23\u0e35\u0e44\u0e17\u0e22",
+        "Faculty of Humanities"
+    ],
+    "L73": [
+        "Western Music",
+        "\u0e14\u0e19\u0e15\u0e23\u0e35\u0e35\u0e15\u0e30\u0e27\u0e31\u0e19\u0e15\u0e01",
+        "Faculty of Humanities"
+    ],
+    "L81": [
+        "Thai",
+        "\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22",
+        "Faculty of Humanities"
+    ],
+    "L85": [
+        "Communicative Thai Language for Foreigners",
+        "\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e32\u0e27\u0e15\u0e48\u0e32\u0e07\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28",
+        "Faculty of Humanities"
+    ],
+    "L86": [
+        "Integrated Tourism Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e01\u0e32\u0e23\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e27\u0e40\u0e0a\u0e34\u0e07\u0e1a\u0e39\u0e23\u0e13\u0e32\u0e01\u0e32\u0e23",
+        "Faculty of Humanities"
+    ],
+    "L87": [
+        "Tourism",
+        "\u0e01\u0e32\u0e23\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e27",
+        "Faculty of Humanities"
+    ],
+    "L88": [
+        "Eastern Languages",
+        "\u0e20\u0e32\u0e29\u0e32\u0e15\u0e30\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01",
+        "Faculty of Humanities"
+    ],
+    "L89": [
+        "Tourism Innovation",
+        "\u0e19\u0e27\u0e31\u0e15\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e27",
+        "Faculty of Humanities"
+    ],
+    "R01": [
+        "Architecture",
+        "\u0e2a\u0e16\u0e32\u0e1b\u0e31\u0e15\u0e22\u0e01\u0e23\u0e23\u0e21\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Architecture"
+    ],
+    "R02": [
+        "Landscape Architecture",
+        "\u0e20\u0e39\u0e21\u0e34\u0e34\u0e2a\u0e16\u0e32\u0e1b\u0e31\u0e15\u0e22\u0e01\u0e23\u0e23\u0e21\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c",
+        "Faculty of Architecture"
+    ],
+    "R03": [
+        "Architecture",
+        "\u0e2a\u0e16\u0e32\u0e1b\u0e31\u0e15\u0e22\u0e01\u0e23\u0e23\u0e21",
+        "Faculty of Architecture"
+    ],
+    "N01": [
+        "Finance",
+        "\u0e01\u0e32\u0e23\u0e40\u0e07\u0e34\u0e19",
+        "Faculty of Business Administration"
+    ],
+    "N02": [
+        "Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23",
+        "Faculty of Business Administration"
+    ],
+    "N03": [
+        "Operations Management",
+        "\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e01\u0e32\u0e23\u0e1c\u0e25\u0e34\u0e15",
+        "Faculty of Business Administration"
+    ],
+    "N04": [
+        "Marketing",
+        "\u0e01\u0e32\u0e23\u0e15\u0e25\u0e32\u0e14",
+        "Faculty of Business Administration"
+    ],
+    "N05": [
+        "Accounting",
+        "\u0e1a\u0e31\u0e0d\u0e0a\u0e35",
+        "Faculty of Business Administration"
+    ],
+    "P01": [
+        "Veterinary Technician",
+        "\u0e40\u0e17\u0e04\u0e19\u0e34\u0e04\u0e01\u0e32\u0e23\u0e2a\u0e31\u0e15\u0e27\u0e41\u0e1e\u0e17\u0e22\u0e4c",
+        "Faculty of Veterinary Technology"
+    ],
+    "P02": [
+        "Animal Nursing",
+        "\u0e01\u0e32\u0e23\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e2a\u0e31\u0e15\u0e27\u0e4c",
+        "Faculty of Veterinary Technology"
+    ],
+    "T01": [
+        "Environmental Science",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e2a\u0e34\u0e48\u0e07\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21",
+        "Faculty of Environment"
+    ],
+    "T02": [
+        "Environmental Science and Technology",
+        "\u0e27\u0e34\u0e17\u0e22\u0e32\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e2a\u0e34\u0e48\u0e07\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21",
+        "Faculty of Environment"
+    ]
+}
