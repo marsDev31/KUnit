@@ -25,7 +25,7 @@ class MajorSearch extends Component {
     handleChange = (e) => {
         if (this.state.selectedOption.indexOf(e.value) == -1) {
             this.setState({ wordS: e.label })
-            var Url = "http://139.59.111.79:5000/add/" + this.state.selectedOption + "a" + e.value
+            var Url = "http://139.59.111.79:5000/unitOf/" + this.state.selectedOption
             axios.get(Url)
                 .then(res => {
                     this.setState({ selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
