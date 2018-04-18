@@ -2,7 +2,7 @@
 .pre-app{
   
   min-width:100vh;
-  min-height: 100vh;
+  min-height: 100%;
   top: 0; 
   left: 0;
     background-color: #1B2635;
