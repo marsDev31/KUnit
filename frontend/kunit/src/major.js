@@ -23,16 +23,12 @@ class MajorSearch extends Component {
 
 
     handleChange = (e) => {
-        if (this.state.selectedOption.indexOf(e.value) == -1) {
-            this.setState({ wordS: e.label })
-            var Url = "http://139.59.111.79:5000/unitOf/" + this.state.selectedOption
+        var Url = "http://139.59.111.79:5000/unitOf/" + e.value
             axios.get(Url)
                 .then(res => {
-                    this.setState({ selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
+                    this.setState({selectedOption: res.data })
                 })
-        } else {
-            alert("This subject has been selected.")
-        }
+         
     }
     render() {
         const options = [
@@ -176,7 +172,7 @@ class MajorSearch extends Component {
                         style={{ fontSize: 15 }}
                     />
                 <h1>
-                {this.state.selectedOption}
+                {this.state.selectedOption["data"]}
             </h1>
                 </div>
 
