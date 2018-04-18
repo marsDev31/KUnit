@@ -8,26 +8,25 @@ import './Search.css'
 import axios from 'axios'
 import Table from './table'
 import MyJson from './long.json'
+import './major.css'
 
 class MajorSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedOption: "",
-            wordS: "Select your major of study here",
+            wordS: "พิมพ์/เลือก ภาควิชาที่เรียนอยู่",
         }
     }
-
-
-
-
+   
 
     handleChange = (e) => {
+        this.setState({wordS : e.label})
         var Url = "http://139.59.111.79:5000/unitOf/" + e.value
             axios.get(Url)
                 .then(res => {
-                    this.setState({selectedOption: res.data })
+                    this.props.major(res.data["data"])
                 })
+        
          
     }
     render() {
@@ -160,6 +159,9 @@ class MajorSearch extends Component {
         const value = selectedOption && selectedOption.value;
         return (
             <div >
+                <br/>
+                <h3 className="name-major">เลือกภาควิชาที่ศึกษาอยู่</h3>
+                
                 <div className="MajorSearch">
                     <Select
                         name="major"
@@ -171,9 +173,7 @@ class MajorSearch extends Component {
                         filterOptions={filterOptions}
                         style={{ fontSize: 15 }}
                     />
-                <h1>
-                {this.state.selectedOption["data"]}
-            </h1>
+               
                 </div>
 
             </div>

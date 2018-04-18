@@ -85,8 +85,18 @@ class Table extends Component {
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     },{
+      dataField: "3",
+      text: 'หน่วยกิตที่ลง',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
+    },{
       dataField: "2",
-      text: 'หน่วยกิต',
+      text: 'หน่วยกิตที่บังคับ',
+      align: (column, colIndex) => 'left',
+      headerAlign: (column, colIndex) => 'left'
+    },{
+      dataField: "4",
+      text: 'เหลือต้องลงอีกกี่หน่วยกิต',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     }]
@@ -106,6 +116,7 @@ class Table extends Component {
         <br/>  
           <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}} bodyStyle={{overflow: 'overlay'}} bordered={ false }/>
         <div>
+         
         </div>
 	  </div>
     );

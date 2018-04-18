@@ -1,16 +1,10 @@
-.Search{
+.MajorSearch{
     margin-right: 5%;
     margin-left: 5%;
     font-size: 12px;
     text-align: left
-}
-
-.Search-Box{
-    padding: 200px;
-    height: 80px;
-}
-
-.subject-search{
+  }
+.name-major{
     font-size: 20px;
     text-align: left;
     margin-left: 7%; 
