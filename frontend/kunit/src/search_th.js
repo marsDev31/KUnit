@@ -17,12 +17,23 @@ class Search extends Component{
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
-            programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" + "0" +"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "0"+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" + "0"+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "0"+"}]"
+            programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"}]",
+            Major: [],
+           
           }
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
+        this.createTableCredit=this.createTableCredit.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
+    }
+    componentWillUpdate(){
+        if (this.props.major !== this.state.Major){
+                
+            this.setState({Major : this.props.major},()=>{this.createTableCredit()})
+            
+            console.log(this.props.major)
+        }  
     }
     
     handleChangeDle = (e) =>{
@@ -60,6 +71,37 @@ class Search extends Component{
         
     }
 
+    handlePhase = (e1,e2) => {
+        var sum = e1-e2
+        console.log(e1)
+        console.log(e2)
+        if(sum>0){
+            return "\""+"ขาดอีก "+sum+" หน่วยกิต"+"\""
+        }
+        else{
+            return  "\""+"ลงทะเบียนครบแล้ว"+"\""
+        }
+    }
+
+    Check = (e) => {
+        if (e<0){
+            return  "ระบบเก่า/ไม่มีข้อมูล"
+        }
+        else{
+            return e
+        }
+
+    }
+    createTableCredit = () =>{
+        var Program= this.state.program
+        var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+",4:" +  this.handlePhase(this.state.Major[0],eval(this.state.selectedOption)[0][1]) +  "},"
+        var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+this.Check(this.state.Major[1])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+",4:" +  this.handlePhase(this.state.Major[1],eval(this.state.selectedOption)[0][2])+"},"
+        var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+this.Check(this.state.Major[2])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+",4:" +  this.handlePhase(this.state.Major[2],eval(this.state.selectedOption)[0][3])+"},"
+        var Language = "{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+this.Check(this.state.Major[3])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+",4:" +  this.handlePhase(this.state.Major[3],eval(this.state.selectedOption)[0][4])+"},"
+        var Aesthetics = "{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+this.Check(this.state.Major[4])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+",4:" +  this.handlePhase(this.state.Major[4],eval(this.state.selectedOption)[0][5])+"},"
+        var All = "{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+",4:" +  this.handlePhase(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3],eval(this.state.selectedOption)[0][0])+"}"
+        this.setState({programTable: "["+Wellness+Entrepreneurship+Thai+Language+Aesthetics+All+"]"})
+    }
     handleData = () =>{
         var i
         var selected = eval(this.state.selectedOption)
@@ -87,27 +129,24 @@ class Search extends Component{
             
         }
         this.setState({table : "["+newTablei+"]"})
+        this.createTableCredit()
         
         
-        var Program= this.state.program
-        var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+"},"
-        var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+"},"
-        var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+"},"
-        var Language = "{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+"},"
-        var Aesthetics = "{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+"},"
-        var All = "{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+"}"
-        this.setState({programTable: "["+Wellness+Entrepreneurship+Thai+Language+Aesthetics+All+"]"})
     }
 
     handleChange = (e) => {
-        if (this.state.selectedOption.indexOf(e.value) == -1) {
+        if (this.props.major==""){
+            alert("กรุณาเลือกภาควิชาก่อนๆ")
+        }
+        else if (this.state.selectedOption.indexOf(e.value) == -1) {
             this.setState({wordS : e.label})
             var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
             .then(res =>{
             this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
             this.handleData()   
-            })   
+            })
+            
         }else{
             alert("วิชานี้ถูกเลือกแล้ว")
         }
@@ -290,7 +329,7 @@ class Search extends Component{
 		return(
         <div >
             <p/>
-                
+            <h3 className="subject-search">เลือกวิชาที่ต้องการลงทะเบียน</h3>
                 <div className="Search">
                 <Select
                     name="subject"
@@ -304,8 +343,8 @@ class Search extends Component{
                 </div>
                 <br/>
                 
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete}/> 
-                    
+                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> 
+                
 		</div>
         );
     }

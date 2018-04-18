@@ -1,6 +1,7 @@
 import kunit
 from flask import Flask
 from flask_cors import CORS
+import major
 
 app = Flask(__name__)
 CORS(app)
@@ -32,6 +33,12 @@ def del_from_table(inp):
     except:
         return "invalid syntax (read API DOC in trello)"
 
+@app.route('/unitOf/<inp>')
+def unit_of_major(inp):
+    try:
+        return "{\"data\" : "+str(major.unitOf(inp)).replace(" ","")+"}"
+    except:
+        return "invalid syntax (read API DOC in trello)"
 
 if __name__ == "__main__":
     app.run(debug = True,host="0.0.0.0")

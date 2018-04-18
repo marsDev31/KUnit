@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './search_th';
+import MajorSearch from './major';
+
 
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+      this.state={
+        major:""
+      }
+      this.handleMajor=this.handleMajor.bind(this)
+  }
+
+
+  handleMajor(e){
+    
+    this.setState({major: e})
+
+  }
+
   render() {
     return (
       <div className="pre-app">
@@ -13,11 +30,12 @@ class App extends Component {
           <h1 className="App-title">KUnit</h1>
           <div className="text-box">
           <br/>
-          <text className="App-text">เคยูนิต(KUnit) เป็นเว็บไซต์ที่ช่วยคำนวณในการลงทะเบียนเรียนวิชาบูรณาการในมหาวิทยาลัยเกษตรศาสตร์ โดยเราสามารถแนะนำคุณได้ว่ามีวิชาอะไรให้คุณเลือกลงทะเบียนบ้าง คุณลงทะเบียนวิชาบูรณาการวิชาใดไปกี่หน่วยกิตแล้ว และที่สำคัญคือคุณเหลืออีกกี่หน่วยกิตที่จำเป็นต้องลงทะเบียนเรียนเพื่อจบการศึกษา</text>
+          <h3 className="App-text">เคยูนิต(KUnit) เป็นเว็บไซต์ที่ช่วยคำนวณในการลงทะเบียนเรียนวิชาบูรณาการในมหาวิทยาลัยเกษตรศาสตร์ โดยเราสามารถแนะนำคุณได้ว่ามีวิชาอะไรให้คุณเลือกลงทะเบียนบ้าง คุณลงทะเบียนวิชาบูรณาการวิชาใดไปกี่หน่วยกิตแล้ว และที่สำคัญคือคุณเหลืออีกกี่หน่วยกิตที่จำเป็นต้องลงทะเบียนเรียนเพื่อจบการศึกษา</h3>
           </div>
         </header>
-        <Search classname="App-search"/>
-        
+        <MajorSearch className = "Major-search" major={this.handleMajor}/>
+        <Search className="App-search" major={this.state.major}/>
+        <footer className="App-footer"/>
         
       </div>
       
