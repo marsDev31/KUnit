@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './search_th';
 import MajorSearch from './major';
-
+import Comment from './comment';
 
 
 
@@ -35,6 +35,7 @@ class App extends Component {
         </header>
         <MajorSearch className = "Major-search" major={this.handleMajor}/>
         <Search className="App-search" major={this.state.major}/>
+        <Comment className="Facebook-comment"/>
         <footer className="App-footer"/>
         
       </div>
