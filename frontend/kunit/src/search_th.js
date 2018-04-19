@@ -195,7 +195,7 @@ class Search extends Component{
                 var Se = this.state.buttonStyle
                 var bt = this.state.buttonCheck
                 if (Se[e] === "btn btn-info btn-sm btn-space"){
-                    Se[e] = "btn btn-info btn-sm btn-space active"
+                    Se[e] = "btn btn-danger btn-sm btn-space active"
                     bt[e] = true
                     this.setState({buttonStyle : Se})
                     this.setState({buttonCheck : bt},this.controlSub())
