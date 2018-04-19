@@ -35,6 +35,7 @@ class App extends Component {
         </header>
         <MajorSearch className = "Major-search" major={this.handleMajor}/>
         <Search className="App-search" major={this.state.major}/>
+        <br/>
         <Comment className="Facebook-comment"/>
         <footer className="App-footer"/>
         
