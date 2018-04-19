@@ -154,7 +154,7 @@ class Search extends Component{
         }
         else if (this.state.selectedOption.indexOf(e.value) == -1) {
             this.setState({wordS : e.label})
-            var Url = "https://kunit-backend.herokuapp.com/KUnit/add/"+this.state.selectedOption+"a"+e.value 
+            var Url = "https://kunit-backend.herokuapp.com/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
             .then(res =>{
             this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
