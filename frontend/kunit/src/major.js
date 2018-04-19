@@ -21,7 +21,7 @@ class MajorSearch extends Component {
 
     handleChange = (e) => {
         this.setState({wordS : e.label})
-        var Url = "http://139.59.111.79:5000/unitOf/" + e.value
+        var Url = "https://kunit-backend.herokuapp.com/unitOf/" + e.value
             axios.get(Url)
                 .then(res => {
                     this.props.major(res.data["data"])
