@@ -9,11 +9,6 @@ import axios from 'axios'
 import Table from './table_th'
 import MyJson from './long.json'
 import MyJson_th from './THshort.json'
-import wellness from './data/gp_subject_th/wellness_th'
-import entrepreneurship from './data/gp_subject_th/entrepreneurship_th'
-import citizen from './data/gp_subject_th/thai_citizen_th'
-import language from './data/gp_subject_th/language_th'
-import aesthetics from './data/gp_subject_th/aesthetics_th'
 import all_subject_th from './data/gp_subject_th/all_subject_th.js'
 
 class Search extends Component{
@@ -24,24 +19,34 @@ class Search extends Component{
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
             programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"}]",
-        
-           
+            buttonStyle: ["btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space"],
+            buttonCheck: [false,false,false,false,false],
+            click: null,
+            Major: [],
+            coptions: [all_subject_th.wellness,all_subject_th.entrepreneurship,all_subject_th.citizen,all_subject_th.language,all_subject_th.aesthetics] ,
+            options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics
           }
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
         this.createTableCredit=this.createTableCredit.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
+        this.Allsub=this.Allsub.bind(this)
     }
-    componentWillUpdate(){
-        if (this.props.major !== this.state.Major){
-                
-            this.setState({Major : this.props.major},()=>{this.createTableCredit()})
-            
+    componentDidUpdate(){
+        if (this.props.major !== this.state.Major && this.props.major !== ""){
             console.log(this.props.major)
+            this.setState({Major : this.props.major},()=>{this.createTableCredit()})
         }  
+       
     }
     
+    
+    
+   
+     
+    
+
     handleChangeDle = (e) =>{
         
         if(e != ""){
@@ -79,8 +84,7 @@ class Search extends Component{
 
     handlePhase = (e1,e2) => {
         var sum = e1-e2
-        console.log(e1)
-        console.log(e2)
+        
         if(sum>0){
             return "\""+"ขาดอีก "+sum+" หน่วยกิต"+"\""
         }
@@ -162,15 +166,57 @@ class Search extends Component{
         }
     }
     
+    controlSub = () =>{
+        var i = null
+        var bt = this.state.buttonCheck
+        var op = ""
+        console.log(this.state.buttonCheck)
+        for(i=0 ;i<5 ; i++){
+            console.log(bt[i])
+            if(bt[i] === true){
+                op=op+this.state.coptions[i]
+            }
+        }
+        console.log(op)
+        if (op === ""){
+            this.setState({options : all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics})
+        }
+        else{
+        this.setState({options:op})}
+    }
     
+    Allsub = () =>{
+        
+            var e = this.state.click
+            
+            console.log(this.state.options)
+            
+            if (e !== null ){
+                var Se = this.state.buttonStyle
+                var bt = this.state.buttonCheck
+                if (Se[e] === "btn btn-info btn-sm btn-space"){
+                    Se[e] = "btn btn-info btn-sm btn-space active"
+                    bt[e] = true
+                    this.setState({buttonStyle : Se})
+                    this.setState({buttonCheck : bt},this.controlSub())
+                    
+                }
+                else{
+                    Se[e] = "btn btn-info btn-sm btn-space"
+                    bt[e] = false
+                    this.setState({buttonStyle : Se})
+                    this.setState({buttonCheck : bt},this.controlSub())
+                    
+                }}
+        
+    }
      
     render(){
     
-    var test = require('./data/gp_subject_th/all_subject_th.js')
-    var test2 = language.data
-    var test3 = citizen.data
-    console.log(eval("[,{value:"+"\""+"04804311"+"\""+",label:"+"\""+"04804311 ปรัชญาเศรษฐกิจพอเพียง"+"\""+"}]"))
-    const options =eval("["+all_subject_th.wellness+all_subject_th.language+"]")
+    
+    
+    
+    const options =eval("["+this.state.options+"]")
     let { selectedOption } = this.state
     const value = selectedOption && selectedOption.value;
 		return(
@@ -190,8 +236,37 @@ class Search extends Component{
                 </div>
                 <br/>
                 
+                
+                    <div className="button-gp">
+                    <button type="button"  class={this.state.buttonStyle[0]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 0},this.Allsub)}}>
+                    กลุ่มสาระอยู่ดีมีสุข
+                    </button>
+                
+               
+                   <button type="button" class={this.state.buttonStyle[1]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 1},this.Allsub)}}>
+                   กลุ่มสาระศาสตร์แห่งผู้ประกอบการ
+                    </button>
+               
+                    <button type="button"  class={this.state.buttonStyle[2]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 2},this.Allsub)}}>
+                    กลุ่มสาระพลเมืองไทยและพลเมืองโลก
+                    </button>
+                    <button type="button"  class={this.state.buttonStyle[3]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 3},this.Allsub)}}>
+                    กลุ่มสาระภาษากับการสื่อสาร
+                    </button>
+                    <button type="button"  class={this.state.buttonStyle[4]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 4},this.Allsub)}}>
+                    กลุ่มสาระสุนทรียศาสตร์
+                    </button>
+                    </div>
+                
+               
+                    
+
+                <br/>
+                <br/>
+                
                 <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> 
-        
+                
+               
 		</div>
         );
     }

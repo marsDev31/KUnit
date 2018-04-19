@@ -18,3 +18,13 @@
     color: #1A8A70;
     text-decoration: underline;
 }
+
+.button-gp{
+    display: inline;
+   width: 700px;
+    overflow-x: scroll;
+    
+  }
+  .btn-space {
+    margin: 2px;
+}
