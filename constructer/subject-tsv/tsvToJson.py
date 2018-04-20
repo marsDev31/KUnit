@@ -23,5 +23,5 @@ for i in range(1,group+1):
         longDic[line[0]] = [str(i)]+line[1:]
 #        print(i)
         thDic[line[0]] = [line[1],line[2],line[5],facTH[line[5]]]
-print(json.dumps(thDic,indent=4, separators=(',', ': ')))
+print(json.dumps(longDic,indent=4, separators=(',', ': ')))
 #print(thDic)

@@ -1,4 +1,5 @@
-4.กลุ่มสาระภาษากับการสื่อสาร (Language and Communication)		คนรับผิดชอบตอนนี้	แบงค์		SubID	SubNameENG	SubNameTHA	Credit	longCredit	belongTo
+4.กลุ่มสาระภาษากับการสื่อสาร (Language and Communication)		คนรับผิดชอบตอนนี้	แบงค์		
+SubID	SubNameENG	SubNameTHA	Credit	longCredit	belongTo
 1361101	Introductory Thai Usage	การใช้ภาษาไทยเบื้องต้น	3	3-0-6	Faculty of Humanities
 1361102	Thai Pratical Writing	การเขียนภาษาไทยเชิงปฏิบัติ	3	3-0-6	Faculty of Humanities
 1361222	Thai Critical Reading	การอ่านภาษาไทยเชิงวิจารณ์	3	3-0-6	Faculty of Humanities
@@ -7,7 +8,7 @@
 1354311	Khmer l	ภาษาเขมร l	3	3-0-6	Faculty of Humanities
 1354312	Khmer ll	ภาษาเขมร ll	3	3-0-6	Faculty of Humanities
 1354411	Khmer lll	ภาษาเขมร lll	3	3-0-6	Faculty of Humanities
-1355111	Foundation English l	ภาษาอังกฤษพื้นฐาน l	3	3-0-6	Faculty of Humanities
+1355111	Foundation English l	ภาษาอังกฤษพื้นฐาน l	0	3-0-6	Faculty of Humanities
 1355112	Foundation English ll	ภาษาอังกฤษพื้นฐาน ll	3	3-0-6	Faculty of Humanities
 1355113	Foundation English lll	ภาษาอังกฤษพื้นฐาน lll	3	3-0-6	Faculty of Humanities
 1355114	English for Pre-Medical Students l	ภาษาอังกฤษสำหรับนิสิตเตรียมแพทย์ l	3	3-0-6	Faculty of Humanities
@@ -61,12 +62,12 @@
 1399105	Vietnamese Reading	การอ่านภาษาเวียดนาม	3	3-0-6	Faculty of Humanities
 1399106	Vietnamese Listening and Speaking	การฟัง-พูดภาษาเวียดนาม	3	3-0-6	Faculty of Humanities
 2724011	Intercultural Communication	การสื่อสารระหว่างวัฒนธรรม	3	3-0-6	Faculty of Liberal Arts and Science Kamphaeng Saen Campus
-3754111	Foundation English l	ภาษาอังกฤษ l	3	3-0-6	Faculty of Management Sciences Sri Racha Campus
-3754112	Foundation English ll	ภาษาอังกฤษ lll	3	3-0-6	Faculty of Management Sciences Sri Racha Campus
-3754113	Foundation English lll	ภาษาอังกฤษ lll	3	3-0-6	Faculty of Management Sciences Sri Racha Campus
-3754271	English for Careers	ภาษาอังกฤษในงานอาชีพ	3	3-0-6	Faculty of Management Sciences Sri Racha Campus
+3754111	Foundation English l	ภาษาอังกฤษ l	3	3-0-6	Faculty of Management Science Sri Racha Campus
+3754112	Foundation English ll	ภาษาอังกฤษ lll	3	3-0-6	Faculty of Management Science Sri Racha Campus
+3754113	Foundation English lll	ภาษาอังกฤษ lll	3	3-0-6	Faculty of Management Science Sri Racha Campus
+3754271	English for Careers	ภาษาอังกฤษในงานอาชีพ	3	3-0-6	Faculty of Management Science Sri Racha Campus
 1371111	Information Media	สื่อสารสนเทศ	1	1-0-2	Faculty of Humanities
 1418111	Computer Application	การใช้งานคอมพิวเตอร์	1	1-0-2	Faculty of Science
 1999013	New Age Information Management In Everyday Life	การจัดการสารสนเทศยุคใหม่ในชีวิตประจำวัน	3	2-2-5	Integration Section of General Education
 2729102	Computer Application in Everyday Life	การประยุกต์คอมพิวเตอร์ในชีวิตประจำวัน	3	2-2-5	Faculty of Liberal Arts and Science Kamphaeng Saen Campus
-3752111	Information Resources for Research	ทรัพยากรสารสนเทศเพื่อการค้นคว้า	1	1-0-2	Faculty of Management Sciences Sri Racha Campus
+3752111	Information Resources for Research	ทรัพยากรสารสนเทศเพื่อการค้นคว้า	1	1-0-2	Faculty of Management Science Sri Racha Campus
