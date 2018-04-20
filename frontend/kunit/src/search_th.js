@@ -51,7 +51,7 @@ class Search extends Component{
         
         if(e != ""){
             if(window.confirm('คุณต้องการจะลบวิชานี้หรือไม่')){
-                var Url = "http://139.59.111.79:5000/remove/"+this.state.selectedOption+"d"+e
+                var Url = "https://kunit-backend.herokuapp.com/remove/"+this.state.selectedOption+"d"+e
                 var xmlHttp = new XMLHttpRequest()
                 xmlHttp.open("GET",Url,false)
                 xmlHttp.send(null)
@@ -154,7 +154,7 @@ class Search extends Component{
         }
         else if (this.state.selectedOption.indexOf(e.value) == -1) {
             this.setState({wordS : e.label})
-            var Url = "http://139.59.111.79:5000/add/"+this.state.selectedOption+"a"+e.value 
+            var Url = "https://kunit-backend.herokuapp.com/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
             .then(res =>{
             this.setState({selectedOption: res.data.replace("{\"data\" : ", "").replace("}", "") })
