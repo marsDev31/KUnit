@@ -28,3 +28,12 @@
   .btn-space {
     margin: 2px;
 }
+
+.subject-ll{
+    font-size: 12px;
+    text-align: left;
+    margin-left: 7%; 
+    font-family: sans-serif;
+    color: #4169E1;
+    
+}

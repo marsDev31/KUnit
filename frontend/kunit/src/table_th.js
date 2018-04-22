@@ -45,9 +45,7 @@ class Table extends Component {
     function delSubject(cell,row,rowIndex){
       
       return(
-        <button>
-          Delete
-        </button>
+        <button type="button" class="btn btn-danger btn-sm btn-space ">Delete</button>
       )
     }
 

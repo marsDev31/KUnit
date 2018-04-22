@@ -24,7 +24,8 @@ class Search extends Component{
             click: null,
             Major: [],
             coptions: [all_subject_th.wellness,all_subject_th.entrepreneurship,all_subject_th.citizen,all_subject_th.language,all_subject_th.aesthetics] ,
-            options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics
+            options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics ,
+            sumForall: [0,0,0,0]
           }
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
@@ -32,6 +33,7 @@ class Search extends Component{
         this.createTableCredit=this.createTableCredit.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
         this.Allsub=this.Allsub.bind(this)
+        this.handlePhase=this.handlePhase.bind(this)
     }
     componentDidUpdate(){
         if (this.props.major !== this.state.Major && this.props.major !== ""){
@@ -82,20 +84,46 @@ class Search extends Component{
         
     }
 
-    handlePhase = (e1,e2) => {
-        var sum = e1-e2
-        
-        if(sum>0){
-            return "\""+"ขาดอีก "+sum+" หน่วยกิต"+"\""
-        }
-        else{
-            if(e1<0){
-                return "\""+"ระบบเก่า/ไม่มีข้อมูล"+"\""
+    handlePhase = (e1,e2,ar) => {
+        if(ar >=0 && ar<=4){
+            var sum = e1-e2
+            var preph = this.state.sumForall
+            if(sum>0){
+                preph[ar] = sum
+                this.setState({sumForall : preph})
+                return "\""+"ขาดอีก "+sum+" หน่วยกิต"+"\""
             }
             else{
-            return  "\""+"ลงทะเบียนครบแล้ว"+"\""}
+                if(e1<0){
+                    preph[ar] = -1
+                    this.setState({sumForall : preph})
+                    return "\""+"ระบบเก่า/ไม่มีข้อมูล"+"\""
+                }
+            else{
+                preph[ar] = 0
+                this.setState({sumForall : preph})
+                return  "\""+"ลงทะเบียนครบแล้ว"+"\""}
+            }
+        }else{
+            var sum = 0
+            var i=0
+            for(i=0;i<=4;i++){
+                sum = sum + this.state.sumForall[i]
+            }
+                if(sum>0){
+               
+                    return "\""+"ขาดอีก "+sum+" หน่วยกิต"+"\""
+                    }
+                else{
+                if(e1<0){
+                   
+                        return "\""+"ระบบเก่า/ไม่มีข้อมูล"+"\""
+                    }
+            else{
+               
+                return  "\""+"ลงทะเบียนครบแล้ว"+"\""}
         }
-    }
+    }}
 
     Check = (e) => {
         if (e<0){
@@ -108,12 +136,12 @@ class Search extends Component{
     }
     createTableCredit = () =>{
         var Program= this.state.program
-        var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+",4:" +  this.handlePhase(this.state.Major[0],eval(this.state.selectedOption)[0][1]) +  "},"
-        var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+this.Check(this.state.Major[1])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+",4:" +  this.handlePhase(this.state.Major[1],eval(this.state.selectedOption)[0][2])+"},"
-        var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+this.Check(this.state.Major[2])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+",4:" +  this.handlePhase(this.state.Major[2],eval(this.state.selectedOption)[0][3])+"},"
-        var Language = "{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+this.Check(this.state.Major[3])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+",4:" +  this.handlePhase(this.state.Major[3],eval(this.state.selectedOption)[0][4])+"},"
-        var Aesthetics = "{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+this.Check(this.state.Major[4])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+",4:" +  this.handlePhase(this.state.Major[4],eval(this.state.selectedOption)[0][5])+"},"
-        var All = "{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+",4:" +  this.handlePhase(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3],eval(this.state.selectedOption)[0][0])+"}"
+        var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+",4:" +  this.handlePhase(this.state.Major[0],eval(this.state.selectedOption)[0][1],0) +  "},"
+        var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+this.Check(this.state.Major[1])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+",4:" +  this.handlePhase(this.state.Major[1],eval(this.state.selectedOption)[0][2],1)+"},"
+        var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+this.Check(this.state.Major[2])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+",4:" +  this.handlePhase(this.state.Major[2],eval(this.state.selectedOption)[0][3],2)+"},"
+        var Language = "{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+this.Check(this.state.Major[3])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][4]+ "\""+",4:" +  this.handlePhase(this.state.Major[3],eval(this.state.selectedOption)[0][4],3)+"},"
+        var Aesthetics = "{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+this.Check(this.state.Major[4])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][5]+ "\""+",4:" +  this.handlePhase(this.state.Major[4],eval(this.state.selectedOption)[0][5],4)+"},"
+        var All = "{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3]+this.state.Major[4])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][0]+ "\""+",4:" +  this.handlePhase(this.state.Major[0]+this.state.Major[1]+this.state.Major[2]+this.state.Major[3],eval(this.state.selectedOption)[0][0],5)+"}"
         this.setState({programTable: "["+Wellness+Entrepreneurship+Thai+Language+Aesthetics+All+"]"})
     }
     handleData = () =>{
@@ -235,6 +263,10 @@ class Search extends Component{
                 />
                 </div>
                 <br/>
+                <h3 className="subject-ll">เลือกกลุ่มสาระที่ต้องการลงแค่บางกลุ่ม (*เลือกทุกกลุ่มไม่ต้องเลือก)
+                <br/>
+                </h3>
+               
                 
                 
                     <div className="button-gp">
