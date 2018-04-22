@@ -14,7 +14,7 @@ class App extends Component {
       }
       this.handleMajor=this.handleMajor.bind(this)
   }
-
+  
 
   handleMajor(e){
     
