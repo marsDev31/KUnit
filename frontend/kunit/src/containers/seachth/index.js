@@ -1,6 +1,7 @@
+
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
-import createFilterOptions from 'react-select-fast-filter-options';
+// import createFilterOptions from 'react-select-fast-filter-options';
 import axios from 'axios'
 import Table from './components/table_th'
 import all_subject_th from '../../data/gp_subject_th/all_subject_th.js'
@@ -12,7 +13,9 @@ import '../../assets/css/search.css'
 
 import MyJson from '../../data/json/long.json'
 import MyJson_th from '../../data/json/thshort.json'
+import Check from '../../assets/icon/check.svg'
 
+/*eslint-disable*/
 
 class Search extends Component{
     constructor(props){
@@ -22,7 +25,8 @@ class Search extends Component{
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
             programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"}]",
-            buttonStyle: ["btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space"],
+            // buttonStyle: ["btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space"],
+            buttonStyle: ["btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm"],
             buttonCheck: [false,false,false,false,false],
             click: null,
             Major: [],
@@ -30,6 +34,7 @@ class Search extends Component{
             options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics ,
             sumForall: [0,0,0,0]
           }
+        
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
@@ -38,17 +43,17 @@ class Search extends Component{
         this.Allsub=this.Allsub.bind(this)
         this.handlePhase=this.handlePhase.bind(this)
     }
+    
     componentDidUpdate(){
         if (this.props.major !== this.state.Major && this.props.major !== ""){
             console.log(this.props.major)
             this.setState({Major : this.props.major},()=>{this.createTableCredit()})
         }  
-       
     }
 
     handleChangeDle = (e) =>{
         
-        if(e != ""){
+        if(e !== ""){
             if(window.confirm('คุณต้องการจะลบวิชานี้หรือไม่')){
                 var Url = "https://kunit-backend.herokuapp.com/remove/"+this.state.selectedOption+"d"+e
                 var xmlHttp = new XMLHttpRequest()
@@ -64,7 +69,6 @@ class Search extends Component{
         switch (e) {
             case "1":
                 return "กลุ่มสาระอยู่ดีมีสุข"
-                
             case "2":
                 return "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"
                 
@@ -78,7 +82,6 @@ class Search extends Component{
                 return "กลุ่มสาระสุนทรียศาสตร์"
                 
             }
-        
     }
 
     handlePhase = (e1,e2,ar) => {
@@ -132,7 +135,7 @@ class Search extends Component{
 
     }
     createTableCredit = () =>{
-        var Program= this.state.program
+        // var Program= this.state.program
         var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+",4:" +  this.handlePhase(this.state.Major[0],eval(this.state.selectedOption)[0][1],0) +  "},"
         var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+this.Check(this.state.Major[1])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+",4:" +  this.handlePhase(this.state.Major[1],eval(this.state.selectedOption)[0][2],1)+"},"
         var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+this.Check(this.state.Major[2])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+",4:" +  this.handlePhase(this.state.Major[2],eval(this.state.selectedOption)[0][3],2)+"},"
@@ -237,18 +240,36 @@ class Search extends Component{
     }
      
     render(){
-    
-    
-    
-    
+
     const options =eval("["+this.state.options+"]")
     let { selectedOption } = this.state
     const value = selectedOption && selectedOption.value;
 		return(
         <div >
             <p/>
-            <h3 className="subject-search">เลือกวิชาที่ต้องการลงทะเบียน</h3>
-                <div className="Search">
+            <h3 style={{fontSize: 18}}>2. เลือกกลุ่มสาระที่ต้องการลง  <span className="badge badge-light">** เลือกกลุ่มสาระที่ต้องการลงเฉพาะกลุ่ม (*หากต้องการเลือกทุกกลุ่มไม่จำเป็นกดเลือก)</span> </h3>
+                
+            
+
+            <div className="button-gp">
+                <button type="button"  className={this.state.buttonStyle[0]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 0},this.Allsub)}}>
+                กลุ่มอยู่ดีมีสุข <img src={Check} hidden/> </button>
+                <button type="button"  className={this.state.buttonStyle[1]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 1},this.Allsub)}}>
+                กลุ่มศาสตร์แห่งผู้ประกอบการ 
+                </button>
+                <button type="button"  className={this.state.buttonStyle[2]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 2},this.Allsub)}}>
+                กลุ่มพลเมืองไทยและพลเมืองโลก
+                </button>
+                <button type="button"  className={this.state.buttonStyle[3]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 3},this.Allsub)}}>
+                กลุ่มภาษากับการสื่อสาร
+                </button>
+                <button type="button"  className={this.state.buttonStyle[4]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 4},this.Allsub)}}>
+                กลุ่มสุนทรียศาสตร์
+                </button>
+            </div>
+            
+            <h3 style={{fontSize: 18, paddingTop: 20}}>3. เลือกวิชาที่ต้องการลงทะเบียน</h3>
+            <div className="Search" >
                 <Select
                     name="subject"
                     autosize={false}
@@ -258,44 +279,12 @@ class Search extends Component{
                     options={options}
                     style={{ fontSize: 15 }}
                 />
-                </div>
-                <br/>
-                <h3 className="subject-ll">เลือกกลุ่มสาระที่ต้องการลงเฉพาะกลุ่ม (*หากต้องการเลือกทุกกลุ่มไม่จำเป็นกดเลือก)
-                <br/>
-                </h3>
-               
-                
-                
-                    <div className="button-gp">
-                    <button type="button"  class={this.state.buttonStyle[0]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 0},this.Allsub)}}>
-                    กลุ่มสาระอยู่ดีมีสุข
-                    </button>
-                
-               
-                   <button type="button" class={this.state.buttonStyle[1]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 1},this.Allsub)}}>
-                   กลุ่มสาระศาสตร์แห่งผู้ประกอบการ
-                    </button>
-               
-                    <button type="button"  class={this.state.buttonStyle[2]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 2},this.Allsub)}}>
-                    กลุ่มสาระพลเมืองไทยและพลเมืองโลก
-                    </button>
-                    <button type="button"  class={this.state.buttonStyle[3]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 3},this.Allsub)}}>
-                    กลุ่มสาระภาษากับการสื่อสาร
-                    </button>
-                    <button type="button"  class={this.state.buttonStyle[4]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 4},this.Allsub)}}>
-                    กลุ่มสาระสุนทรียศาสตร์
-                    </button>
-                    </div>
-                
-               
-                    
+            </div>
 
-                <br/>
-                <br/>
+            <br/>
+            <br/>
                 
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> 
-                
-               
+            <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/>    
 		</div>
         );
     }

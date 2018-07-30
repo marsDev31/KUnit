@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from '../../../../../../../../Users/macair/Library/Caches/typescript/2.9/node_modules/@types/react';
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'bootstrap/dist/css/bootstrap.css';
-import '../../../assets/css/table.css'
+import './Table.css'
 require('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
-/* eslint no-eval: 0 */
+
 class Table extends Component {
   constructor(props){
   	super(props)
