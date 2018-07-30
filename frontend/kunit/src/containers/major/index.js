@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
 import createFilterOptions from 'react-select-fast-filter-options';
+
+import axios from 'axios'
+import Table from './components/table'
+
 import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
-import './Search.css'
-import axios from 'axios'
-import Table from './table'
-import MyJson from './long.json'
-import './major.css'
+import '../../assets/css/search.css'
+import '../../assets/css/major.css'
+
+import MyJson from '../../data/json/long.json'
+
 
 class MajorSearch extends Component {
     constructor(props) {
@@ -18,7 +22,6 @@ class MajorSearch extends Component {
         }
     }
    
-
     handleChange = (e) => {
         this.setState({wordS : e.label})
         var Url = "https://kunit-backend.herokuapp.com/unitOf/" + e.value
@@ -26,7 +29,6 @@ class MajorSearch extends Component {
                 .then(res => {
                     this.props.major(res.data["data"])
                 })
-        
          
     }
     render() {
@@ -173,9 +175,7 @@ class MajorSearch extends Component {
                         filterOptions={filterOptions}
                         style={{ fontSize: 15 }}
                     />
-               
                 </div>
-
             </div>
         );
     }

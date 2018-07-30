@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
 import createFilterOptions from 'react-select-fast-filter-options';
+import axios from 'axios'
+import Table from './components/table_th'
+import all_subject_th from '../../data/gp_subject_th/all_subject_th.js'
+
 import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
-import './Search.css'
-import axios from 'axios'
-import Table from './table_th'
-import MyJson from './long.json'
-import MyJson_th from './THshort.json'
-import all_subject_th from './data/gp_subject_th/all_subject_th.js'
+import '../../assets/css/search.css'
+
+import MyJson from '../../data/json/long.json'
+import MyJson_th from '../../data/json/thshort.json'
+
 
 class Search extends Component{
     constructor(props){
@@ -42,12 +45,6 @@ class Search extends Component{
         }  
        
     }
-    
-    
-    
-   
-     
-    
 
     handleChangeDle = (e) =>{
         

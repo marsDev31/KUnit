@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'bootstrap/dist/css/bootstrap.css';
-import './Table.css'
+import '../../../assets/css/table.css'
 require('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
 
 class Table extends Component {

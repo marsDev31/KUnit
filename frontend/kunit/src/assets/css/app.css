@@ -1,49 +1,33 @@
 .pre-app{
-  
   min-width:100vh;
   min-height: 100vh;
   top: 0; 
   left: 0;
-    background-color: #1B2635;
-  
+  background-color: #F5F5F5;
   align-content: center;
-  
-  
 }
-
-
 
 .App {
   max-width:720px;
   height: 100%;
-  
   margin: auto;
   text-align: center;
   background-color: white;
-  
 }
 
 .App-text {
-  
   font-size: 15px;
   font-family: sans-serif;
-  
 }
 
 .text-box{
   margin-left: auto;
   margin-right: auto;
-  
-  
-  
 }
 
 .App-header {
-  
   background-color: #1B2635;
   text-align: center;
-  
-  
   padding: 20px;
   color: white;
 }
@@ -55,7 +39,6 @@
 
 .App-footer{
   min-height: 5vh;
-  background-color: #1B2635;
-  
+  background-color: #1B2635;  
 }
 

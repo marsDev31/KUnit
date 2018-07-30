@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
-import Search from './search_th';
-import MajorSearch from './major';
-import Comment from './comment';
+import Search from './containers/seachth';
+import MajorSearch from './containers/major';
+import Comment from './containers/comment';
 
+import './assets/css/app.css';
 
 
 class App extends Component {
   constructor(props){
     super(props)
       this.state={
-        major:""
+        major:  ""
       }
-      this.handleMajor=this.handleMajor.bind(this)
+  }
+
+  handleMajor = (e) => {
+    this.setState({major: e})
   }
   
-
-  handleMajor(e){
-    
-    this.setState({major: e})
-
-  }
 
   render() {
     return (
