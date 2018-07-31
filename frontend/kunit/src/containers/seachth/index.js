@@ -14,7 +14,6 @@ import '../../assets/css/search.css'
 
 import MyJson from '../../data/json/long.json'
 import MyJson_th from '../../data/json/thshort.json'
-import Check from '../../assets/icon/check.svg'
 
 /*eslint-disable*/
 
@@ -22,24 +21,21 @@ class Search extends Component{
     constructor(props){
         super(props)
             const group_class_options = [
-                {value:'0' ,label:'กลุ่มอยู่ดีมีสุข'},
-                {value:'1' ,label:'กลุ่มศาสตร์แห่งผู้ประกอบการ'},
-                {value:'2' ,label:'กลุ่มพลเมืองไทยและพลเมืองโลก'},
-                {value:'3' ,label:'กลุ่มภาษากับการสื่อสาร'},
-                {value:'4' ,label:'กลุ่มสุนทรียศาสตร์'},
+                {value:'0' ,label:'กลุ่มอยู่ดีมีสุข',data: all_subject_th.wellness},
+                {value:'1' ,label:'กลุ่มศาสตร์แห่งผู้ประกอบการ',data: all_subject_th.entrepreneurship},
+                {value:'2' ,label:'กลุ่มพลเมืองไทยและพลเมืองโลก',data: all_subject_th.citizen},
+                {value:'3' ,label:'กลุ่มภาษากับการสื่อสาร',data: all_subject_th.language},
+                {value:'4' ,label:'กลุ่มสุนทรียศาสตร์',data: all_subject_th.aesthetics},
             ]        
 
           this.state={
-            selectGroup: null,
+            
             group_class_options,
+            selectGroup: [group_class_options[0],group_class_options[1],group_class_options[2],group_class_options[3],group_class_options[4]],
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
             programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"}]",
-            // buttonStyle: ["btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space"],
-            buttonStyle: ["btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm","btn btn-outline-success btn-sm"],
-            buttonCheck: [false,false,false,false,false],
-            click: null,
             Major: [],
             coptions: [all_subject_th.wellness,all_subject_th.entrepreneurship,all_subject_th.citizen,all_subject_th.language,all_subject_th.aesthetics] ,
             options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics ,
@@ -51,13 +47,11 @@ class Search extends Component{
         this.major=this.major.bind(this)
         this.createTableCredit=this.createTableCredit.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
-        this.Allsub=this.Allsub.bind(this)
         this.handlePhase=this.handlePhase.bind(this)
-    }
-    
+    }    
     componentDidUpdate(){
         if (this.props.major !== this.state.Major && this.props.major !== ""){
-            console.log(this.props.major)
+            // console.log(this.props.major)
             this.setState({Major : this.props.major},()=>{this.createTableCredit()})
         }  
     }
@@ -204,96 +198,46 @@ class Search extends Component{
             alert("วิชานี้ถูกเลือกแล้ว")
         }
     }
-    
-    controlSub = () =>{
-        var i = null
-        var bt = this.state.buttonCheck
-        var op = ""
-        console.log(this.state.buttonCheck)
-        for(i=0 ;i<5 ; i++){
-            console.log(bt[i])
-            if(bt[i] === true){
-                op=op+this.state.coptions[i]
-            }
-        }
-        console.log(op)
-        if (op === ""){
-            this.setState({options : all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics})
-        }
-        else{
-        this.setState({options:op})}
+   
+    handleChangeGroup = (selectGroup) => {
+        this.setState({ selectGroup })
+        this.changDataSelectGroup(selectGroup)
     }
-    
-    Allsub = () =>{
-        
-            var e = this.state.click
-            
-            console.log(this.state.options)
-            
-            if (e !== null ){
-                var Se = this.state.buttonStyle
-                var bt = this.state.buttonCheck
-                if (Se[e] === "btn btn-info btn-sm btn-space"){
-                    Se[e] = "btn btn-danger btn-sm btn-space active"
-                    bt[e] = true
-                    this.setState({buttonStyle : Se})
-                    this.setState({buttonCheck : bt},this.controlSub())
-                    
-                }
-                else{
-                    Se[e] = "btn btn-info btn-sm btn-space"
-                    bt[e] = false
-                    this.setState({buttonStyle : Se})
-                    this.setState({buttonCheck : bt},this.controlSub())
-                    
-                }}
-        
+    changDataSelectGroup = (selectGroup) => {
+        var tmp_data = []
+        for(var i=0;i<selectGroup.length;i++){
+            tmp_data += selectGroup[i].data
+        }
+        this.setState({options: tmp_data})
     }
      
     render(){
-
+    
     const options =eval("["+this.state.options+"]")
     let { selectedOption , selectGroup, group_class_options} = this.state
     const value = selectedOption && selectedOption.value;
+    
 		return(
         <div >
             <p/>
-            <h3 style={{fontSize: 18}}>2. เลือกกลุ่มสาระที่ต้องการลง  <span className="badge badge-light">** เลือกกลุ่มสาระที่ต้องการลงเฉพาะกลุ่ม (*หากต้องการเลือกทุกกลุ่มไม่จำเป็นกดเลือก)</span> </h3>
-                
-            
+            <h3 style={{fontSize: 18}}>2. เลือกกลุ่มสาระที่ต้องการลง  <span className="badge badge-light">** default เลือกทั้งหมดไว้ให้ (ถ้าต้องการเลือกเฉพาะกลุ่มให้กด x ด้านขวาเพื่อเลือกใหม่)</span> </h3>
 
-            <div className="button-gp">
-                <button type="button"  className={this.state.buttonStyle[0]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 0},this.Allsub)}}>
-                กลุ่มอยู่ดีมีสุข <img src={Check} hidden/> </button>
-                <button type="button"  className={this.state.buttonStyle[1]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 1},this.Allsub)}}>
-                กลุ่มศาสตร์แห่งผู้ประกอบการ 
-                </button>
-                <button type="button"  className={this.state.buttonStyle[2]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 2},this.Allsub)}}>
-                กลุ่มพลเมืองไทยและพลเมืองโลก
-                </button>
-                <button type="button"  className={this.state.buttonStyle[3]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 3},this.Allsub)}}>
-                กลุ่มภาษากับการสื่อสาร
-                </button>
-                <button type="button"  className={this.state.buttonStyle[4]} data-toggle="button" aria-pressed="false" autoComplete="off" onClick={()=>{this.setState({click : 4},this.Allsub)}}>
-                กลุ่มสุนทรียศาสตร์
-                </button>
-            </div>
-            
+            <div className="Search">
             <Select
-                
                 name = "gp_class"
-                placeholder={this.state.wordS}
+                placeholder= "พิมพ์/เลือก กลุ่มสาระที่ต้องการลงทะเบียน"
                 multi={true}
-                onChange={(selectGroup) => this.setState({ selectGroup })}
+                onChange={this.handleChangeGroup}
                 options={group_class_options}
                 selectComponent={Creatable}
                 value={selectGroup}
-            />
+                style={{ fontSize: 14 }}
+            /></div>
 
             
             <h3 style={{fontSize: 18, paddingTop: 20}}>3. เลือกวิชาที่ต้องการลงทะเบียน</h3>
-            <div className="Search" >
-                <Select
+            <div className="Search">
+            <Select                    
                     name="subject"
                     autosize={false}
                     value={value}
@@ -301,13 +245,12 @@ class Search extends Component{
                     onChange={this.handleChange}
                     options={options}
                     style={{ fontSize: 15 }}
-                />
-            </div>
-
+            /></div>
             <br/>
             <br/>
-                
+            
             <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/>    
+            
 		</div>
         );
     }

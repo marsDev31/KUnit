@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../../assets/css/table.css'
+import '../../../assets/css/search.css'
 require('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
 /* eslint no-eval: 0 */
 class Table extends Component {
@@ -102,16 +103,13 @@ class Table extends Component {
     
     return (
       <div className="Table">
-        <h3>
-          วิชาที่ลงทะเบียน
-        </h3>  
-        <br/>
-          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "ยังไม่ได้เลือกวิชาที่จะลง" } condensed striped bordered={ false }/>
-        <br/>
-        <h3>
-          หน่วยกิตรวม
-        </h3>
-        <br/>  
+        <div style={{paddingTop: 30}}></div>
+            <h3>วิชาที่ลงทะเบียน</h3><br/>
+            <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "ยังไม่ได้เลือกวิชาที่จะลง" } condensed striped bordered={ false }/>
+        
+
+        <br/><br/>
+        <h3>หน่วยกิตรวม</h3><br/>  
           <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}} bodyStyle={{overflow: 'overlay'}} bordered={ false }/>
         <div>
          
