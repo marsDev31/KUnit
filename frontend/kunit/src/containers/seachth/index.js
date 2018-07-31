@@ -1,57 +1,67 @@
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
-import createFilterOptions from 'react-select-fast-filter-options';
+// import { Creatable } from 'react-select'
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios'
+import Table from './components/table_th'
+import Comment from './components/comment';
+import all_subject_th from '../../data/gp_subject_th/all_subject_th'
+
+
+
 import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
-import './Search.css'
-import axios from 'axios'
-import Table from './table_th'
-import MyJson from './long.json'
-import MyJson_th from './THshort.json'
-import all_subject_th from './data/gp_subject_th/all_subject_th.js'
+import '../../assets/css/search.css'
+import 'react-toastify/dist/ReactToastify.css';
+
+import MyJson from '../../data/json/long.json'
+import MyJson_th from '../../data/json/thshort.json'
+
+/*eslint-disable*/
 
 class Search extends Component{
     constructor(props){
         super(props)
+            const group_class_options = [
+                {value:'0' ,label:'กลุ่มอยู่ดีมีสุข',data: all_subject_th.wellness},
+                {value:'1' ,label:'กลุ่มศาสตร์แห่งผู้ประกอบการ',data: all_subject_th.entrepreneurship},
+                {value:'2' ,label:'กลุ่มพลเมืองไทยและพลเมืองโลก',data: all_subject_th.citizen},
+                {value:'3' ,label:'กลุ่มภาษากับการสื่อสาร',data: all_subject_th.language},
+                {value:'4' ,label:'กลุ่มสุนทรียศาสตร์',data: all_subject_th.aesthetics},
+            ]        
+
           this.state={
+            showComponent: false,
+            group_class_options,
+            selectGroup: [group_class_options[0],group_class_options[1],group_class_options[2],group_class_options[3],group_class_options[4]],
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
             programTable: "[{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0" +",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระภาษากับการสื่อสาร"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"กลุ่มสาระสุนทรียศาสตร์"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" + "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"},"+"{1:" +  "\""+"รวมหน่วยกิต"+  "\""+",2:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+",3:" +  "0"+",4:" +  "\""+"ยังไม่ได้เลือกภาควิชา"+  "\""+"}]",
-            buttonStyle: ["btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space","btn btn-info btn-sm btn-space"],
-            buttonCheck: [false,false,false,false,false],
-            click: null,
             Major: [],
             coptions: [all_subject_th.wellness,all_subject_th.entrepreneurship,all_subject_th.citizen,all_subject_th.language,all_subject_th.aesthetics] ,
             options: all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics ,
             sumForall: [0,0,0,0]
           }
+        
         this.handleChange=this.handleChange.bind(this)
         this.handleData=this.handleData.bind(this)
         this.major=this.major.bind(this)
         this.createTableCredit=this.createTableCredit.bind(this)
         this.handleChangeDelete=this.handleChangeDle.bind(this)
-        this.Allsub=this.Allsub.bind(this)
         this.handlePhase=this.handlePhase.bind(this)
-    }
+    }    
     componentDidUpdate(){
         if (this.props.major !== this.state.Major && this.props.major !== ""){
-            console.log(this.props.major)
+            // console.log(this.props.major)
             this.setState({Major : this.props.major},()=>{this.createTableCredit()})
         }  
-       
     }
-    
-    
-    
-   
-     
-    
 
     handleChangeDle = (e) =>{
         
-        if(e != ""){
+        if(e !== ""){
             if(window.confirm('คุณต้องการจะลบวิชานี้หรือไม่')){
                 var Url = "https://kunit-backend.herokuapp.com/remove/"+this.state.selectedOption+"d"+e
                 var xmlHttp = new XMLHttpRequest()
@@ -67,7 +77,6 @@ class Search extends Component{
         switch (e) {
             case "1":
                 return "กลุ่มสาระอยู่ดีมีสุข"
-                
             case "2":
                 return "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"
                 
@@ -81,7 +90,6 @@ class Search extends Component{
                 return "กลุ่มสาระสุนทรียศาสตร์"
                 
             }
-        
     }
 
     handlePhase = (e1,e2,ar) => {
@@ -135,7 +143,7 @@ class Search extends Component{
 
     }
     createTableCredit = () =>{
-        var Program= this.state.program
+        // var Program= this.state.program
         var Wellness = "{1:" +  "\""+"กลุ่มสาระอยู่ดีมีสุข"+  "\""+",2:" +  "\""+this.Check(this.state.Major[0])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][1]+ "\""+",4:" +  this.handlePhase(this.state.Major[0],eval(this.state.selectedOption)[0][1],0) +  "},"
         var Entrepreneurship = "{1:" +  "\""+"กลุ่มสาระศาสตร์แห่งผู้ประกอบการ"+  "\""+",2:" +  "\""+this.Check(this.state.Major[1])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][2]+ "\""+",4:" +  this.handlePhase(this.state.Major[1],eval(this.state.selectedOption)[0][2],1)+"},"
         var Thai = "{1:" +  "\""+"กลุ่มสาระพลเมืองไทยและพลเมืองโลก"+  "\""+",2:" +  "\""+this.Check(this.state.Major[2])+  "\""+",3:" +  "\""+eval(this.state.selectedOption)[0][3]+ "\""+",4:" +  this.handlePhase(this.state.Major[2],eval(this.state.selectedOption)[0][3],2)+"},"
@@ -178,9 +186,20 @@ class Search extends Component{
 
     handleChange = (e) => {
         if (this.props.major==""){
-            alert("กรุณาเลือกภาควิชาก่อนๆ")
+
+            toast.warn(" กรุณาเลือกภาควิชาก่อน",{
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                })
+        
+            // alert("กรุณาเลือกภาควิชาก่อนๆ")
         }
         else if (this.state.selectedOption.indexOf(e.value) == -1) {
+            this.showComponent()
             this.setState({wordS : e.label})
             var Url = "https://kunit-backend.herokuapp.com/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
@@ -190,69 +209,62 @@ class Search extends Component{
             })
             
         }else{
-            alert("วิชานี้ถูกเลือกแล้ว")
+            toast.warn(" วิชานี้ถูกเลือกแล้ว",{
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                })
+            // alert("วิชานี้ถูกเลือกแล้ว")
         }
+    }
+    showComponent = () =>{
+        this.setState({showComponent: true})
+    }
+    handleChangeGroup = (selectGroup) => {
+        
+        this.setState({selectGroup})
+        this.changDataSelectGroup(selectGroup)
+
+    }
+    changDataSelectGroup = (selectGroup) => {
+        var tmp_data = []
+        for(var i=0;i<selectGroup.length;i++){
+            tmp_data += selectGroup[i].data
+        }
+        this.setState({options: tmp_data})
     }
     
-    controlSub = () =>{
-        var i = null
-        var bt = this.state.buttonCheck
-        var op = ""
-        console.log(this.state.buttonCheck)
-        for(i=0 ;i<5 ; i++){
-            console.log(bt[i])
-            if(bt[i] === true){
-                op=op+this.state.coptions[i]
-            }
-        }
-        console.log(op)
-        if (op === ""){
-            this.setState({options : all_subject_th.wellness+all_subject_th.entrepreneurship+all_subject_th.citizen+all_subject_th.language+all_subject_th.aesthetics})
-        }
-        else{
-        this.setState({options:op})}
-    }
-    
-    Allsub = () =>{
-        
-            var e = this.state.click
-            
-            console.log(this.state.options)
-            
-            if (e !== null ){
-                var Se = this.state.buttonStyle
-                var bt = this.state.buttonCheck
-                if (Se[e] === "btn btn-info btn-sm btn-space"){
-                    Se[e] = "btn btn-danger btn-sm btn-space active"
-                    bt[e] = true
-                    this.setState({buttonStyle : Se})
-                    this.setState({buttonCheck : bt},this.controlSub())
-                    
-                }
-                else{
-                    Se[e] = "btn btn-info btn-sm btn-space"
-                    bt[e] = false
-                    this.setState({buttonStyle : Se})
-                    this.setState({buttonCheck : bt},this.controlSub())
-                    
-                }}
-        
-    }
      
     render(){
     
-    
-    
-    
     const options =eval("["+this.state.options+"]")
-    let { selectedOption } = this.state
+    let { selectedOption , selectGroup, group_class_options} = this.state
     const value = selectedOption && selectedOption.value;
+    
 		return(
         <div >
             <p/>
-            <h3 className="subject-search">เลือกวิชาที่ต้องการลงทะเบียน</h3>
-                <div className="Search">
-                <Select
+            <h3 style={{fontSize: 18}}>2. เลือกกลุ่มสาระที่ต้องการลง  <span className="badge badge-light">** default เลือกทั้งหมดไว้ให้ (ถ้าต้องการเลือกเฉพาะกลุ่มให้กด x ด้านขวาเพื่อเลือกใหม่)</span> </h3>
+
+            <div className="Search">
+            <Select
+                name = "gp_class"
+                placeholder= "พิมพ์/เลือก กลุ่มสาระที่ต้องการลงทะเบียน"
+                multi={true}
+                onChange={this.handleChangeGroup}
+                options={group_class_options}
+                // selectComponent={Creatable}
+                value={selectGroup}
+                style={{ fontSize: 14 }}
+            /></div>
+
+            
+            <h3 style={{fontSize: 18, paddingTop: 20}}>3. เลือกวิชาที่ต้องการลงทะเบียน</h3>
+            <div className="Search">
+            <Select                    
                     name="subject"
                     autosize={false}
                     value={value}
@@ -260,45 +272,13 @@ class Search extends Component{
                     onChange={this.handleChange}
                     options={options}
                     style={{ fontSize: 15 }}
-                />
-                </div>
-                <br/>
-                <h3 className="subject-ll">เลือกกลุ่มสาระที่ต้องการลงเฉพาะกลุ่ม (*หากต้องการเลือกทุกกลุ่มไม่จำเป็นกดเลือก)
-                <br/>
-                </h3>
-               
-                
-                
-                    <div className="button-gp">
-                    <button type="button"  class={this.state.buttonStyle[0]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 0},this.Allsub)}}>
-                    กลุ่มสาระอยู่ดีมีสุข
-                    </button>
-                
-               
-                   <button type="button" class={this.state.buttonStyle[1]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 1},this.Allsub)}}>
-                   กลุ่มสาระศาสตร์แห่งผู้ประกอบการ
-                    </button>
-               
-                    <button type="button"  class={this.state.buttonStyle[2]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 2},this.Allsub)}}>
-                    กลุ่มสาระพลเมืองไทยและพลเมืองโลก
-                    </button>
-                    <button type="button"  class={this.state.buttonStyle[3]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 3},this.Allsub)}}>
-                    กลุ่มสาระภาษากับการสื่อสาร
-                    </button>
-                    <button type="button"  class={this.state.buttonStyle[4]} data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=>{this.setState({click : 4},this.Allsub)}}>
-                    กลุ่มสาระสุนทรียศาสตร์
-                    </button>
-                    </div>
-                
-               
-                    
-
-                <br/>
-                <br/>
-                
-                <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> 
-                
-               
+            /></div>
+            <br/>
+            <br/>
+            { this.state.showComponent ? <Table hidden table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> : null }
+            <div style={{paddingTop: 40}}></div>
+            { this.state.showComponent ? <center><Comment className="Facebook-comment"/></center> : null }
+            <ToastContainer style={{color: '#000'}}/>
 		</div>
         );
     }
