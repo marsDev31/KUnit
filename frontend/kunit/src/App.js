@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Search from './containers/seachth';
 import MajorSearch from './containers/major';
-import Comment from './containers/comment';
 import Header from './containers/header';
+import Footer from './containers/footer';
 
 import './assets/css/app.css';
 
@@ -21,6 +21,7 @@ class App extends Component {
 
   render() {
     return (
+      <div>
       <div className="container">
           <div className="row">
               <div className="col-md-1"></div>
@@ -43,13 +44,9 @@ class App extends Component {
               </div>
               <div className="col-md-1"></div>
           </div> 
-          <div className="row">
-              <div className="col-md-1"></div>
-              <div className="col-md-10">
-              <center><Comment className="Facebook-comment"/></center>
-              </div>
-          <div className="col-md-1"></div>
-          </div>
+      </div>
+          <center><Footer /></center>
+      
       </div>
     );
   }

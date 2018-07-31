@@ -1,16 +1,19 @@
-
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
-import { Creatable } from 'react-select'
-// import createFilterOptions from 'react-select-fast-filter-options';
+// import { Creatable } from 'react-select'
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import Table from './components/table_th'
-import all_subject_th from '../../data/gp_subject_th/all_subject_th.js'
+import Comment from './components/comment';
+import all_subject_th from '../../data/gp_subject_th/all_subject_th'
+
+
 
 import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
 import '../../assets/css/search.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 import MyJson from '../../data/json/long.json'
 import MyJson_th from '../../data/json/thshort.json'
@@ -29,7 +32,7 @@ class Search extends Component{
             ]        
 
           this.state={
-            
+            showComponent: false,
             group_class_options,
             selectGroup: [group_class_options[0],group_class_options[1],group_class_options[2],group_class_options[3],group_class_options[4]],
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
@@ -183,9 +186,20 @@ class Search extends Component{
 
     handleChange = (e) => {
         if (this.props.major==""){
-            alert("กรุณาเลือกภาควิชาก่อนๆ")
+
+            toast.warn(" กรุณาเลือกภาควิชาก่อน",{
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                })
+        
+            // alert("กรุณาเลือกภาควิชาก่อนๆ")
         }
         else if (this.state.selectedOption.indexOf(e.value) == -1) {
+            this.showComponent()
             this.setState({wordS : e.label})
             var Url = "https://kunit-backend.herokuapp.com/add/"+this.state.selectedOption+"a"+e.value 
             axios.get(Url)
@@ -195,13 +209,25 @@ class Search extends Component{
             })
             
         }else{
-            alert("วิชานี้ถูกเลือกแล้ว")
+            toast.warn(" วิชานี้ถูกเลือกแล้ว",{
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                })
+            // alert("วิชานี้ถูกเลือกแล้ว")
         }
     }
-   
+    showComponent = () =>{
+        this.setState({showComponent: true})
+    }
     handleChangeGroup = (selectGroup) => {
-        this.setState({ selectGroup })
+        
+        this.setState({selectGroup})
         this.changDataSelectGroup(selectGroup)
+
     }
     changDataSelectGroup = (selectGroup) => {
         var tmp_data = []
@@ -210,6 +236,7 @@ class Search extends Component{
         }
         this.setState({options: tmp_data})
     }
+    
      
     render(){
     
@@ -229,7 +256,7 @@ class Search extends Component{
                 multi={true}
                 onChange={this.handleChangeGroup}
                 options={group_class_options}
-                selectComponent={Creatable}
+                // selectComponent={Creatable}
                 value={selectGroup}
                 style={{ fontSize: 14 }}
             /></div>
@@ -248,9 +275,10 @@ class Search extends Component{
             /></div>
             <br/>
             <br/>
-            
-            <Table table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/>    
-            
+            { this.state.showComponent ? <Table hidden table={this.state.table} selectedOption={this.state.selectedOption} programTable={this.state.programTable} del={this.handleChangeDelete} major={this.props.major}/> : null }
+            <div style={{paddingTop: 40}}></div>
+            { this.state.showComponent ? <center><Comment className="Facebook-comment"/></center> : null }
+            <ToastContainer style={{color: '#000'}}/>
 		</div>
         );
     }
