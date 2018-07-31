@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Select from 'react-virtualized-select';
+import { Creatable } from 'react-select'
 // import createFilterOptions from 'react-select-fast-filter-options';
 import axios from 'axios'
 import Table from './components/table_th'
@@ -20,7 +21,17 @@ import Check from '../../assets/icon/check.svg'
 class Search extends Component{
     constructor(props){
         super(props)
+            const group_class_options = [
+                {value:'0' ,label:'กลุ่มอยู่ดีมีสุข'},
+                {value:'1' ,label:'กลุ่มศาสตร์แห่งผู้ประกอบการ'},
+                {value:'2' ,label:'กลุ่มพลเมืองไทยและพลเมืองโลก'},
+                {value:'3' ,label:'กลุ่มภาษากับการสื่อสาร'},
+                {value:'4' ,label:'กลุ่มสุนทรียศาสตร์'},
+            ]        
+
           this.state={
+            selectGroup: null,
+            group_class_options,
             selectedOption: "[[0,0,0,0,0,0],[],[],[],[],[]]",
             table: "[]",
             wordS: "พิมพ์/เลือก วิชาที่ต้องการจะลง",
@@ -242,7 +253,7 @@ class Search extends Component{
     render(){
 
     const options =eval("["+this.state.options+"]")
-    let { selectedOption } = this.state
+    let { selectedOption , selectGroup, group_class_options} = this.state
     const value = selectedOption && selectedOption.value;
 		return(
         <div >
@@ -267,6 +278,18 @@ class Search extends Component{
                 กลุ่มสุนทรียศาสตร์
                 </button>
             </div>
+            
+            <Select
+                
+                name = "gp_class"
+                placeholder={this.state.wordS}
+                multi={true}
+                onChange={(selectGroup) => this.setState({ selectGroup })}
+                options={group_class_options}
+                selectComponent={Creatable}
+                value={selectGroup}
+            />
+
             
             <h3 style={{fontSize: 18, paddingTop: 20}}>3. เลือกวิชาที่ต้องการลงทะเบียน</h3>
             <div className="Search" >

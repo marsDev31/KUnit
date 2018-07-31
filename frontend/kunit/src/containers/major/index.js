@@ -167,6 +167,7 @@ class MajorSearch extends Component {
                 
                 <div className="MajorSearch">
                     <Select
+                        autofocus
                         name="major"
                         autosize={false}
                         value={value}
