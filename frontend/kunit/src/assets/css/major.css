@@ -1,0 +1,28 @@
+.MajorSearch{
+    margin-right: 5%;
+    margin-left: 5%;
+    font-size: 12px;
+    text-align: left
+  }
+.name-major{
+    font-size: 20px;
+    text-align: left;
+    margin-left: 7%; 
+    font-family: sans-serif;
+    color: #1A8A70;
+    text-decoration: underline;
+}
+.Select-multi-value-wrapper .Select-value{
+    border-color: rgb(108, 187, 168);
+    background-color: rgb(230, 247, 243);
+}
+.Select-value .Select-value-label{
+    color: rgb(19, 97, 79);
+} 
+.Select-value .Select-value-icon{
+    color: rgb(15, 61, 50);
+    border-color: rgb(108, 187, 168);
+}
+.Select-placeholder{
+    color: #696969;
+} 

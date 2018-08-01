@@ -1,8 +1,9 @@
+
 .Search{
     margin-right: 5%;
     margin-left: 5%;
     font-size: 12px;
-    text-align: left
+    text-align: left;
 }
 
 .Search-Box{
@@ -21,7 +22,7 @@
 
 .button-gp{
     display: inline;
-   width: 700px;
+    width: 700px;
     overflow-x: scroll;
     
   }

@@ -1,7 +1,7 @@
-import React, { Component } from '../../../../../../../../Users/macair/Library/Caches/typescript/2.9/node_modules/@types/react';
+import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'bootstrap/dist/css/bootstrap.css';
-import './Table.css'
+import '../../../assets/css/table.css'
 require('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
 
 class Table extends Component {
@@ -45,23 +45,25 @@ class Table extends Component {
     function delSubject(cell,row,rowIndex){
       
       return(
-        <button type="button" className="btn btn-danger btn-sm btn-space ">Delete</button>
+        <button>
+          Delete
+        </button>
       )
     }
 
 	const columns = [{
       dataField: 'subject',
-      text: 'วิชา',
+      text: 'Subject',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     },{
       dataField: 'credit',
-      text: 'หน่วยกิต',
+      text: 'Credit',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     },{
       dataField: 'by',
-      text: 'สังกัด',
+      text: 'From',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     },{
@@ -79,22 +81,12 @@ class Table extends Component {
   
     const columns1 = [{
       dataField: "1",
-      text: 'กลุ่มสาระ',
-      align: (column, colIndex) => 'left',
-      headerAlign: (column, colIndex) => 'left'
-    },{
-      dataField: "3",
-      text: 'หน่วยกิตที่ลง',
+      text: 'Group of Subjects',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     },{
       dataField: "2",
-      text: 'หน่วยกิตที่บังคับ',
-      align: (column, colIndex) => 'left',
-      headerAlign: (column, colIndex) => 'left'
-    },{
-      dataField: "4",
-      text: 'เหลือต้องลงอีกกี่หน่วยกิต',
+      text: 'Credits',
       align: (column, colIndex) => 'left',
       headerAlign: (column, colIndex) => 'left'
     }]
@@ -103,18 +95,17 @@ class Table extends Component {
     return (
       <div className="Table">
         <h3>
-          วิชาที่ลงทะเบียน
+          Subject you choose
         </h3>  
         <br/>
-          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "ยังไม่ได้เลือกวิชาที่จะลง" } condensed striped bordered={ false }/>
+          <BootstrapTable keyField="subject"  data={eval(this.props.table) } rowEvents={rowEvents} columns={ columns }  tdStyle={ { whiteSpace: 'normal'} } bodyStyle={{overflow: 'overlay'}} noDataIndication={ "No Subject add" } condensed striped bordered={ false }/>
         <br/>
         <h3>
-          หน่วยกิตรวม
+          Sum credit
         </h3>
         <br/>  
           <BootstrapTable keyField="1" isKey={true} data={eval(this.props.programTable)} columns={ columns1 }  tdStyle={ { whiteSpace: 'normal'}} bodyStyle={{overflow: 'overlay'}} bordered={ false }/>
         <div>
-         
         </div>
 	  </div>
     );
