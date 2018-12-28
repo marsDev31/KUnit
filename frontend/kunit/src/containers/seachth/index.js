@@ -630,12 +630,12 @@ class Search extends Component {
             loading={this.state.loading}
           />
         ) : null}
-        <div style={{ paddingTop: 40 }} />
+        {/* <div style={{ paddingTop: 40 }} />
         {this.state.showComponent ? (
           <center>
             <Comment className="Facebook-comment" />
           </center>
-        ) : null}
+        ) : null} */}
         <ToastContainer style={{ color: '#000' }} />
       </div>
     )
