@@ -2,7 +2,7 @@
   "name": "kunit-ne",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://wisticejent.github.io/KUnit",
+  "homepage": "https://aslupin.github.io/KUnit",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
