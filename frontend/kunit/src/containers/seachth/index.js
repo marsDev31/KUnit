@@ -199,6 +199,7 @@ class Search extends Component {
           .replace('}', '')
         this.setState({ selectedOption: data }, () => {
           this.handleData()
+          this.props.selected_get(this.state.selectedOption)
         })
       }
     }
@@ -463,7 +464,7 @@ class Search extends Component {
       // alert("กรุณาเลือกภาควิชาก่อนๆ")
     } else if (
       this.state.selectedOption.indexOf(e.value) == -1 ||
-      eval(this.props.selected_class)[1].length >= 1
+      eval(this.props.selected_class).slice(1).length >= 1
     ) {
       this.showComponent()
       this.setState({ wordS: e.label })
@@ -550,13 +551,18 @@ class Search extends Component {
   }
 
   async mapSelectedClassToTable() {
-    const id_selected_class = await eval(this.props.selected_class)[1] //Fix this line for interval in query
+    const id_selected_class = await eval(this.props.selected_class).slice(1) //Fix this line for interval in query
     console.log(id_selected_class)
     const box = await id_selected_class.map(id =>
-      eval('[' + this.state.options + ']').filter(obj => obj.value === id)
+      eval('[' + this.state.options + ']').filter(obj => obj.value === id[0])
     )
     console.log('box', id_selected_class, box)
-    this.handleChange(box[0][0])
+    const some_class = box.filter(item => item.length !== 0)
+    console.log('some_class', some_class)
+    if (some_class.length > 0) {
+      this.handleChange(some_class[0][0])
+    }
+
     // #### Interval sending to handleFunction (** if you use it ,Fix id_selected_class get array [1][2][3][4][5])
     // await box.map(item => this.handleChange(item[0]))
   }
