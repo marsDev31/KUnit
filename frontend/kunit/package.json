@@ -13,6 +13,7 @@
     "react-dom": "^16.3.0",
     "react-facebook": "^5.0.3",
     "react-facebook-sdk": "^1.1.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.2",
     "react-select": "^1.2.1",
     "react-select-fast-filter-options": "^0.2.3",
