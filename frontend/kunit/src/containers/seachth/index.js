@@ -58,6 +58,7 @@ class Search extends Component {
       ],
       selectedOption: '[[0,0,0,0,0,0],[],[],[],[],[]]',
       table: '[]',
+      loading: false,
       wordS: 'พิมพ์/เลือก วิชาที่ต้องการจะลง',
       programTable:
         '[{1:' +
@@ -447,7 +448,7 @@ class Search extends Component {
     this.createTableCredit()
   }
 
-  handleChange = e => {
+  handleChange = async e => {
     //   console.log('major',this.props.major)
     console.log('data e', e)
 
@@ -481,6 +482,7 @@ class Search extends Component {
         })
         this.handleData()
         this.props.selected_get(this.state.selectedOption)
+        this.setState({ loading: false })
       })
     } else {
       toast.warn(' วิชานี้ถูกเลือกแล้ว', {
@@ -544,6 +546,7 @@ class Search extends Component {
       console.log(this.props.selected_class)
       this.setState({
         selectedOption: this.props.selected_class,
+        loading: true,
       })
 
       await this.mapSelectedClassToTable()
@@ -615,8 +618,8 @@ class Search extends Component {
           />
         </div>
         <br />
-        <br />
-        {this.state.selectedOption}
+
+        {/* {this.state.selectedOption} */}
         {this.state.showComponent ? (
           <Table
             hidden
@@ -625,6 +628,7 @@ class Search extends Component {
             programTable={this.state.programTable}
             del={this.handleChangeDelete}
             major={this.props.major}
+            loading={this.state.loading}
           />
         ) : null}
         <div style={{ paddingTop: 40 }} />

@@ -127,7 +127,9 @@ class Table extends Component {
           columns={columns}
           tdStyle={{ whiteSpace: 'normal' }}
           bodyStyle={{ overflow: 'overlay' }}
-          noDataIndication={'ไม่มีข้อมูลลงทะเบียน หรือ กำลังโหลดข้อมูล'}
+          noDataIndication={
+            this.props.loading ? 'กำลังโหลดข้อมูล...' : 'ไม่มีข้อมูลลงทะเบียน'
+          }
           condensed
           striped
           bordered={false}
