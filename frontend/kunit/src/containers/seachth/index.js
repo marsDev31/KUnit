@@ -585,8 +585,7 @@ class Search extends Component {
         <h3 style={{ fontSize: 18 }}>
           2. เลือกกลุ่มสาระที่ต้องการลง{' '}
           <span className="badge badge-light">
-            ** default เลือกทั้งหมดไว้ให้ (ถ้าต้องการเลือกเฉพาะกลุ่มให้กด x
-            ด้านขวาเพื่อเลือกใหม่)
+            default เลือกทั้งหมดไว้ให้ (สามารถกด x เพื่อล้างค่า)
           </span>{' '}
         </h3>
 
