@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import MyJson from '../../data/json/long.json'
 import MyJson_th from '../../data/json/thshort.json'
+import register from '../../registerServiceWorker'
 
 /*eslint-disable*/
 
@@ -446,18 +447,24 @@ class Search extends Component {
   }
 
   handleChange = e => {
-    if (this.props.major == '') {
-      toast.warn(' กรุณาเลือกภาควิชาก่อน', {
+    //   console.log('major',this.props.major)
+    console.log('data e', e)
+
+    if (this.props.check_major_value == '') {
+      toast.warn('กรุณาเลือกภาควิชาก่อน', {
         position: 'top-center',
         autoClose: 2500,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggablePercent: false,
       })
 
       // alert("กรุณาเลือกภาควิชาก่อนๆ")
-    } else if (this.state.selectedOption.indexOf(e.value) == -1) {
+    } else if (
+      this.state.selectedOption.indexOf(e.value) == -1 ||
+      eval(this.props.selected_class)[1].length >= 1
+    ) {
       this.showComponent()
       this.setState({ wordS: e.label })
       var Url =
@@ -465,11 +472,14 @@ class Search extends Component {
         this.state.selectedOption +
         'a' +
         e.value
+
       axios.get(Url).then(res => {
+        console.log('res -> ', res)
         this.setState({
           selectedOption: res.data.replace('{"data" : ', '').replace('}', ''),
         })
         this.handleData()
+        this.props.selected_get(this.state.selectedOption)
       })
     } else {
       toast.warn(' วิชานี้ถูกเลือกแล้ว', {
@@ -478,18 +488,24 @@ class Search extends Component {
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggablePercent: true,
       })
-      // alert("วิชานี้ถูกเลือกแล้ว")
     }
   }
   showComponent = () => {
     this.setState({ showComponent: true })
   }
-  handleChangeGroup = selectGroup => {
-    this.setState({ selectGroup })
-    this.changDataSelectGroup(selectGroup)
+  handleChangeGroup = async selectGroup => {
+    await this.setState({ selectGroup })
+    // console.log('selectGroup: ', selectGroup)
+    const value = await Array.from(selectGroup).map(item => item.value)
+    // console.log('value: ', value)
+    await this.changDataSelectGroup(selectGroup)
+    await this.props.group_get(value)
+    // console.log('group_class : ', this.props.group_class)
   }
+
+  // changDataSelectGroup : Add class in step 3 by select group.
   changDataSelectGroup = selectGroup => {
     var tmp_data = []
     for (var i = 0; i < selectGroup.length; i++) {
@@ -498,6 +514,57 @@ class Search extends Component {
     this.setState({ options: tmp_data })
   }
 
+  getQueryGroupClass = query => {
+    const { group_class_options } = this.state
+    if (!query) {
+      this.setState({
+        selectGroup: [
+          group_class_options[0],
+          group_class_options[1],
+          group_class_options[2],
+          group_class_options[3],
+          group_class_options[4],
+        ],
+      })
+    } else {
+      var container_value = this.props.group_class
+      const value = container_value.toString().split(',')
+      const get_value = value.map(val => this.state.group_class_options[val])
+      this.handleChangeGroup(get_value)
+    }
+  }
+
+  getQueryClassSelected = async query => {
+    if (!query) {
+      this.setState({
+        selectedOption: '[[0,0,0,0,0,0],[],[],[],[],[]]',
+      })
+    } else {
+      console.log(this.props.selected_class)
+      this.setState({
+        selectedOption: this.props.selected_class,
+      })
+
+      await this.mapSelectedClassToTable()
+    }
+  }
+
+  async mapSelectedClassToTable() {
+    const id_selected_class = await eval(this.props.selected_class)[1] //Fix this line for interval in query
+    console.log(id_selected_class)
+    const box = await id_selected_class.map(id =>
+      eval('[' + this.state.options + ']').filter(obj => obj.value === id)
+    )
+    console.log('box', id_selected_class, box)
+    this.handleChange(box[0][0])
+    // #### Interval sending to handleFunction (** if you use it ,Fix id_selected_class get array [1][2][3][4][5])
+    // await box.map(item => this.handleChange(item[0]))
+  }
+
+  componentDidMount() {
+    this.getQueryGroupClass(this.props.group_class)
+    this.getQueryClassSelected(this.props.selected_class)
+  }
   render() {
     const options = eval('[' + this.state.options + ']')
     let { selectedOption, selectGroup, group_class_options } = this.state
@@ -543,6 +610,7 @@ class Search extends Component {
         </div>
         <br />
         <br />
+        {this.state.selectedOption}
         {this.state.showComponent ? (
           <Table
             hidden

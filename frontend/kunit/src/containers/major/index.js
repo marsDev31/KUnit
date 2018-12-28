@@ -20,7 +20,7 @@ class MajorSearch extends Component {
 
   handleChange = e => {
     this.setState({ wordS: e.label })
-    this.props.major_std(e)
+    this.props.major_get(e)
     this.getDataFromAPI(e.value)
   }
 
