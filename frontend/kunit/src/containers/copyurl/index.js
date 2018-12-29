@@ -52,7 +52,6 @@ export default props => {
 
       <span>
         <Button
-          id="btn"
           onClick={() => {
             copyStringToClipboard(document.location.href)
             setClicked(true)
