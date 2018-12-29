@@ -3,7 +3,7 @@ import Search from './containers/seachth'
 import MajorSearch from './containers/major'
 import Header from './containers/header'
 import Footer from './containers/footer'
-
+import ButtonCopyURL from './containers/copyurl'
 import './assets/css/app.css'
 
 class App extends Component {
@@ -151,6 +151,7 @@ class App extends Component {
           </div>
         </div>
         <center>
+          <ButtonCopyURL location={this.props.location} />
           <Footer />
         </center>
       </div>
