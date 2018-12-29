@@ -6,7 +6,8 @@ import 'animate.css'
 export default props => {
   const [clicked, setClicked] = useState(false)
 
-  const Button = styled.button`
+  const Button = styled.div`
+    cursor: pointer;
     background: 'white';
     color: 'black';
     width: 20%;
