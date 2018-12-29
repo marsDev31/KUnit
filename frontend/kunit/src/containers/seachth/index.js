@@ -472,7 +472,7 @@ class Search extends Component {
         this.state.selectedOption +
         'a' +
         e.value
-
+      this.setState({ loading: true })
       axios.get(Url).then(res => {
         // console.log('res -> ', res)
         this.setState({
