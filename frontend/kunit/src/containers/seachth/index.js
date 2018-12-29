@@ -603,7 +603,15 @@ class Search extends Component {
         <h3 style={{ fontSize: 18, paddingTop: 20 }}>
           3. เลือกวิชาที่ต้องการลงทะเบียน/วิชาที่ลงเรียนแล้ว
         </h3>
-        <div className="Search">
+        <div
+          className="Search"
+          style={{
+            color: '#000',
+            // overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
           <Select
             name="subject"
             autosize={false}
