@@ -400,7 +400,7 @@ class MajorSearch extends Component {
           <Select
             autoFocus
             name="major"
-            style={{ fontSize: '13px' }}
+            style={{ fontSize: '15px' }}
             autosize={false}
             // value={value}
             value={this.state.wordS}
