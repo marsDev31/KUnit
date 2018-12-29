@@ -380,8 +380,8 @@ class MajorSearch extends Component {
       },
     ]
     const filterOptions = createFilterOptions({ options })
-    let { selectedOption } = this.state
-    const value = selectedOption && selectedOption.value
+    // let { selectedOption } = this.state
+    // const value = selectedOption && selectedOption.value
     return (
       <div>
         <br />

@@ -5,7 +5,7 @@ import Header from './containers/header'
 import Footer from './containers/footer'
 import ButtonCopyURL from './containers/copyurl'
 import './assets/css/app.css'
-
+/*eslint-disable*/
 class App extends Component {
   constructor(props) {
     super(props)

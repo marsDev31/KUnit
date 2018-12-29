@@ -4,7 +4,6 @@ import Select from 'react-virtualized-select'
 import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
 import Table from './components/table_th'
-import Comment from './components/comment'
 import all_subject_th from '../../data/gp_subject_th/all_subject_th'
 
 import 'react-select/dist/react-select.css'
@@ -15,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import MyJson from '../../data/json/long.json'
 import MyJson_th from '../../data/json/thshort.json'
-import register from '../../registerServiceWorker'
 
 /*eslint-disable*/
 
@@ -630,12 +628,7 @@ class Search extends Component {
             loading={this.state.loading}
           />
         ) : null}
-        {/* <div style={{ paddingTop: 40 }} />
-        {this.state.showComponent ? (
-          <center>
-            <Comment className="Facebook-comment" />
-          </center>
-        ) : null} */}
+
         <ToastContainer style={{ color: '#000' }} />
       </div>
     )
