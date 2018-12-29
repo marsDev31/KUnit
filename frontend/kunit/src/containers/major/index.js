@@ -386,7 +386,7 @@ class MajorSearch extends Component {
     return (
       <div>
         <br />
-        <h3 style={{ fontSize: 18 }}>1. เลือกภาควิชาที่ศึกษาอยู่</h3>
+        <h3 style={{ fontSize: 16 }}>1. เลือกภาควิชาที่ศึกษาอยู่</h3>
 
         <div
           className="MajorSearch"
