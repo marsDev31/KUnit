@@ -98,8 +98,8 @@ class App extends Component {
       group_class,
       selected_class: e.toString(),
     })
-    console.log('class', e.toString())
-    console.log('url', url)
+    //console.log('class', e.toString())
+    //console.log('url', url)
     this.props.history.push(`?${url}`)
   }
 

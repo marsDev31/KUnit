@@ -448,7 +448,7 @@ class Search extends Component {
 
   handleChange = async e => {
     //   console.log('major',this.props.major)
-    console.log('data e', e)
+    // console.log('data e', e)
 
     if (this.props.check_major_value == '') {
       toast.warn('กรุณาเลือกภาควิชาก่อน', {
@@ -474,7 +474,7 @@ class Search extends Component {
         e.value
 
       axios.get(Url).then(res => {
-        console.log('res -> ', res)
+        // console.log('res -> ', res)
         this.setState({
           selectedOption: res.data.replace('{"data" : ', '').replace('}', ''),
         })
@@ -541,7 +541,7 @@ class Search extends Component {
         selectedOption: '[[0,0,0,0,0,0],[],[],[],[],[]]',
       })
     } else {
-      console.log(this.props.selected_class)
+      // console.log(this.props.selected_class)
       this.setState({
         selectedOption: this.props.selected_class,
         loading: true,
@@ -553,13 +553,13 @@ class Search extends Component {
 
   async mapSelectedClassToTable() {
     const id_selected_class = await eval(this.props.selected_class).slice(1) //Fix this line for interval in query
-    console.log(id_selected_class)
+    // console.log(id_selected_class)
     const box = await id_selected_class.map(id =>
       eval('[' + this.state.options + ']').filter(obj => obj.value === id[0])
     )
-    console.log('box', id_selected_class, box)
+    // console.log('box', id_selected_class, box)
     const some_class = box.filter(item => item.length !== 0)
-    console.log('some_class', some_class)
+    // console.log('some_class', some_class)
     if (some_class.length > 0) {
       this.handleChange(some_class[0][0])
     }
