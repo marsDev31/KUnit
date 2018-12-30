@@ -59,7 +59,7 @@ class Search extends Component {
       selectedOption: '[[0,0,0,0,0,0],[],[],[],[],[]]',
       table: '[]',
       loading: false,
-      wordS: 'พิมพ์/เลือก วิชาที่ต้องการจะลง',
+      wordS: 'พิมพ์/เลือก วิชาที่ต้องการลงทะเบียน',
       programTable:
         '[{1:' +
         '"' +
