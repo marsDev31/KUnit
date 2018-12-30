@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
-import 'bootstrap/dist/css/bootstrap.css'
 import '../../../assets/css/table.css'
 import '../../../assets/css/search.css'
 
@@ -141,6 +140,7 @@ class Table extends Component {
           หน่วยกิตรวม <img src={Checklist} width="25px" alt="icon-checklist" />
         </h3>
         <br />
+
         <BootstrapTable
           keyField="1"
           isKey={true}
@@ -150,7 +150,6 @@ class Table extends Component {
           bodyStyle={{ overflow: 'overlay' }}
           bordered={false}
         />
-        <div />
       </div>
     )
   }

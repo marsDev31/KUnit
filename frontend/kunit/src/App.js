@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import Search from './containers/seachth'
+
 import MajorSearch from './containers/major'
+import Search from './containers/seachth'
 import Header from './containers/header'
 import Footer from './containers/footer'
 import ButtonCopyURL from './containers/copyurl'
+import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/app.css'
+
 /*eslint-disable*/
 class App extends Component {
   constructor(props) {

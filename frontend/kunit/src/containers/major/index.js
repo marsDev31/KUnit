@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import Select from 'react-virtualized-select'
 import createFilterOptions from 'react-select-fast-filter-options'
-
+import ReactTooltip from 'react-tooltip'
 import axios from 'axios'
-
 import 'react-select/dist/react-select.css'
 import 'react-virtualized/styles.css'
 import 'react-virtualized-select/styles.css'
@@ -386,7 +385,22 @@ class MajorSearch extends Component {
     return (
       <div>
         <br />
-        <h3 style={{ fontSize: 16 }}>1. เลือกภาควิชาที่ศึกษาอยู่</h3>
+        <h3 style={{ fontSize: 16 }}>
+          1. เลือกภาควิชาที่ศึกษาอยู่ {'   '}
+          <button
+            className="btn btn-outline-success btn-sm"
+            data-tip="hello world"
+            style={{
+              fontSize: '12px',
+              margin: '0px',
+              paddingTop: '0px',
+              paddingBottom: '0px',
+              top: '0px',
+            }}
+          >
+            how to
+          </button>
+        </h3>
 
         <div
           className="MajorSearch"
@@ -410,6 +424,7 @@ class MajorSearch extends Component {
             filterOptions={filterOptions}
           />
         </div>
+        <ReactTooltip type="dark" />
       </div>
     )
   }

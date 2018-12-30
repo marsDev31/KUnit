@@ -602,6 +602,7 @@ class Search extends Component {
 
         <h3 style={{ fontSize: 16, paddingTop: 20 }}>
           3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
+          
           <span className="badge badge-light">(กดเลือกซ้ำเพื่อเพิ่มวิชา)</span>{' '}
         </h3>
         <div
