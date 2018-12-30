@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Select from 'react-virtualized-select'
 // import { Creatable } from 'react-select'
+import ReactTooltip from 'react-tooltip'
 import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
+import styled from 'styled-components'
 import Table from './components/table_th'
 import all_subject_th from '../../data/gp_subject_th/all_subject_th'
 
@@ -572,19 +574,39 @@ class Search extends Component {
     this.getQueryGroupClass(this.props.group_class)
     this.getQueryClassSelected(this.props.selected_class)
   }
+
   render() {
     const options = eval('[' + this.state.options + ']')
     let { selectedOption, selectGroup, group_class_options } = this.state
     const value = selectedOption && selectedOption.value
 
+    const ResponTopic = styled.h3`
+      font-size: 16px;
+      padding-top: 7px;
+      @media only screen and (max-width: 450px) {
+        font-size: 13.1px;
+      }
+    `
     return (
       <div>
         <p />
         <h3 style={{ fontSize: 16 }}>
           2. เลือกกลุ่มสาระที่ต้องการลง{' '}
-          <span className="badge badge-light">
-            default เลือกทั้งหมดไว้ให้ (สามารถกด x เพื่อล้างค่า)
-          </span>{' '}
+          <button
+            className="btn btn-outline-success btn-sm"
+            data-multiline={true}
+            data-tip="
+            เพิ่ม/ลบออก กลุ่มสาระที่ต้องการค้นหา โดยวิชาในกลุ่มสาระที่เลือกจะถูกแสดงในหัวข้อถัดไป(3)<br/>( default เลือกทั้งหมดไว้ให้ สามารถกด x เพื่อล้างค่า)"
+            style={{
+              fontSize: '12px',
+              margin: '0px',
+              paddingTop: '0px',
+              paddingBottom: '0px',
+              top: '0px',
+            }}
+          >
+            how to
+          </button>
         </h3>
 
         <div className="Search">
@@ -600,10 +622,35 @@ class Search extends Component {
           />
         </div>
 
-        <h3 style={{ fontSize: 16, paddingTop: 20 }}>
-          3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
-          
-          <span className="badge badge-light">(กดเลือกซ้ำเพื่อเพิ่มวิชา)</span>{' '}
+        <h3 style={{ paddingTop: 14 }}>
+          <form class="form-inline">
+            <div class="form-group">
+              {' '}
+              <ResponTopic>
+                3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
+              </ResponTopic>
+            </div>
+
+            <div class="form-group">
+              <button
+                className="btn btn-outline-success btn-sm"
+                data-place="top"
+                data-multiline={true}
+                data-tip="เพิ่มวิชาที่เคยลงทะเบียนและวิชาที่ต้องการลงทะเบียน โดยวิชาที่ถูกเพิ่มจะแสดงในตารางถัดไป <br/>(ค้นหาและเพิ่มได้เรื่อยๆ และสามารถพิมพ์ค้นหาวิชาด้วยส่วนหนึ่งของ ชื่อวิชา รหัสวิชา )"
+                style={{
+                  fontSize: '12px',
+                  marginLeft: '6px',
+                  paddingTop: '0px',
+                  marginBottom: '0px',
+                  marginTop: '0px',
+                  paddingBottom: '0px',
+                  top: '0px',
+                }}
+              >
+                how to
+              </button>
+            </div>
+          </form>
         </h3>
         <div
           className="Search"
@@ -640,6 +687,8 @@ class Search extends Component {
         ) : null}
 
         <ToastContainer style={{ color: '#000' }} />
+        <ReactTooltip />
+        <ReactTooltip />
       </div>
     )
   }

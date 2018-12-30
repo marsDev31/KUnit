@@ -389,7 +389,9 @@ class MajorSearch extends Component {
           1. เลือกภาควิชาที่ศึกษาอยู่ {'   '}
           <button
             className="btn btn-outline-success btn-sm"
-            data-tip="hello world"
+            data-multiline={true}
+            data-tip="
+            ค้นหาภาควิชาตนเองเพื่อใช้คำนวณว่าต้องลงทะเบียนแต่ละกลุ่มสาระกี่หน่วยกิต (พิมพ์หาได้)"
             style={{
               fontSize: '12px',
               margin: '0px',
@@ -424,7 +426,7 @@ class MajorSearch extends Component {
             filterOptions={filterOptions}
           />
         </div>
-        <ReactTooltip type="dark" />
+        <ReactTooltip />
       </div>
     )
   }

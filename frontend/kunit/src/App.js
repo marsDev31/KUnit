@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import MajorSearch from './containers/major'
 import Search from './containers/seachth'
 import Header from './containers/header'
