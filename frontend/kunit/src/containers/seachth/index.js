@@ -472,7 +472,7 @@ class Search extends Component {
         this.state.selectedOption +
         'a' +
         e.value
-
+      this.setState({ loading: true })
       axios.get(Url).then(res => {
         // console.log('res -> ', res)
         this.setState({
@@ -580,7 +580,7 @@ class Search extends Component {
     return (
       <div>
         <p />
-        <h3 style={{ fontSize: 18 }}>
+        <h3 style={{ fontSize: 16 }}>
           2. เลือกกลุ่มสาระที่ต้องการลง{' '}
           <span className="badge badge-light">
             default เลือกทั้งหมดไว้ให้ (สามารถกด x เพื่อล้างค่า)
@@ -600,10 +600,19 @@ class Search extends Component {
           />
         </div>
 
-        <h3 style={{ fontSize: 18, paddingTop: 20 }}>
-          3. เลือกวิชาที่ต้องการลงทะเบียน/วิชาที่ลงเรียนแล้ว
+        <h3 style={{ fontSize: 16, paddingTop: 20 }}>
+          3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
+          <span className="badge badge-light">(กดเลือกซ้ำเพื่อเพิ่มวิชา)</span>{' '}
         </h3>
-        <div className="Search">
+        <div
+          className="Search"
+          style={{
+            color: '#000',
+            // overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
           <Select
             name="subject"
             autosize={false}

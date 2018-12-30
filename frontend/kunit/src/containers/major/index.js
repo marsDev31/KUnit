@@ -379,18 +379,28 @@ class MajorSearch extends Component {
         clearableValue: false,
       },
     ]
+
     const filterOptions = createFilterOptions({ options })
     // let { selectedOption } = this.state
     // const value = selectedOption && selectedOption.value
     return (
       <div>
         <br />
-        <h3 style={{ fontSize: 18 }}>1. เลือกภาควิชาที่ศึกษาอยู่</h3>
+        <h3 style={{ fontSize: 16 }}>1. เลือกภาควิชาที่ศึกษาอยู่</h3>
 
-        <div className="MajorSearch">
+        <div
+          className="MajorSearch"
+          style={{
+            color: '#000',
+            // overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
           <Select
             autoFocus
             name="major"
+            style={{ fontSize: '15px' }}
             autosize={false}
             // value={value}
             value={this.state.wordS}
@@ -398,7 +408,6 @@ class MajorSearch extends Component {
             onChange={this.handleChange}
             options={options}
             filterOptions={filterOptions}
-            style={{ fontSize: 15, color: '#000' }}
           />
         </div>
       </div>

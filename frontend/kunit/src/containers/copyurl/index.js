@@ -25,6 +25,10 @@ export default props => {
   `
   const Suggest = styled.p`
     color: black;
+    font-size: 15.5px;
+    @media only screen and (max-width: 550px) {
+      font-size: 12.6px;
+    }
   `
   const SuggestDone = styled.p`
     color: #087861;

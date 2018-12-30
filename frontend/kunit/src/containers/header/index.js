@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import Mortar from '../../assets/icon/mortar-board.svg'
+import styled from 'styled-components'
 export default class Header extends Component {
   render() {
+    const HeaderPainPoint = styled.h4`
+      font-size: 15.5px;
+      @media only screen and (max-width: 550px) {
+        font-size: 12.6px;
+      }
+    `
     return (
       <div>
         <div style={{ paddingTop: 20 }} />
@@ -11,9 +18,9 @@ export default class Header extends Component {
           </strong>
         </div>
         <div style={{ paddingTop: 30 }} />
-        <h4 style={{ fontSize: 14.5 }}>
-          " มีปัญหาการคำนวณหน่วยกิตวิชาบูรฯ รึเปล่า? มาใช้ KUnit กันซิ! "
-        </h4>
+        <HeaderPainPoint>
+          มีปัญหาการคำนวณหน่วยกิตวิชาบูรฯ รึเปล่า? มาใช้ KUnit กันซิ!
+        </HeaderPainPoint>
         <div style={{ paddingTop: 40 }} />
       </div>
     )
