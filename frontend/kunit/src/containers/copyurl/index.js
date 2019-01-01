@@ -62,7 +62,7 @@ export default props => {
       <span>
         <Button
           onClick={() => {
-            this.copyStringToClipboard(document.location.href)
+            copyStringToClipboard(document.location.href)
             setClicked(true)
           }}
         >
