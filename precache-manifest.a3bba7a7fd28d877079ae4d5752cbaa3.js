@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/checklist.1b3c5461.svg"
   },
   {
-    "revision": "02179565b3b2bcb6c577",
-    "url": "/KUnit/static/css/main.ced924bc.chunk.css"
+    "revision": "e4f51a04d08cd300a792",
+    "url": "/KUnit/static/css/main.90e4fdb7.chunk.css"
   },
   {
     "revision": "8030e616ce030b3814cf5dc228e26149",
     "url": "/KUnit/static/media/done.8030e616.svg"
   },
   {
-    "revision": "5b8bfe6cd0081bb5c81b",
-    "url": "/KUnit/static/js/1.5b8bfe6c.chunk.js"
+    "revision": "807a87b61658dd856950",
+    "url": "/KUnit/static/js/1.807a87b6.chunk.js"
   },
   {
     "revision": "6739abc9df1229ec5cc4",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/tasklist.c807def4.svg"
   },
   {
-    "revision": "02179565b3b2bcb6c577",
-    "url": "/KUnit/static/js/main.02179565.chunk.js"
+    "revision": "e4f51a04d08cd300a792",
+    "url": "/KUnit/static/js/main.e4f51a04.chunk.js"
   },
   {
     "revision": "daa0112eebe4b8caa06e2bf36c7f6e42",
@@ -44,11 +44,11 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/copy.91ca5390.svg"
   },
   {
-    "revision": "5b8bfe6cd0081bb5c81b",
-    "url": "/KUnit/static/css/1.a3426243.chunk.css"
+    "revision": "807a87b61658dd856950",
+    "url": "/KUnit/static/css/1.f06b0545.chunk.css"
   },
   {
-    "revision": "e9df9d88307c1a67e8b76c92c501729b",
+    "revision": "d7b5332e3eaaf12d2659285cf37b5057",
     "url": "/KUnit/index.html"
   }
 ];
