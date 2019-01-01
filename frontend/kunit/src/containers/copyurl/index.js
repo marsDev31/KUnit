@@ -35,8 +35,6 @@ export default props => {
     color: #087861;
   `
 
-  
-
   return (
     <div>
       <br />
