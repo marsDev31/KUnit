@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
 import styled from 'styled-components'
 import Table from './components/table_th'
-import all_subject_th from '../../data/gp_subject_th/all_subject_th'
+import all_subject_th from '../../data/gp_subject_th/tmp_all_subject_th'
 
 import 'react-select/dist/react-select.css'
 import 'react-virtualized/styles.css'
@@ -410,6 +410,7 @@ class Search extends Component {
         All +
         ']',
     })
+    // console.log(this.state.programTable)
   }
   handleData = () => {
     var i
@@ -445,6 +446,7 @@ class Search extends Component {
       newTablej = ''
     }
     this.setState({ table: '[' + newTablei + ']' })
+    // console.log(this.state.table)
     this.createTableCredit()
   }
 
@@ -571,11 +573,13 @@ class Search extends Component {
   }
 
   componentDidMount() {
+    // console.log(all_subject_th.wellness)
     this.getQueryGroupClass(this.props.group_class)
     this.getQueryClassSelected(this.props.selected_class)
   }
 
   render() {
+    // console.log(this.state.options)
     const options = eval('[' + this.state.options + ']')
     let { selectedOption, selectGroup, group_class_options } = this.state
     const value = selectedOption && selectedOption.value

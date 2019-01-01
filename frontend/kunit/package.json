@@ -17,7 +17,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.2",
     "react-select": "^1.2.1",
-    "react-select-fast-filter-options": "^0.2.3",
     "react-toastify": "^4.1.0",
     "react-tooltip": "^3.9.0",
     "react-virtualized-select": "^3.1.3",
