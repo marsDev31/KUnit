@@ -586,8 +586,13 @@ class Search extends Component {
     const value = selectedOption && selectedOption.value
 
     const ResponTopic = styled.h3`
+      clear: both;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
       font-size: 16px;
       padding-top: 7px;
+
       @media only screen and (max-width: 450px) {
         font-size: 13.1px;
       }
@@ -629,35 +634,34 @@ class Search extends Component {
         </div>
 
         <h3 style={{ paddingTop: 14 }}>
-          <form className="form-inline">
-            <div className="form-group">
-              {' '}
-              <ResponTopic>
-                3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
-              </ResponTopic>
-            </div>
+          <div className="form-inline">
+            {/* <div className="form-group"> */}
+            <ResponTopic>
+              3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
+            </ResponTopic>
+            {/* </div> */}
 
-            <div className="form-group">
-              <button
-                type="button"
-                className="btn btn-outline-success btn-sm"
-                data-place="top"
-                data-multiline={true}
-                data-tip="เพิ่มวิชาที่เคยลงทะเบียนและวิชาที่ต้องการลงทะเบียน โดยวิชาที่ถูกเพิ่มจะแสดงในตารางถัดไป <br/>(ค้นหาและเพิ่มได้เรื่อยๆ และสามารถพิมพ์ค้นหาวิชาด้วยส่วนหนึ่งของ ชื่อวิชา รหัสวิชา )"
-                style={{
-                  fontSize: '12px',
-                  marginLeft: '6px',
-                  paddingTop: '0px',
-                  marginBottom: '0px',
-                  marginTop: '0px',
-                  paddingBottom: '0px',
-                  top: '0px',
-                }}
-              >
-                how to
-              </button>
-            </div>
-          </form>
+            {/* <div className="form-group"> */}
+            <button
+              type="button"
+              className="btn btn-outline-success btn-sm"
+              data-place="top"
+              data-multiline={true}
+              data-tip="เพิ่มวิชาที่เคยลงทะเบียนและวิชาที่ต้องการลงทะเบียน โดยวิชาที่ถูกเพิ่มจะแสดงในตารางถัดไป <br/>(ค้นหาและเพิ่มได้เรื่อยๆ และสามารถพิมพ์ค้นหาวิชาด้วยส่วนหนึ่งของ ชื่อวิชา รหัสวิชา )"
+              style={{
+                fontSize: '12px',
+                marginLeft: '6px',
+                paddingTop: '0px',
+                marginBottom: '0px',
+                marginTop: '0px',
+                paddingBottom: '0px',
+                top: '0px',
+              }}
+            >
+              how to
+            </button>
+            {/* </div> */}
+          </div>
         </h3>
         <div
           className="Search"
