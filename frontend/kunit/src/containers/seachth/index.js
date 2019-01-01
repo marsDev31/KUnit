@@ -476,6 +476,7 @@ class Search extends Component {
         this.state.selectedOption +
         'a' +
         e.value
+      // ** if you see console.log ,its mean you have selected and you will append someclass (aXXXXXX)
       this.setState({ loading: true })
       axios.get(Url).then(res => {
         // console.log('res -> ', res)
