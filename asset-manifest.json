@@ -1,7 +1,7 @@
 {
   "main.css": "/KUnit/static/css/main.90e4fdb7.chunk.css",
-  "main.js": "/KUnit/static/js/main.e4f51a04.chunk.js",
-  "main.js.map": "/KUnit/static/js/main.e4f51a04.chunk.js.map",
+  "main.js": "/KUnit/static/js/main.0a59f219.chunk.js",
+  "main.js.map": "/KUnit/static/js/main.0a59f219.chunk.js.map",
   "static/css/1.f06b0545.chunk.css": "/KUnit/static/css/1.f06b0545.chunk.css",
   "static/js/1.807a87b6.chunk.js": "/KUnit/static/js/1.807a87b6.chunk.js",
   "static/js/1.807a87b6.chunk.js.map": "/KUnit/static/js/1.807a87b6.chunk.js.map",
@@ -14,9 +14,9 @@
   "static/media/copy.svg": "/KUnit/static/media/copy.91ca5390.svg",
   "static/media/done.svg": "/KUnit/static/media/done.8030e616.svg",
   "static/media/checklist.svg": "/KUnit/static/media/checklist.1b3c5461.svg",
-  "static/css/1.f06b0545.chunk.css.map": "/KUnit/static/css/1.f06b0545.chunk.css.map",
   "static/css/main.90e4fdb7.chunk.css.map": "/KUnit/static/css/main.90e4fdb7.chunk.css.map",
+  "static/css/1.f06b0545.chunk.css.map": "/KUnit/static/css/1.f06b0545.chunk.css.map",
   "index.html": "/KUnit/index.html",
-  "precache-manifest.a3bba7a7fd28d877079ae4d5752cbaa3.js": "/KUnit/precache-manifest.a3bba7a7fd28d877079ae4d5752cbaa3.js",
+  "precache-manifest.14399ae2dd0576345f42c36c8b97a470.js": "/KUnit/precache-manifest.14399ae2dd0576345f42c36c8b97a470.js",
   "service-worker.js": "/KUnit/service-worker.js"
 }
