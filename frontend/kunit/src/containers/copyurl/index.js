@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import styled from 'styled-components'
 import iconCopyURL from '../../assets/icon/copy.svg'
 import iconDone from '../../assets/icon/done.svg'
@@ -60,19 +61,19 @@ export default props => {
       <br />
 
       <span>
-        <Button
-          onClick={() => {
-            copyStringToClipboard(document.location.href)
-            setClicked(true)
-          }}
+        <CopyToClipboard
+          text={document.location.href}
+          onCopy={() => setClicked(true)}
         >
-          {clicked ? 'Done' : 'Copy URL'}{' '}
-          {clicked ? (
-            <Icon src={iconDone} className="bounceIn" />
-          ) : (
-            <Icon src={iconCopyURL} />
-          )}
-        </Button>
+          <Button>
+            {clicked ? 'Done' : 'Copy URL'}{' '}
+            {clicked ? (
+              <Icon src={iconDone} className="bounceIn" />
+            ) : (
+              <Icon src={iconCopyURL} />
+            )}
+          </Button>
+        </CopyToClipboard>
 
         {clicked ? (
           <SuggestDone>
