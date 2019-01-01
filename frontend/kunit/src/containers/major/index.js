@@ -388,6 +388,7 @@ class MajorSearch extends Component {
         <h3 style={{ fontSize: 16 }}>
           1. เลือกภาควิชาที่ศึกษาอยู่ {'   '}
           <button
+            type="button"
             className="btn btn-outline-success btn-sm"
             data-multiline={true}
             data-tip="

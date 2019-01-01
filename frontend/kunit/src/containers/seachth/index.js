@@ -593,6 +593,7 @@ class Search extends Component {
         <h3 style={{ fontSize: 16 }}>
           2. เลือกกลุ่มสาระที่ต้องการลง{' '}
           <button
+            type="button"
             className="btn btn-outline-success btn-sm"
             data-multiline={true}
             data-tip="
@@ -623,16 +624,17 @@ class Search extends Component {
         </div>
 
         <h3 style={{ paddingTop: 14 }}>
-          <form class="form-inline">
-            <div class="form-group">
+          <form className="form-inline">
+            <div className="form-group">
               {' '}
               <ResponTopic>
                 3. เพิ่มวิชาที่เคยเรียน และ วิชาที่ต้องการลงทะเบียน{' '}
               </ResponTopic>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <button
+                type="button"
                 className="btn btn-outline-success btn-sm"
                 data-place="top"
                 data-multiline={true}
@@ -687,7 +689,6 @@ class Search extends Component {
         ) : null}
 
         <ToastContainer style={{ color: '#000' }} />
-        <ReactTooltip />
         <ReactTooltip />
       </div>
     )
