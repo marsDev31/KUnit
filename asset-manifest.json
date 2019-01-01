@@ -1,7 +1,7 @@
 {
   "main.css": "/KUnit/static/css/main.ced924bc.chunk.css",
-  "main.js": "/KUnit/static/js/main.e8e3eb72.chunk.js",
-  "main.js.map": "/KUnit/static/js/main.e8e3eb72.chunk.js.map",
+  "main.js": "/KUnit/static/js/main.02179565.chunk.js",
+  "main.js.map": "/KUnit/static/js/main.02179565.chunk.js.map",
   "static/css/1.a3426243.chunk.css": "/KUnit/static/css/1.a3426243.chunk.css",
   "static/js/1.5b8bfe6c.chunk.js": "/KUnit/static/js/1.5b8bfe6c.chunk.js",
   "static/js/1.5b8bfe6c.chunk.js.map": "/KUnit/static/js/1.5b8bfe6c.chunk.js.map",
@@ -17,6 +17,6 @@
   "static/css/1.a3426243.chunk.css.map": "/KUnit/static/css/1.a3426243.chunk.css.map",
   "static/css/main.ced924bc.chunk.css.map": "/KUnit/static/css/main.ced924bc.chunk.css.map",
   "index.html": "/KUnit/index.html",
-  "precache-manifest.8eb217400bb3aa9e233c01144ba43e17.js": "/KUnit/precache-manifest.8eb217400bb3aa9e233c01144ba43e17.js",
+  "precache-manifest.49be6f8116cd416277401e866c72c539.js": "/KUnit/precache-manifest.49be6f8116cd416277401e866c72c539.js",
   "service-worker.js": "/KUnit/service-worker.js"
 }
