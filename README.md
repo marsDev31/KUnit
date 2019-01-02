@@ -6,10 +6,10 @@
 ## Faculty of Engineering - Kasetsart University
 
 ### Our Team
-ลำดับที่ | ชื่อ-นามสกุล |  รหัสนิสิต | ภาควิชา | หมายเหตุ
+ลำดับที่ | ชื่อ-นามสกุล |  GitHub |  หมายเหตุ
 :---:|---|:------:|:---:|---
-1|นาย ปูรณ์ โชตธีรวสุ|6010500109|วิศวกรรมศาสตร์ | UX/UI & frontend |
-2|นาย วรรธนัย สาธุพันธ์|6010500117|วิศวกรรมศาสตร์ | backend |
-3|นาย ธนบดี ธรรมสโรช|6010504795|วิศวกรรมศาสตร์ | frontend(first version) |
-4|นาย ฌานณโชตน์ บุญเขียว|6010504694|วิศวกรรมศาสตร์ | Raw data & presentation |
-5|นาย ธันยา ตันศรีประภาศิริ|6010500389|วิศวกรรมศาสตร์ | Raw data & presentation |
+1|นาย ปูรณ์ โชตธีรวสุ| aslupin | UX/UI & frontend |
+2|นาย วรรธนัย สาธุพันธ์| WisTiCeJEnT | backend |
+3|นาย ธนบดี ธรรมสโรช| Banktts | frontend(first version) |
+4|นาย ฌานณโชตน์ บุญเขียว| channachot | Raw data & presentation |
+5|นาย ธันยา ตันศรีประภาศิริ| lastthanya | Raw data & presentation |
