@@ -1,37 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta property="og:title" content="KUnit" />
     <meta property="og:image" content="https://i.imgur.com/PqSShN3.png" />
-    <meta property="og:description" content="มีปัญหาการคำนวณหน่วยกิตวิชาบูรฯ กันรึเปล่า? มาให้ KUnit ช่วยซิ! " />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta
+      property="og:description"
+      content="มีปัญหาการคำนวณหน่วยกิตวิชาบูรฯ กันรึเปล่า? มาให้ KUnit ช่วยซิ! "
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    
-    <link rel="apple-touch-icon" sizes="57x57" href="/KUnit/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/KUnit/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/KUnit/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/KUnit/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/KUnit/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/KUnit/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/KUnit/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/KUnit/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/KUnit/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/KUnit/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/KUnit/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/KUnit/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/KUnit/favicon-16x16.png">
-    <link rel="manifest" href="/KUnit/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/KUnit/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/KUnit/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/KUnit/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/KUnit/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/KUnit/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/KUnit/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/KUnit/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/KUnit/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/KUnit/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/KUnit/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/KUnit/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/KUnit/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/KUnit/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/KUnit/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/KUnit/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/KUnit/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit"
+      rel="stylesheet"
+    />
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -45,9 +114,7 @@
     <title>KUnit</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -60,14 +127,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-40932170-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-40932170-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-  gtag('config', 'UA-40932170-3');
-</script>
-
+      gtag('config', 'UA-40932170-3')
+    </script>
   </body>
 </html>
