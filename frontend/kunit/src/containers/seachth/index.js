@@ -425,7 +425,7 @@ class Search extends Component {
 
       for (j = 0; j < len1; j++) {
         var sub = selected[i][j]
-        console.log(sub, MyJson_th[sub][0])
+        // console.log(sub, MyJson_th[sub][0])
         var subject =
           ',{subject:' +
           '"' +
@@ -483,7 +483,7 @@ class Search extends Component {
         this.setState({
           selectedOption: res.data.replace('{"data" : ', '').replace('}', ''),
         })
-        console.log(this.state.selectedOption)
+        // console.log(this.state.selectedOption)
         this.handleData()
         this.props.selected_get(this.state.selectedOption)
         this.setState({ loading: false })
