@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/KUnit/static/css/1.f06b0545.chunk.css"
   },
   {
-    "revision": "4adbb895a460e14094f815646fdd6277",
+    "revision": "2596e1c3e25ee13a1ade3c42174fbf96",
     "url": "/KUnit/index.html"
   }
 ];
