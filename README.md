@@ -7,7 +7,7 @@
 
 ### Our Team
 ลำดับที่ | ชื่อ-นามสกุล |  GitHub |  หมายเหตุ
-:---:|---|:------:|:---:|---
+:---:|---|:------:|:---:
 1|นาย ปูรณ์ โชตธีรวสุ| aslupin | UX/UI & frontend |
 2|นาย วรรธนัย สาธุพันธ์| WisTiCeJEnT | backend |
 3|นาย ธนบดี ธรรมสโรช| Banktts | frontend(first version) |
