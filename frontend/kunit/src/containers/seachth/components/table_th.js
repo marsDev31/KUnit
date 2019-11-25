@@ -44,14 +44,6 @@ class Table extends Component {
       },
     }
 
-    function delSubject(cell, row, rowIndex) {
-      return (
-        <button type="button" className="btn btn-danger btn-sm btn-space ">
-          Delete
-        </button>
-      )
-    }
-
     const columns = [
       {
         dataField: 'subject',
@@ -72,14 +64,17 @@ class Table extends Component {
         headerAlign: (column, colIndex) => 'left',
       },
       {
-        events: {
-          onClick: () => {
-            this.handleChecked('del')
-          },
-        },
         dataField: 'del',
         text: 'Delete',
-        formatter: delSubject,
+        formatter: () => (
+          <button
+            type="button"
+            className="btn btn-danger btn-sm btn-space "
+            onClick={() => this.handleChecked('del')}
+          >
+            Delete
+          </button>
+        ),
       },
     ]
 
