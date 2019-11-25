@@ -5,6 +5,7 @@ import Header from './containers/header'
 import Footer from './containers/footer'
 import ButtonCopyURL from './containers/copyurl'
 import Report from './containers/report'
+import Modal from './containers/modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/app.css'
 
@@ -116,6 +117,7 @@ class App extends Component {
     } = this.getterParams(location)
     return (
       <div>
+        <Modal />
         <div className="container">
           <div className="row">
             <div className="col-md-1" />
