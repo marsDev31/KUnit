@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Select from 'react-virtualized-select'
 
 const InputName = styled.input`
   width: ${props => props.width || '100%'};
@@ -22,6 +23,7 @@ const GroupLine = styled.div`
 `
 
 const Topic = styled.h3`
+  white-space: nowrap;
   font-size: 1rem;
   margin: 0;
   span {
@@ -30,6 +32,33 @@ const Topic = styled.h3`
     color: #666;
   }
 `
+
+const SelectCustom = styled(Select)`
+  width: 100%;
+`
+
+const options = [
+  {
+    value: '0',
+    label: 'กลุ่มอยู่ดีมีสุข',
+  },
+  {
+    value: '1',
+    label: 'กลุ่มศาสตร์แห่งผู้ประกอบการ',
+  },
+  {
+    value: '2',
+    label: 'กลุ่มพลเมืองไทยและพลเมืองโลก',
+  },
+  {
+    value: '3',
+    label: 'กลุ่มภาษากับการสื่อสาร',
+  },
+  {
+    value: '4',
+    label: 'กลุ่มสุนทรียศาสตร์',
+  },
+]
 
 const ClassForm = () => {
   return (
@@ -46,6 +75,14 @@ const ClassForm = () => {
           width="8ch"
           margin="auto 1rem auto .5rem"
           text_align="center"
+        />
+        <SelectCustom
+          name="major"
+          // value={this.state.wordS}
+          // placeholder={this.state.wordS}
+          // onChange={this.handleChange}
+          options={options}
+          // filterOptions={filterOptions}
         />
       </GroupLine>
       <GroupLine>
