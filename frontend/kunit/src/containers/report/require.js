@@ -4,13 +4,13 @@ import styled from 'styled-components'
 const Button = styled.button`
   cursor: pointer;
   background: white;
-  color: black;
+  color: #888888;
   width: 14%;
   min-width: 180px;
   font-size: 1em;
   margin: 0.25em 0.5rem 0 auto;
   padding: 0.25em 1em;
-  border: 2px solid #000000;
+  border: 2px solid #888888;
   border-radius: 7px;
   transition: 0.25s all ease-in;
 
@@ -21,7 +21,7 @@ const Button = styled.button`
 `
 
 const RequireComponent = () => {
-  return <Button>อยากได้อะไรบอกเราสิ</Button>
+  return <Button>ช่วยเพิ่มข้อมูลที่ตกหล่น</Button>
 }
 
 export default RequireComponent
