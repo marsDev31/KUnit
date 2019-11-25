@@ -1,6 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Select from 'react-virtualized-select'
+
+const options = [
+  {
+    value: '0',
+    label: 'กลุ่มอยู่ดีมีสุข',
+  },
+  {
+    value: '1',
+    label: 'กลุ่มศาสตร์แห่งผู้ประกอบการ',
+  },
+  {
+    value: '2',
+    label: 'กลุ่มพลเมืองไทยและพลเมืองโลก',
+  },
+  {
+    value: '3',
+    label: 'กลุ่มภาษากับการสื่อสาร',
+  },
+  {
+    value: '4',
+    label: 'กลุ่มสุนทรียศาสตร์',
+  },
+]
 
 const InputName = styled.input`
   width: ${props => props.width || '100%'};
@@ -37,30 +60,12 @@ const SelectCustom = styled(Select)`
   width: 100%;
 `
 
-const options = [
-  {
-    value: '0',
-    label: 'กลุ่มอยู่ดีมีสุข',
-  },
-  {
-    value: '1',
-    label: 'กลุ่มศาสตร์แห่งผู้ประกอบการ',
-  },
-  {
-    value: '2',
-    label: 'กลุ่มพลเมืองไทยและพลเมืองโลก',
-  },
-  {
-    value: '3',
-    label: 'กลุ่มภาษากับการสื่อสาร',
-  },
-  {
-    value: '4',
-    label: 'กลุ่มสุนทรียศาสตร์',
-  },
-]
-
 const ClassForm = () => {
+  const [Group, setGroup] = useState('เลือกกลุ่มสาระของวิชา')
+  const handleChangeGroup = e => {
+    setGroup(e.label)
+  }
+
   return (
     <>
       <Topic> ชื่อวิชา (ภาษาไทย)</Topic>
@@ -78,9 +83,9 @@ const ClassForm = () => {
         />
         <SelectCustom
           name="major"
-          // value={this.state.wordS}
-          // placeholder={this.state.wordS}
-          // onChange={this.handleChange}
+          value={Group}
+          placeholder={Group}
+          onChange={handleChangeGroup}
           options={options}
           // filterOptions={filterOptions}
         />
