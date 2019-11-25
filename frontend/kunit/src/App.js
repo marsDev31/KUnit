@@ -4,6 +4,7 @@ import Search from './containers/seachth'
 import Header from './containers/header'
 import Footer from './containers/footer'
 import ButtonCopyURL from './containers/copyurl'
+import Report from './containers/report'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/app.css'
 
@@ -154,6 +155,7 @@ class App extends Component {
         </div>
         <center>
           <ButtonCopyURL location={this.props.location} />
+          <Report />
           <Footer />
         </center>
       </div>
