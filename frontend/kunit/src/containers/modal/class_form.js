@@ -3,6 +3,8 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import styled from 'styled-components'
 import Select from 'react-virtualized-select'
 import media from 'styled-media-query'
+import axios from 'axios'
+
 const options = [
   {
     value: '0',
@@ -75,10 +77,53 @@ const SelectCustom = styled(Select)`
 `
 
 const ClassForm = () => {
-  const [Group, setGroup] = useState('เลือกกลุ่มสาระของวิชา')
+  const [isCaptcha, setIsCaptcha] = useState('')
+  const [value, setValue] = useState({
+    class_group: 'เลือกกลุ่มสาระของวิชา',
+    name_th: '',
+    name_en: '',
+    code: '',
+    unit: '',
+    hours: '', // value format 000 ,but display show 0-0-0
+  })
 
-  const handleChangeGroup = e => {
-    setGroup(e.label)
+  const handleChangeGroup = (key, e) => {
+    setValue({ ...value, [key]: e.label })
+  }
+
+  // .slice(0, 5)
+
+  const handleOnChange = (key, e) => {
+    switch (key) {
+      case 'code': {
+        if (/^[0-9]*$/.test(e.target.value) && e.target.value.length <= 8)
+          setValue({ ...value, [key]: e.target.value })
+        break
+      }
+      case 'unit': {
+        if (/^[1-9]*$/.test(e.target.value) && e.target.value.length <= 1)
+          setValue({ ...value, [key]: e.target.value })
+        break
+      }
+      case 'hours': {
+        if (
+          // /^[1-9]*$/.test(e.target.value.replace(/\D/g, '')) &&
+          e.target.value.replace(/\D/g, '').length <= 3
+        )
+          setValue({
+            ...value,
+            [key]: e.target.value
+              .replace(/\D/g, '')
+              .replace(/(\d{1})(\d{1})(\d{1})/, '$1-$2-$3'),
+          })
+
+        break
+      }
+      default: {
+        setValue({ ...value, [key]: e.target.value })
+        break
+      }
+    }
   }
 
   const onChange = value => {
@@ -88,9 +133,20 @@ const ClassForm = () => {
   return (
     <>
       <Topic> ชื่อวิชา (ภาษาไทย)</Topic>
-      <InputName type="text" placeholder="เทนนิสเพื่อสุขภาพ" autoFocus />
+      <InputName
+        type="text"
+        placeholder="เทนนิสเพื่อสุขภาพ"
+        onChange={e => handleOnChange('name_th', e)}
+        value={value.name_th}
+        autoFocus
+      />
       <Topic> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
-      <InputName type="text" placeholder="Tennis for Health" />
+      <InputName
+        type="text"
+        placeholder="Tennis for Health"
+        onChange={e => handleOnChange('name_en', e)}
+        value={value.name_en}
+      />
       <GroupLine>
         <Topic>รหัสวิชา</Topic>
         <InputName
@@ -99,12 +155,14 @@ const ClassForm = () => {
           width="8ch"
           margin="auto 1rem auto .5rem"
           text_align="center"
+          onChange={e => handleOnChange('code', e)}
+          value={value.code}
         />
         <SelectCustom
           name="major"
-          value={Group}
-          placeholder={Group}
-          onChange={handleChangeGroup}
+          value={value.class_group}
+          placeholder={value.class_group}
+          onChange={e => handleChangeGroup('class_group', e)}
           options={options}
           // filterOptions={filterOptions}
         />
@@ -117,6 +175,8 @@ const ClassForm = () => {
           width="3ch"
           margin="auto 1rem auto .5rem"
           text_align="center"
+          onChange={e => handleOnChange('unit', e)}
+          value={value.unit}
         />
         <Topic>
           ชั่วโมง<span> (lecture-lab-self)</span>
@@ -127,6 +187,8 @@ const ClassForm = () => {
           width="6ch"
           margin="auto auto auto .5rem"
           text_align="center"
+          onChange={e => handleOnChange('hours', e)}
+          value={value.hours}
         />
       </GroupLine>
       <GroupReCaptcha>
