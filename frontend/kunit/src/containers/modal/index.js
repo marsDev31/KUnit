@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import Major from './major_form'
 import Class from './class_form'
@@ -43,7 +43,7 @@ const TabBehavior = styled.div`
 `
 
 const TabClass = styled(TabBehavior)`
-  background: white;
+  background: ${props => (props.section === 0 ? 'white' : '#e8e8e8')};
   top: -40px;
   left: 0;
   font-size: 1.05rem;
@@ -51,7 +51,7 @@ const TabClass = styled(TabBehavior)`
 `
 
 const TabMajor = styled(TabBehavior)`
-  background: #e8e8e8;
+  background: ${props => (props.section === 1 ? 'white' : '#e8e8e8')};
   top: -40px;
   left: 118px;
   font-size: 1rem;
@@ -59,13 +59,22 @@ const TabMajor = styled(TabBehavior)`
 `
 
 const ModalCaontainer = () => {
+  const [section, setSection] = useState(0)
   return (
     <BackDrop>
       <Card>
-        <TabClass>เพิ่มวิชาใหม่</TabClass>
-        <TabMajor>เพิ่มภาควิชาใหม่</TabMajor>
-        {/* <Major /> */}
-        <Class />
+        <TabClass onClick={() => setSection(0)} section={section}>
+          เพิ่มวิชาใหม่
+        </TabClass>
+        <TabMajor onClick={() => setSection(1)} section={section}>
+          เพิ่มภาควิชาใหม่
+        </TabMajor>
+        {
+          {
+            1: <Major />,
+            0: <Class />,
+          }[section]
+        }
       </Card>
     </BackDrop>
   )
