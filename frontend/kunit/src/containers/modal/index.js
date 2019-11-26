@@ -32,7 +32,7 @@ const Card = styled.div`
 
 const TabBehavior = styled.div`
   position: absolute;
-  width: 120px;
+  width: 128px;
   height: 40px;
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
@@ -47,15 +47,15 @@ const TabClass = styled(TabBehavior)`
   top: -40px;
   left: 0;
   font-size: 1.05rem;
-  z-index: 3;
+  z-index: ${props => (props.section === 0 ? '3' : '2')};
 `
 
 const TabMajor = styled(TabBehavior)`
   background: ${props => (props.section === 1 ? 'white' : '#e8e8e8')};
   top: -40px;
-  left: 118px;
+  left: 120px;
   font-size: 1rem;
-  z-index: 2;
+  z-index: ${props => (props.section === 1 ? '3' : '2')};
 `
 
 const ModalCaontainer = () => {
