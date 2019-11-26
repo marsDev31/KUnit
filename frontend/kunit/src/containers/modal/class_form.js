@@ -84,7 +84,7 @@ const ClassForm = () => {
     name_en: '',
     code: '',
     unit: '',
-    hours: '', // value format 000 ,but display show 0-0-0
+    hours: '', 
   })
 
   const handleChangeGroup = (key, e) => {
@@ -107,14 +107,14 @@ const ClassForm = () => {
       }
       case 'hours': {
         if (
-          // /^[1-9]*$/.test(e.target.value.replace(/\D/g, '')) &&
+          // .replace(/\D/g, '') for strip all of non-digit
           e.target.value.replace(/\D/g, '').length <= 3
         )
           setValue({
             ...value,
             [key]: e.target.value
               .replace(/\D/g, '')
-              .replace(/(\d{1})(\d{1})(\d{1})/, '$1-$2-$3'),
+              .replace(/(\d{1})(\d{1})(\d{1})/, '$1-$2-$3'), // word size 1 char be insert by '-'
           })
 
         break
