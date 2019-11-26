@@ -84,7 +84,7 @@ const ClassForm = () => {
     name_en: '',
     code: '',
     unit: '',
-    hours: '', 
+    hours: '',
   })
 
   const handleChangeGroup = (key, e) => {
@@ -138,7 +138,6 @@ const ClassForm = () => {
         placeholder="เทนนิสเพื่อสุขภาพ"
         onChange={e => handleOnChange('name_th', e)}
         value={value.name_th}
-        autoFocus
       />
       <Topic> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
       <InputName
