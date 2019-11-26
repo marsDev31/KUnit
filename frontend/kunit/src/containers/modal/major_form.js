@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import styled from 'styled-components'
 
 const InputName = styled.input`
@@ -20,12 +21,24 @@ const GroupLine = styled.div`
   align-items: center;
 `
 
+const GroupReCaptcha = styled.div`
+  width: 100%;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+`
+
 const Topic = styled.h3`
   font-size: 1rem;
   margin: 0;
 `
 
 const MajorForm = () => {
+  const onChange = value => {
+    console.log('Captcha value:', value)
+  }
   return (
     <>
       <Topic> ชื่อภาควิชา (ภาษาไทย)</Topic>
@@ -46,6 +59,12 @@ const MajorForm = () => {
           text_align="center"
         />
       </GroupLine>
+      <GroupReCaptcha>
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
+          onChange={onChange}
+        />
+      </GroupReCaptcha>
     </>
   )
 }

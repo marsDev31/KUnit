@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import styled from 'styled-components'
 import Select from 'react-virtualized-select'
-
+import media from 'styled-media-query'
 const options = [
   {
     value: '0',
@@ -45,6 +46,15 @@ const GroupLine = styled.div`
   margin-bottom: 0.75rem;
 `
 
+const GroupReCaptcha = styled.div`
+  width: 100%;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+`
+
 const Topic = styled.h3`
   white-space: nowrap;
   font-size: 1rem;
@@ -53,6 +63,10 @@ const Topic = styled.h3`
     font-size: 0.7rem;
     font-weight: 200;
     color: #666;
+
+    ${media.lessThan('medium')`
+        display: none;
+    `}
   }
 `
 
@@ -62,8 +76,13 @@ const SelectCustom = styled(Select)`
 
 const ClassForm = () => {
   const [Group, setGroup] = useState('เลือกกลุ่มสาระของวิชา')
+
   const handleChangeGroup = e => {
     setGroup(e.label)
+  }
+
+  const onChange = value => {
+    console.log('Captcha value:', value)
   }
 
   return (
@@ -110,6 +129,12 @@ const ClassForm = () => {
           text_align="center"
         />
       </GroupLine>
+      <GroupReCaptcha>
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
+          onChange={onChange}
+        />
+      </GroupReCaptcha>
     </>
   )
 }
