@@ -69,7 +69,7 @@ const ClassForm = () => {
   return (
     <>
       <Topic> ชื่อวิชา (ภาษาไทย)</Topic>
-      <InputName type="text" placeholder="เทนนิสเพื่อสุขภาพ" />
+      <InputName type="text" placeholder="เทนนิสเพื่อสุขภาพ" autoFocus />
       <Topic> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
       <InputName type="text" placeholder="Tennis for Health" />
       <GroupLine>

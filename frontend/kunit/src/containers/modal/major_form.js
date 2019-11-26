@@ -29,7 +29,7 @@ const MajorForm = () => {
   return (
     <>
       <Topic> ชื่อภาควิชา (ภาษาไทย)</Topic>
-      <InputName type="text" placeholder="วิศวกรรมคอมพิวเตอร์" />
+      <InputName type="text" placeholder="วิศวกรรมคอมพิวเตอร์" autoFocus />
       <Topic> ชื่อภาควิชา (ภาษาอังกฤษ)</Topic>
       <InputName
         type="text"

@@ -602,7 +602,7 @@ class MajorSearch extends Component {
           }}
         >
           <Select
-            autoFocus
+            // autoFocus
             name="major"
             style={{ fontSize: '15px' }}
             autosize={false}
