@@ -134,6 +134,7 @@ const Button = styled.button`
 `
 
 const ClassForm = props => {
+  const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     class_group: 'เลือกกลุ่มสาระของวิชา',
@@ -200,7 +201,7 @@ const ClassForm = props => {
           hours: value.hours,
         }
       )
-      // console.log(res)
+      setLoading(false)
       props.setIsDone(true)
       setValue({
         class_group: 'เลือกกลุ่มสาระของวิชา',
@@ -227,6 +228,7 @@ const ClassForm = props => {
     ) {
       if (captcha) {
         postData()
+        setLoading(true)
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {
       alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
@@ -306,7 +308,15 @@ const ClassForm = props => {
         >
           ยกเลิก
         </Button>
-        <Button onClick={submitdForm}>กดยืนยัน</Button>
+        <Button onClick={submitdForm}>
+          {loading ? (
+            <div class="spinner-border text-success" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          ) : (
+            <div class="spinner-border text-success"></div>
+          )}
+        </Button>
       </GroupFooter>
     </>
   )

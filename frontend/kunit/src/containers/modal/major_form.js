@@ -74,6 +74,7 @@ const Button = styled.button`
 `
 
 const MajorForm = props => {
+  const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     name_major_th: '',
@@ -106,7 +107,7 @@ const MajorForm = props => {
           code_major: value.code_major,
         }
       )
-      // console.log(res)
+      setLoading(false)
       props.setIsDone(true)
       setValue({
         name_major_th: '',
@@ -128,6 +129,7 @@ const MajorForm = props => {
     ) {
       if (captcha) {
         postData()
+        setLoading(true)
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {
       alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
@@ -181,7 +183,15 @@ const MajorForm = props => {
         >
           ยกเลิก
         </Button>
-        <Button onClick={submitdForm}>กดยืนยัน</Button>
+        <Button onClick={submitdForm}>
+          {loading ? (
+            <div class="spinner-border text-success" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          ) : (
+            'กดยืนยัน'
+          )}
+        </Button>
       </GroupFooter>
     </>
   )
