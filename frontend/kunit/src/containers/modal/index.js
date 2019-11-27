@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import Major from './major_form'
 import Class from './class_form'
+import ic_cancel_white from '../../assets/icon/ic_cancel_white.svg'
 
 const BackDrop = styled.div`
   width: 100%;
@@ -13,16 +14,14 @@ const BackDrop = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  /* cursor: url(${ic_cancel_white}) 205 205, auto; */
 `
 
 const Card = styled.div`
   width: 80%;
-  min-width: 366px;
+  min-width: 370px;
   max-width: 500px;
-  /* height: 80%;
-  max-height: 440px; */
   background: white;
-
   border-radius: 7px;
   border-top-left-radius: 0;
   padding: 2rem;
@@ -53,7 +52,7 @@ const TabClass = styled(TabBehavior)`
 
 const TabMajor = styled(TabBehavior)`
   background: ${props => (props.section === 1 ? 'white' : '#e8e8e8')};
-  left: 120px;
+  left: 128px;
   font-size: 1rem;
   z-index: ${props => (props.section === 1 ? '3' : '2')};
 `
@@ -66,36 +65,6 @@ const TabLine = styled.div`
   background: white;
   top: 0;
   left: 0;
-`
-
-const GroupFooter = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: auto;
-  /* position: absolute;
-  bottom: 2rem;
-  right: 2rem; */
-`
-
-const Button = styled.button`
-  background: white;
-  color: #000;
-  width: 14%;
-  min-width: 120px;
-  font-size: 1em;
-  margin: 0.25em 0 0 0.4rem;
-  padding: 0.25em 1em;
-  border: 2px solid #000;
-  border-radius: 7px;
-  transition: 0.2s all ease-in;
-
-  &:hover {
-    color: ${props => props.color_hover || '#30803d'};
-    border: 2px solid ${props => props.color_hover || '#77b28f'};
-    cursor: pointer;
-  }
 `
 
 const ModalCaontainer = () => {
@@ -117,10 +86,6 @@ const ModalCaontainer = () => {
             0: <Class />,
           }[section]
         }
-        <GroupFooter>
-          <Button color_hover="#dc3545">ยกเลิก</Button>
-          <Button>กดยืนยัน</Button>
-        </GroupFooter>
       </Card>
     </BackDrop>
   )

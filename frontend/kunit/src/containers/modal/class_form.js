@@ -36,7 +36,7 @@ const InputName = styled.input`
   border-radius: 0.25rem;
   font-size: 14px;
   padding: 0.5rem;
-  margin: ${props => props.margin || '0.25rem 1rem 0.75rem 0'};
+  margin: ${props => props.margin || '0.25rem 1rem 1.25rem 0'};
   text-transform: ${props => props.text_transform || ' initial'};
   text-align: ${props => props.text_align || 'initial'};
 `
@@ -45,7 +45,7 @@ const GroupLine = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin: ${props => props.margin || '0 auto 1.25rem auto'};
 `
 
 const GroupReCaptcha = styled.div`
@@ -70,6 +70,13 @@ const Topic = styled.h3`
         display: none;
     `}
   }
+  &.require {
+    ::after {
+      content: ' *';
+      color: #c97e7f;
+      font-size: 16px;
+    }
+  }
 `
 
 const SelectCustom = styled(Select)`
@@ -84,11 +91,50 @@ const SelectCustom = styled(Select)`
   }
   & div.Select-placeholder {
     line-height: 2rem;
+    ::after {
+      content: ' *';
+      ${props =>
+        props.group !== 'เลือกกลุ่มสาระของวิชา' &&
+        `content: '';
+        `}
+      color: #c97e7f;
+      font-size: 16px;
+    }
+  }
+`
+
+const GroupFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+  /* position: absolute;
+  bottom: 2rem;
+  right: 2rem; */
+`
+
+const Button = styled.button`
+  background: white;
+  color: #000;
+  width: 14%;
+  min-width: 120px;
+  font-size: 1em;
+  margin: 0.25em 0 0 1rem;
+  padding: 0.25em 1em;
+  border: 2px solid #000;
+  border-radius: 7px;
+  transition: 0.2s all ease-in;
+
+  &:hover {
+    color: ${props => props.color_hover || '#30803d'};
+    border: 2px solid ${props => props.color_hover || '#77b28f'};
+    cursor: pointer;
   }
 `
 
 const ClassForm = () => {
-  const [isCaptcha, setIsCaptcha] = useState('')
+  const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     class_group: 'เลือกกลุ่มสาระของวิชา',
     name_th: '',
@@ -135,20 +181,68 @@ const ClassForm = () => {
     }
   }
 
-  const onChange = value => {
-    console.log('Captcha value:', value)
+  const onChangeRecaptcha = value => {
+    // console.log('Captcha value:', value)
+    setCaptcha(value)
+  }
+
+  const postData = async () => {
+    try {
+      let res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/newUpdateRequest`,
+        {
+          verify_captcha: captcha,
+          class_group: value.class_group,
+          name_th: value.name_th,
+          name_en: value.name_en,
+          code: value.code,
+          unit: value.unit,
+          hours: value.hours,
+        }
+      )
+      // console.log(res)
+      setValue({
+        class_group: 'เลือกกลุ่มสาระของวิชา',
+        name_th: '',
+        name_en: '',
+        code: '',
+        unit: '',
+        hours: '',
+      })
+      setCaptcha('')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const submitdForm = e => {
+    // console.log(isCaptcha)
+    if (
+      value.class_group !== 'เลือกกลุ่มสาระของวิชา' &&
+      value.name_th !== '' &&
+      value.name_en !== '' &&
+      value.code !== '' &&
+      value.unit !== ''
+    ) {
+      if (captcha) {
+        alert('ขอบคุณสำหรัความช่วยเหลือครับ/ค่ะ :D')
+        postData()
+      } else alert('โปรดยืนยัน reCAPTCHA')
+    } else {
+      alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
+    }
   }
 
   return (
     <>
-      <Topic> ชื่อวิชา (ภาษาไทย)*</Topic>
+      <Topic className="require"> ชื่อวิชา (ภาษาไทย)</Topic>
       <InputName
         type="text"
         placeholder="เทนนิสเพื่อสุขภาพ"
         onChange={e => handleOnChange('name_th', e)}
         value={value.name_th}
       />
-      <Topic> ชื่อวิชา (ภาษาอังกฤษ)*</Topic>
+      <Topic className="require"> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
       <InputName
         type="text"
         placeholder="Tennis for Health"
@@ -156,7 +250,7 @@ const ClassForm = () => {
         value={value.name_en}
       />
       <GroupLine>
-        <Topic>รหัสวิชา*</Topic>
+        <Topic className="require">รหัสวิชา</Topic>
         <InputName
           type="text"
           placeholder="01175113"
@@ -167,6 +261,7 @@ const ClassForm = () => {
           value={value.code}
         />
         <SelectCustom
+          group={value.class_group}
           name="major"
           value={value.class_group}
           placeholder={value.class_group}
@@ -174,11 +269,11 @@ const ClassForm = () => {
           options={options}
         />
       </GroupLine>
-      <GroupLine>
-        <Topic>หน่วยกิต*</Topic>
+      <GroupLine margin="0">
+        <Topic className="require">จำนวนหน่วยกิต</Topic>
         <InputName
           type="text"
-          placeholder="1"
+          placeholder="0"
           width="3ch"
           margin="auto 1rem auto .5rem"
           text_align="center"
@@ -186,7 +281,7 @@ const ClassForm = () => {
           value={value.unit}
         />
         <Topic>
-          ชั่วโมง<span> (lecture-lab-self)</span>
+          จำนวนชั่วโมง<span> (lecture-lab-self)</span>
         </Topic>
         <InputName
           type="text"
@@ -201,9 +296,13 @@ const ClassForm = () => {
       <GroupReCaptcha>
         <ReCAPTCHA
           sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
-          onChange={onChange}
+          onChange={onChangeRecaptcha}
         />
       </GroupReCaptcha>
+      <GroupFooter>
+        <Button color_hover="#dc3545">ยกเลิก</Button>
+        <Button onClick={submitdForm}>กดยืนยัน</Button>
+      </GroupFooter>
     </>
   )
 }

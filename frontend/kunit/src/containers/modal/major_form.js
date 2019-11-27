@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const InputName = styled.input`
   width: ${props => props.width || '100%'};
@@ -10,7 +11,7 @@ const InputName = styled.input`
   border-radius: 0.25rem;
   font-size: 14px;
   padding: 0.5rem;
-  margin: ${props => props.margin || '0.25rem 1rem 0.75rem 0'};
+  margin: ${props => props.margin || '0.25rem 1rem 1.25rem 0'};
   text-transform: ${props => props.text_transform || ' initial'};
   text-align: ${props => props.text_align || 'initial'};
 `
@@ -33,10 +34,47 @@ const GroupReCaptcha = styled.div`
 const Topic = styled.h3`
   font-size: 1rem;
   margin: 0;
+  &.require {
+    ::after {
+      content: ' *';
+      color: #c97e7f;
+      font-size: 16px;
+    }
+  }
+`
+
+const GroupFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+  /* position: absolute;
+  bottom: 2rem;
+  right: 2rem; */
+`
+
+const Button = styled.button`
+  background: white;
+  color: #000;
+  width: 14%;
+  min-width: 120px;
+  font-size: 1em;
+  margin: 0.25em 0 0 1rem;
+  padding: 0.25em 1em;
+  border: 2px solid #000;
+  border-radius: 7px;
+  transition: 0.2s all ease-in;
+
+  &:hover {
+    color: ${props => props.color_hover || '#30803d'};
+    border: 2px solid ${props => props.color_hover || '#77b28f'};
+    cursor: pointer;
+  }
 `
 
 const MajorForm = () => {
-  const [isCaptcha, setIsCaptcha] = useState('')
+  const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     name_major_th: '',
     name_major_en: '',
@@ -57,20 +95,60 @@ const MajorForm = () => {
       }
     }
   }
-
-  const onChange = value => {
-    console.log('Captcha value:', value)
+  const postData = async () => {
+    try {
+      let res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/newUpdateRequest`,
+        {
+          verify_captcha: captcha,
+          name_major_th: value.name_major_th,
+          name_major_en: value.name_major_en,
+          code_major: value.code_major,
+        }
+      )
+      // console.log(res)
+      setValue({
+        name_major_th: '',
+        name_major_en: '',
+        code_major: '',
+      })
+      setCaptcha('')
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  const submitdForm = e => {
+    // console.log(isCaptcha)
+    if (
+      value.name_major_th !== '' &&
+      value.name_major_en !== '' &&
+      value.code_major !== ''
+    ) {
+      if (captcha) {
+        alert('ขอบคุณสำหรัความช่วยเหลือครับ/ค่ะ :D')
+        postData()
+      } else alert('โปรดยืนยัน reCAPTCHA')
+    } else {
+      alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
+    }
+  }
+
+  const onChangeRecaptcha = value => {
+    // console.log('Captcha value:', value)
+    setCaptcha(value)
+  }
+
   return (
     <>
-      <Topic> ชื่อภาควิชา (ภาษาไทย)*</Topic>
+      <Topic className="require"> ชื่อภาควิชา (ภาษาไทย)</Topic>
       <InputName
         type="text"
         placeholder="วิศวกรรมคอมพิวเตอร์"
         value={value.name_major_th}
         onChange={e => handleOnChange('name_major_th', e)}
       />
-      <Topic> ชื่อภาควิชา (ภาษาอังกฤษ)*</Topic>
+      <Topic className="require"> ชื่อภาควิชา (ภาษาอังกฤษ)</Topic>
       <InputName
         type="text"
         placeholder="Computer Engineering Faculty of Engineering"
@@ -78,7 +156,7 @@ const MajorForm = () => {
         onChange={e => handleOnChange('name_major_en', e)}
       />
       <GroupLine>
-        <Topic> รหัสภาควิชา*</Topic>
+        <Topic className="require"> รหัสภาควิชา</Topic>
         <InputName
           type="text"
           placeholder="E09"
@@ -93,9 +171,13 @@ const MajorForm = () => {
       <GroupReCaptcha>
         <ReCAPTCHA
           sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
-          onChange={onChange}
+          onChange={onChangeRecaptcha}
         />
       </GroupReCaptcha>
+      <GroupFooter>
+        <Button color_hover="#dc3545">ยกเลิก</Button>
+        <Button onClick={submitdForm}>กดยืนยัน</Button>
+      </GroupFooter>
     </>
   )
 }
