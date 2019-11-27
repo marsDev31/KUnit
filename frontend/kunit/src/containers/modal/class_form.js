@@ -53,6 +53,9 @@ const GroupWrap = styled.div`
     ${media.lessThan('447px')` 
     margin-bottom: 1.25rem;
   `}
+    ${media.lessThan('360px')`
+    margin-bottom: 0.75rem;
+  `}
   }
   ${media.lessThan('360px')`
     margin-bottom: 0.75rem;

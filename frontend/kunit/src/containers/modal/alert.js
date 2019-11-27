@@ -74,7 +74,7 @@ const AlertComponent = props => {
       <Done src={iconDone} className="bounceIn" />
       <Thankyou>ขอบคุณสำหรับข้อมูลเพิ่มเติมครับ/ค่ะ</Thankyou>
       <TextCount>จะปิดหน้านี้ในอีก {count} วินาที</TextCount>
-      <Text>( แตะหนึ่งครั้งเพื่อปิด )</Text>
+      <Text>( จิ้มเบาๆหนึ่งครั้งเพื่อปิด )</Text>
     </Card>
   )
 }
