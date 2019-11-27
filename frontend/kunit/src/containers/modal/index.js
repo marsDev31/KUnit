@@ -78,7 +78,7 @@ const ModalCaontainer = () => {
       {state.showRequestForm ? (
         <BackDrop>
           {isDone ? (
-            <Alert dispatch={dispatch} />
+            <Alert dispatch={dispatch} setIsDon={setIsDone} />
           ) : (
             <Card>
               <TabClass onClick={() => setSection(0)} section={section}>
