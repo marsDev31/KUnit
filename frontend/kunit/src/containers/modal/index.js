@@ -21,6 +21,7 @@ const BackDrop = styled.div`
 `
 
 const Card = styled.div`
+  margin-top: 40px;
   width: 88%;
   min-width: 320px;
   max-width: 500px;

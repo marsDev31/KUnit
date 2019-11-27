@@ -88,10 +88,28 @@ const Spinner = styled.div`
   }
 `
 
+const ContainerTextAlert = styled.p`
+  margin: -1rem auto 0.7rem auto;
+  height: 1rem;
+`
+const TextAlertDetail = styled.p`
+  font-size: 0.8rem;
+  color: #000;
+  span {
+    color: #ce7678;
+  }
+`
+
+const TextAlertError = styled.p`
+  font-size: 0.8rem;
+  color: #ce7678;
+`
+
 const MajorForm = props => {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
   const [submited, setSubmited] = useState(false)
+  const [iAmBot, setIAmBot] = useState(true)
   const [value, setValue] = useState({
     name_major_th: '',
     name_major_en: '',
@@ -138,6 +156,7 @@ const MajorForm = props => {
 
   const submitdForm = e => {
     // console.log(isCaptcha)
+    setIAmBot(true)
     if (
       value.name_major_th !== '' &&
       value.name_major_en !== '' &&
@@ -146,9 +165,14 @@ const MajorForm = props => {
       if (captcha) {
         postData()
         setLoading(true)
-      } else alert('โปรดยืนยัน reCAPTCHA')
+        setSubmited(false)
+        setIAmBot(false)
+      } else {
+        setIAmBot(true)
+      }
     } else {
       setSubmited(true)
+      setIAmBot(false)
       // alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
     }
   }
@@ -208,12 +232,24 @@ const MajorForm = props => {
           }
         />
       </GroupLine>
-      {/* <GroupReCaptcha> */}
+
       <ReCAPTCHACustom
         sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
         onChange={onChangeRecaptcha}
       />
-      {/* </GroupReCaptcha> */}
+      <ContainerTextAlert>
+        {submited ? (
+          <TextAlertError>
+            {iAmBot
+              ? '** โปรดยืนยัน reCAPTCHA'
+              : '** โปรดกรอกข้อมูลให้ครบครับ/ค่ะ'}
+          </TextAlertError>
+        ) : (
+          <TextAlertDetail>
+            เครื่องหมาย <span>*</span> คือจำเป็นต้องกรอก
+          </TextAlertDetail>
+        )}
+      </ContainerTextAlert>
       <GroupFooter>
         <Button
           color_hover="#dc3545"

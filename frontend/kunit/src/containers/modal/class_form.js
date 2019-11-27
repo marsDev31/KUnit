@@ -184,10 +184,28 @@ const Spinner = styled.div`
   }
 `
 
+const ContainerTextAlert = styled.p`
+  margin: 0.5rem auto 0.7rem auto;
+  height: 1rem;
+`
+const TextAlertDetail = styled.p`
+  font-size: 0.8rem;
+  color: #000;
+  span {
+    color: #ce7678;
+  }
+`
+
+const TextAlertError = styled.p`
+  font-size: 0.8rem;
+  color: #ce7678;
+`
+
 const ClassForm = props => {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
   const [submited, setSubmited] = useState(false)
+  const [iAmBot, setIAmBot] = useState(true)
   const [value, setValue] = useState({
     class_group: 'เลือกกลุ่มสาระของวิชา',
     name_th: '',
@@ -272,6 +290,7 @@ const ClassForm = props => {
 
   const submitdForm = e => {
     // console.log(isCaptcha)
+    setIAmBot(true)
     if (
       value.class_group !== 'เลือกกลุ่มสาระของวิชา' &&
       value.name_th !== '' &&
@@ -282,9 +301,14 @@ const ClassForm = props => {
       if (captcha) {
         postData()
         setLoading(true)
-      } else alert('โปรดยืนยัน reCAPTCHA')
+        setSubmited(false)
+        setIAmBot(false)
+      } else {
+        setIAmBot(true)
+      }
     } else {
       setSubmited(true)
+      setIAmBot(false)
       // alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
     }
   }
@@ -379,7 +403,19 @@ const ClassForm = props => {
         sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
         onChange={onChangeRecaptcha}
       />
-
+      <ContainerTextAlert>
+        {submited ? (
+          <TextAlertError>
+            {iAmBot
+              ? '** โปรดยืนยัน reCAPTCHA'
+              : '** โปรดกรอกข้อมูลให้ครบครับ/ค่ะ'}
+          </TextAlertError>
+        ) : (
+          <TextAlertDetail>
+            เครื่องหมาย <span>*</span> คือจำเป็นต้องกรอก
+          </TextAlertDetail>
+        )}
+      </ContainerTextAlert>
       <GroupFooter>
         <Button
           color_hover="#dc3545"
