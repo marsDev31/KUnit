@@ -8,7 +8,7 @@ const InputName = styled.input`
   width: ${props => props.width || '100%'};
   min-width: ${props => props.width || '140px'};
   height: 2rem;
-  border: 1px solid #ced4da;
+  border: 1px solid ${props => props.color_border || '#ced4da'};
   border-radius: 0.25rem;
   font-size: 14px;
   padding: 0.5rem;
@@ -21,19 +21,6 @@ const GroupLine = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-`
-
-const GroupReCaptcha = styled.div`
-  width: 100%;
-  height: 74px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
-
-  & div.rc-anchor-normal {
-    margin: auto;
-  }
 `
 
 const Topic = styled.h3`
@@ -50,12 +37,11 @@ const Topic = styled.h3`
 
 const GroupFooter = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
   margin: auto;
 
   ${media.lessThan('447px')` 
-    justify-content: space-around;
     margin: .5rem 0 .75rem 0 ;
   `}
 `
@@ -105,6 +91,7 @@ const Spinner = styled.div`
 const MajorForm = props => {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
+  const [submited, setSubmited] = useState(false)
   const [value, setValue] = useState({
     name_major_th: '',
     name_major_en: '',
@@ -161,7 +148,8 @@ const MajorForm = props => {
         setLoading(true)
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {
-      alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
+      setSubmited(true)
+      // alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
     }
   }
 
@@ -178,6 +166,13 @@ const MajorForm = props => {
         placeholder="วิศวกรรมคอมพิวเตอร์"
         value={value.name_major_th}
         onChange={e => handleOnChange('name_major_th', e)}
+        color_border={
+          submited
+            ? value.name_major_th === ''
+              ? '#ce7678'
+              : '#ced4da'
+            : '#ced4da'
+        }
       />
       <Topic className="require"> ชื่อภาควิชา (ภาษาอังกฤษ)</Topic>
       <InputName
@@ -185,6 +180,13 @@ const MajorForm = props => {
         placeholder="Computer Engineering Faculty of Engineering"
         value={value.name_major_en}
         onChange={e => handleOnChange('name_major_en', e)}
+        color_border={
+          submited
+            ? value.name_major_en === ''
+              ? '#ce7678'
+              : '#ced4da'
+            : '#ced4da'
+        }
       />
       <GroupLine>
         <Topic className="require"> รหัสภาควิชา</Topic>
@@ -197,6 +199,13 @@ const MajorForm = props => {
           text_align="center"
           value={value.code_major}
           onChange={e => handleOnChange('code_major', e)}
+          color_border={
+            submited
+              ? value.code_major === ''
+                ? '#ce7678'
+                : '#ced4da'
+              : '#ced4da'
+          }
         />
       </GroupLine>
       {/* <GroupReCaptcha> */}

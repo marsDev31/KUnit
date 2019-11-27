@@ -32,7 +32,7 @@ const InputName = styled.input`
   width: ${props => props.width || '100%'};
   min-width: ${props => props.width || '140px'};
   height: 2rem;
-  border: 1px solid #ced4da;
+  border: 1px solid ${props => props.color_border || '#ced4da'};
   border-radius: 0.25rem;
   font-size: 14px;
   padding: 0.5rem;
@@ -44,7 +44,6 @@ const InputName = styled.input`
 
   text-transform: ${props => props.text_transform || ' initial'};
   text-align: ${props => props.text_align || 'initial'};
-  
 `
 
 const GroupWrap = styled.div`
@@ -79,16 +78,6 @@ const GroupLine = styled.div`
     margin: ${props => props.margin || '0 auto 0.75rem auto'};
   `}
 `
-
-// const GroupReCaptcha = styled.div`
-//   width: 100%;
-//   height: 74px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 2rem auto;
-
-// `
 
 const ReCAPTCHACustom = styled(ReCAPTCHA)`
   margin: 2rem auto;
@@ -135,6 +124,7 @@ const SelectCustom = styled(Select)`
   font-size: 14px;
   & div.Select-control {
     height: 2rem;
+    border-color: ${props => props.color_border || '#ced4da'};
   }
   & div.Select-input {
     height: 2rem;
@@ -154,20 +144,14 @@ const SelectCustom = styled(Select)`
 `
 
 const GroupFooter = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
   margin: auto;
 
   ${media.lessThan('447px')` 
-    justify-content: space-around;
     margin: .5rem 0 0 0 ;
   `}
-  /* ${media.lessThan('360px')`
-    justify-content: space-around;
-    margin: .5rem 0 0 0 ; */
-  /* `} */
 `
 
 const Button = styled.button`
@@ -203,6 +187,7 @@ const Spinner = styled.div`
 const ClassForm = props => {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
+  const [submited, setSubmited] = useState(false)
   const [value, setValue] = useState({
     class_group: 'เลือกกลุ่มสาระของวิชา',
     name_th: '',
@@ -217,6 +202,7 @@ const ClassForm = props => {
   }
 
   const handleOnChange = (key, e) => {
+    // setSubmited(false)
     switch (key) {
       case 'code': {
         if (/^[0-9]*$/.test(e.target.value) && e.target.value.length <= 8)
@@ -298,7 +284,8 @@ const ClassForm = props => {
         setLoading(true)
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {
-      alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
+      setSubmited(true)
+      // alert('ข้อมูลไม่ครบถ้วนครับ/ค่ะ')
     }
   }
 
@@ -310,6 +297,9 @@ const ClassForm = props => {
         placeholder="เทนนิสเพื่อสุขภาพ"
         onChange={e => handleOnChange('name_th', e)}
         value={value.name_th}
+        color_border={
+          submited ? (value.name_th === '' ? '#ce7678' : '#ced4da') : '#ced4da'
+        }
       />
       <Topic className="require"> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
       <InputName
@@ -317,6 +307,9 @@ const ClassForm = props => {
         placeholder="Tennis for Health"
         onChange={e => handleOnChange('name_en', e)}
         value={value.name_en}
+        color_border={
+          submited ? (value.name_en === '' ? '#ce7678' : '#ced4da') : '#ced4da'
+        }
       />
       <GroupLine>
         <GroupWrap>
@@ -329,6 +322,9 @@ const ClassForm = props => {
             text_align="center"
             onChange={e => handleOnChange('code', e)}
             value={value.code}
+            color_border={
+              submited ? (value.code === '' ? '#ce7678' : '#ced4da') : '#ced4da'
+            }
           />
         </GroupWrap>
         <SelectCustom
@@ -338,6 +334,13 @@ const ClassForm = props => {
           placeholder={value.class_group}
           onChange={e => handleChangeGroup('class_group', e)}
           options={options}
+          color_border={
+            submited
+              ? value.class_group === 'เลือกกลุ่มสาระของวิชา'
+                ? '#ce7678'
+                : '#ced4da'
+              : '#ced4da'
+          }
         />
       </GroupLine>
       <GroupLine margin="0" className="unit_section">
@@ -351,6 +354,9 @@ const ClassForm = props => {
             text_align="center"
             onChange={e => handleOnChange('unit', e)}
             value={value.unit}
+            color_border={
+              submited ? (value.unit === '' ? '#ce7678' : '#ced4da') : '#ced4da'
+            }
           />
         </GroupWrap>
         <GroupWrap className="unit_section">
