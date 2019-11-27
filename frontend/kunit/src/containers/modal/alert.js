@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import iconDone from '../../assets/icon/done_green.svg'
 import 'animate.css'
@@ -33,7 +33,13 @@ const Text = styled.p`
   margin-bottom: 2rem;
 `
 
-const AlertComponent = () => {
+const AlertComponent = props => {
+  useEffect(() => {
+    setTimeout(() => {
+      props.dispatch({ type: 'close' })
+      props.setIsDone(false)
+    }, 5000)
+  }, [])
   return (
     <Card>
       <Done src={iconDone} className="bounceIn" />

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ShowRequestFormContext } from '../../utility/context/modal_request'
 
 const Button = styled.button`
   cursor: pointer;
@@ -21,7 +22,12 @@ const Button = styled.button`
 `
 
 const RequireComponent = () => {
-  return <Button>ช่วยเพิ่มข้อมูลที่ตกหล่น</Button>
+  const { dispatch } = useContext(ShowRequestFormContext)
+  return (
+    <Button onClick={() => dispatch({ type: 'open' })}>
+      ช่วยเพิ่มข้อมูลที่ตกหล่น
+    </Button>
+  )
 }
 
 export default RequireComponent

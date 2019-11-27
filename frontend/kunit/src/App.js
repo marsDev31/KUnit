@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ShowRequestFormProvider } from './utility/context/modal_request'
 import MajorSearch from './containers/major'
 import Search from './containers/seachth'
 import Header from './containers/header'
@@ -116,51 +117,53 @@ class App extends Component {
       selected_class,
     } = this.getterParams(location)
     return (
-      <div>
-        <Modal />
-        <div className="container">
-          <div className="row">
-            <div className="col-md-1" />
-            <div className="col-md-10">
-              <center>
-                <Header />
-              </center>
+      <ShowRequestFormProvider>
+        <div>
+          <Modal />
+          <div className="container">
+            <div className="row">
+              <div className="col-md-1" />
+              <div className="col-md-10">
+                <center>
+                  <Header />
+                </center>
+              </div>
+              <div className="col-md-1" />
             </div>
-            <div className="col-md-1" />
-          </div>
-          <div className="row">
-            <div className="col-md-1" />
-            <div className="col-md-10">
-              <MajorSearch
-                major={this.handleMajor}
-                major_get={this.getMajorChild}
-                major_value={major_value}
-                major_label={major_label}
-              />
+            <div className="row">
+              <div className="col-md-1" />
+              <div className="col-md-10">
+                <MajorSearch
+                  major={this.handleMajor}
+                  major_get={this.getMajorChild}
+                  major_value={major_value}
+                  major_label={major_label}
+                />
+              </div>
+              <div className="col-md-1" />
             </div>
-            <div className="col-md-1" />
-          </div>
-          <div className="row">
-            <div className="col-md-1" />
-            <div className="col-md-10">
-              <Search
-                major={this.state.major}
-                selected_get={this.getClassSelectedChild}
-                check_major_value={major_value}
-                group_get={this.getGroupChild}
-                group_class={group_class}
-                selected_class={selected_class}
-              />
+            <div className="row">
+              <div className="col-md-1" />
+              <div className="col-md-10">
+                <Search
+                  major={this.state.major}
+                  selected_get={this.getClassSelectedChild}
+                  check_major_value={major_value}
+                  group_get={this.getGroupChild}
+                  group_class={group_class}
+                  selected_class={selected_class}
+                />
+              </div>
+              <div className="col-md-1" />
             </div>
-            <div className="col-md-1" />
           </div>
+          <center>
+            <ButtonCopyURL location={this.props.location} />
+            <Report />
+            <Footer />
+          </center>
         </div>
-        <center>
-          <ButtonCopyURL location={this.props.location} />
-          <Report />
-          <Footer />
-        </center>
-      </div>
+      </ShowRequestFormProvider>
     )
   }
 }

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import React, { useState, useContext } from 'react'
+import styled from 'styled-components'
 import Major from './major_form'
 import Class from './class_form'
 import ic_cancel_white from '../../assets/icon/ic_cancel_white.svg'
 import Alert from './alert'
+import { ShowRequestFormContext } from '../../utility/context/modal_request'
 
 const BackDrop = styled.div`
   width: 100%;
@@ -70,29 +71,34 @@ const TabLine = styled.div`
 
 const ModalCaontainer = () => {
   const [section, setSection] = useState(0)
-  const [isDone, setIsDone] = useState(true)
+  const [isDone, setIsDone] = useState(false)
+  const { state, dispatch } = useContext(ShowRequestFormContext)
   return (
-    <BackDrop>
-      {isDone ? (
-        <Alert />
-      ) : (
-        <Card>
-          <TabClass onClick={() => setSection(0)} section={section}>
-            เพิ่มวิชาใหม่
-          </TabClass>
-          <TabMajor onClick={() => setSection(1)} section={section}>
-            เพิ่มภาควิชาใหม่
-          </TabMajor>
-          <TabLine />
-          {
-            {
-              1: <Major setIsDone={setIsDone} />,
-              0: <Class setIsDone={setIsDone} />,
-            }[section]
-          }
-        </Card>
-      )}
-    </BackDrop>
+    <>
+      {state.showRequestForm ? (
+        <BackDrop>
+          {isDone ? (
+            <Alert dispatch={dispatch} />
+          ) : (
+            <Card>
+              <TabClass onClick={() => setSection(0)} section={section}>
+                เพิ่มวิชาใหม่
+              </TabClass>
+              <TabMajor onClick={() => setSection(1)} section={section}>
+                เพิ่มภาควิชาใหม่
+              </TabMajor>
+              <TabLine />
+              {
+                {
+                  1: <Major dispatch={dispatch} setIsDone={setIsDone} />,
+                  0: <Class dispatch={dispatch} setIsDone={setIsDone} />,
+                }[section]
+              }
+            </Card>
+          )}
+        </BackDrop>
+      ) : null}
+    </>
   )
 }
 

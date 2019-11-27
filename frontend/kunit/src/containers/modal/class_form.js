@@ -300,7 +300,12 @@ const ClassForm = props => {
         />
       </GroupReCaptcha>
       <GroupFooter>
-        <Button color_hover="#dc3545">ยกเลิก</Button>
+        <Button
+          color_hover="#dc3545"
+          onClick={() => props.dispatch({ type: 'close' })}
+        >
+          ยกเลิก
+        </Button>
         <Button onClick={submitdForm}>กดยืนยัน</Button>
       </GroupFooter>
     </>
