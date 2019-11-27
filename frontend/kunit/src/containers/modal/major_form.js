@@ -30,6 +30,10 @@ const GroupReCaptcha = styled.div`
   justify-content: center;
   align-items: center;
   margin: 2rem auto;
+
+  & div.rc-anchor-normal {
+    margin: auto;
+  }
 `
 
 const Topic = styled.h3`
@@ -45,15 +49,26 @@ const Topic = styled.h3`
 `
 
 const GroupFooter = styled.div`
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin: auto;
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('447px')` 
     justify-content: space-around;
-    margin: .5rem 0 0 0 ;
+    margin: .5rem 0 .75rem 0 ;
+  `}
+`
+
+const ReCAPTCHACustom = styled(ReCAPTCHA)`
+  margin: 2rem auto;
+  & div > div {
+    width: 100% !important;
+  }
+  ${media.lessThan('447px')` 
+    & iframe { 
+      width: 104% !important;
+    }
   `}
 `
 
@@ -184,12 +199,12 @@ const MajorForm = props => {
           onChange={e => handleOnChange('code_major', e)}
         />
       </GroupLine>
-      <GroupReCaptcha>
-        <ReCAPTCHA
-          sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
-          onChange={onChangeRecaptcha}
-        />
-      </GroupReCaptcha>
+      {/* <GroupReCaptcha> */}
+      <ReCAPTCHACustom
+        sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
+        onChange={onChangeRecaptcha}
+      />
+      {/* </GroupReCaptcha> */}
       <GroupFooter>
         <Button
           color_hover="#dc3545"

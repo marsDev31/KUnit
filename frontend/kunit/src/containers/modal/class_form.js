@@ -80,17 +80,28 @@ const GroupLine = styled.div`
   `}
 `
 
-const GroupReCaptcha = styled.div`
-  width: 100%;
-  height: 74px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
+// const GroupReCaptcha = styled.div`
+//   width: 100%;
+//   height: 74px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 2rem auto;
 
+// `
+
+const ReCAPTCHACustom = styled(ReCAPTCHA)`
+  margin: 2rem auto;
+  & div > div {
+    width: 100% !important;
+  }
   ${media.lessThan('447px')` 
+    & iframe { 
+      width: 104% !important;
+    }
     margin: 0.25rem auto;
   `}
+
   ${media.lessThan('360px')`
     margin: 0.15rem auto;
   `}
@@ -156,7 +167,7 @@ const GroupFooter = styled.div`
   /* ${media.lessThan('360px')`
     justify-content: space-around;
     margin: .5rem 0 0 0 ; */
-  `}
+  /* `} */
 `
 
 const Button = styled.button`
@@ -357,12 +368,12 @@ const ClassForm = props => {
           />
         </GroupWrap>
       </GroupLine>
-      <GroupReCaptcha>
-        <ReCAPTCHA
-          sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
-          onChange={onChangeRecaptcha}
-        />
-      </GroupReCaptcha>
+
+      <ReCAPTCHACustom
+        sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITEKET_CLIENT}
+        onChange={onChangeRecaptcha}
+      />
+
       <GroupFooter>
         <Button
           color_hover="#dc3545"
