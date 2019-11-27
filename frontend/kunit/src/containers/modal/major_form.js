@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import styled from 'styled-components'
 import axios from 'axios'
+import media from 'styled-media-query'
 
 const InputName = styled.input`
   width: ${props => props.width || '100%'};
@@ -49,9 +50,11 @@ const GroupFooter = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: auto;
-  /* position: absolute;
-  bottom: 2rem;
-  right: 2rem; */
+
+  ${media.lessThan('360px')`
+    justify-content: space-around;
+    margin: .5rem 0 0 0 ;
+  `}
 `
 
 const Button = styled.button`
@@ -71,6 +74,10 @@ const Button = styled.button`
     border: 2px solid ${props => props.color_hover || '#77b28f'};
     cursor: pointer;
   }
+
+  ${media.lessThan('360px')`
+    margin: 0;
+  `}
 `
 
 const Spinner = styled.div`

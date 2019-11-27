@@ -37,8 +37,27 @@ const InputName = styled.input`
   font-size: 14px;
   padding: 0.5rem;
   margin: ${props => props.margin || '0.25rem 1rem 1.25rem 0'};
+
+  ${media.lessThan('360px')`
+    margin: ${props => props.margin || '0.25rem 1rem 0.75rem 0'};
+  `}
+
   text-transform: ${props => props.text_transform || ' initial'};
   text-align: ${props => props.text_align || 'initial'};
+  
+`
+
+const GroupWrap = styled.div`
+  display: flex;
+  align-items: center;
+  &.unit_section {
+    ${media.lessThan('447px')` 
+    margin-bottom: 1.25rem;
+  `}
+  }
+  ${media.lessThan('360px')`
+    margin-bottom: 0.75rem;
+  `}
 `
 
 const GroupLine = styled.div`
@@ -46,6 +65,19 @@ const GroupLine = styled.div`
   display: flex;
   align-items: center;
   margin: ${props => props.margin || '0 auto 1.25rem auto'};
+
+  &.unit_section {
+    ${media.lessThan('447px')` 
+    flex-direction: column;
+    align-items: flex-start;
+  `}
+  }
+  /* 360px */
+  ${media.lessThan('360px')` 
+    flex-direction: column;
+    align-items: flex-start;
+    margin: ${props => props.margin || '0 auto 0.75rem auto'};
+  `}
 `
 
 const GroupReCaptcha = styled.div`
@@ -55,6 +87,13 @@ const GroupReCaptcha = styled.div`
   justify-content: center;
   align-items: center;
   margin: 2rem auto;
+
+  ${media.lessThan('447px')` 
+    margin: 0.25rem auto;
+  `}
+  ${media.lessThan('360px')`
+    margin: 0.15rem auto;
+  `}
 `
 
 const Topic = styled.h3`
@@ -109,9 +148,15 @@ const GroupFooter = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: auto;
-  /* position: absolute;
-  bottom: 2rem;
-  right: 2rem; */
+
+  ${media.lessThan('447px')` 
+    justify-content: space-around;
+    margin: .5rem 0 0 0 ;
+  `}
+  /* ${media.lessThan('360px')`
+    justify-content: space-around;
+    margin: .5rem 0 0 0 ; */
+  `}
 `
 
 const Button = styled.button`
@@ -131,6 +176,10 @@ const Button = styled.button`
     border: 2px solid ${props => props.color_hover || '#77b28f'};
     cursor: pointer;
   }
+
+  ${media.lessThan('360px')`
+    margin: 0;
+  `}
 `
 
 const Spinner = styled.div`
@@ -259,16 +308,18 @@ const ClassForm = props => {
         value={value.name_en}
       />
       <GroupLine>
-        <Topic className="require">รหัสวิชา</Topic>
-        <InputName
-          type="text"
-          placeholder="01175113"
-          width="8ch"
-          margin="auto 1rem auto .5rem"
-          text_align="center"
-          onChange={e => handleOnChange('code', e)}
-          value={value.code}
-        />
+        <GroupWrap>
+          <Topic className="require">รหัสวิชา</Topic>
+          <InputName
+            type="text"
+            placeholder="01175113"
+            width="8ch"
+            margin="auto 1rem auto .5rem"
+            text_align="center"
+            onChange={e => handleOnChange('code', e)}
+            value={value.code}
+          />
+        </GroupWrap>
         <SelectCustom
           group={value.class_group}
           name="major"
@@ -278,29 +329,33 @@ const ClassForm = props => {
           options={options}
         />
       </GroupLine>
-      <GroupLine margin="0">
-        <Topic className="require">จำนวนหน่วยกิต</Topic>
-        <InputName
-          type="text"
-          placeholder="0"
-          width="3ch"
-          margin="auto 1rem auto .5rem"
-          text_align="center"
-          onChange={e => handleOnChange('unit', e)}
-          value={value.unit}
-        />
-        <Topic>
-          จำนวนชั่วโมง<span> (lecture-lab-self)</span>
-        </Topic>
-        <InputName
-          type="text"
-          placeholder="0-2-1"
-          width="6ch"
-          margin="auto auto auto .5rem"
-          text_align="center"
-          onChange={e => handleOnChange('hours', e)}
-          value={value.hours}
-        />
+      <GroupLine margin="0" className="unit_section">
+        <GroupWrap className="unit_section">
+          <Topic className="require">จำนวนหน่วยกิต</Topic>
+          <InputName
+            type="text"
+            placeholder="0"
+            width="3ch"
+            margin="auto 1rem auto .5rem"
+            text_align="center"
+            onChange={e => handleOnChange('unit', e)}
+            value={value.unit}
+          />
+        </GroupWrap>
+        <GroupWrap className="unit_section">
+          <Topic>
+            จำนวนชั่วโมง<span> (lecture-lab-self)</span>
+          </Topic>
+          <InputName
+            type="text"
+            placeholder="0-2-1"
+            width="6ch"
+            margin="auto auto auto .5rem"
+            text_align="center"
+            onChange={e => handleOnChange('hours', e)}
+            value={value.hours}
+          />
+        </GroupWrap>
       </GroupLine>
       <GroupReCaptcha>
         <ReCAPTCHA

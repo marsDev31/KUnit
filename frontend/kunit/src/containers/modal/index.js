@@ -5,6 +5,7 @@ import Class from './class_form'
 import ic_cancel_white from '../../assets/icon/ic_cancel_white.svg'
 import Alert from './alert'
 import { ShowRequestFormContext } from '../../utility/context/modal_request'
+import media from 'styled-media-query'
 
 const BackDrop = styled.div`
   width: 100%;
@@ -20,8 +21,8 @@ const BackDrop = styled.div`
 `
 
 const Card = styled.div`
-  width: 80%;
-  min-width: 370px;
+  width: 88%;
+  min-width: 320px;
   max-width: 500px;
   background: white;
   border-radius: 7px;
@@ -31,6 +32,11 @@ const Card = styled.div`
   flex-direction: column;
   position: relative;
   cursor: auto;
+
+  ${media.lessThan('360px')`
+    min-width: 308px;
+    padding: .75rem;
+  `}
 `
 
 const TabBehavior = styled.div`
