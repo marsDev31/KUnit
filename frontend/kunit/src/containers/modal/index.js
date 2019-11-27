@@ -16,7 +16,7 @@ const BackDrop = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* cursor: url(${ic_cancel_white}) 205 205, auto; */
+  cursor: url(${ic_cancel_white}) 205 205, auto;
 `
 
 const Card = styled.div`
@@ -30,6 +30,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: auto;
 `
 
 const TabBehavior = styled.div`
@@ -73,12 +74,18 @@ const ModalCaontainer = () => {
   const [section, setSection] = useState(0)
   const [isDone, setIsDone] = useState(false)
   const { state, dispatch } = useContext(ShowRequestFormContext)
+  const handleBackdrop = e => {
+    if (e.target === e.currentTarget) {
+      dispatch({ type: 'close' })
+      setIsDone(false)
+    }
+  }
   return (
     <>
       {state.showRequestForm ? (
-        <BackDrop>
+        <BackDrop onClick={handleBackdrop}>
           {isDone ? (
-            <Alert dispatch={dispatch} setIsDon={setIsDone} />
+            <Alert dispatch={dispatch} setIsDone={setIsDone} />
           ) : (
             <Card>
               <TabClass onClick={() => setSection(0)} section={section}>

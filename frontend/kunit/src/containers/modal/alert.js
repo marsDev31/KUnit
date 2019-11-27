@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import iconDone from '../../assets/icon/done_green.svg'
 import 'animate.css'
@@ -26,6 +26,13 @@ const Thankyou = styled.p`
   margin-bottom: 0.3rem;
 `
 
+const TextCount = styled.p`
+  color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+`
+
 const Text = styled.p`
   color: white;
   font-size: 0.8rem;
@@ -34,16 +41,39 @@ const Text = styled.p`
 `
 
 const AlertComponent = props => {
+  const [count, setCount] = useState(5)
+  const saveCallback = useRef()
+
+  const handleClose = () => {
+    props.dispatch({ type: 'close' })
+    props.setIsDone(false)
+  }
+
+  function callbackCount() {
+    setCount(count - 1)
+    console.log(count)
+    if (count === 0) {
+      handleClose()
+    }
+  }
+
   useEffect(() => {
-    setTimeout(() => {
-      props.dispatch({ type: 'close' })
-      props.setIsDone(false)
-    }, 5000)
+    saveCallback.current = callbackCount
+  })
+
+  useEffect(() => {
+    function tick() {
+      saveCallback.current()
+    }
+
+    const timing = setInterval(tick, 1000)
+    return () => clearInterval(timing)
   }, [])
   return (
-    <Card>
+    <Card onClick={handleClose}>
       <Done src={iconDone} className="bounceIn" />
       <Thankyou>ขอบคุณสำหรับข้อมูลเพิ่มเติมครับ/ค่ะ</Thankyou>
+      <TextCount>จะปิดหน้านี้ในอีก {count} วินาที</TextCount>
       <Text>( แตะหนึ่งครั้งเพื่อปิด )</Text>
     </Card>
   )
