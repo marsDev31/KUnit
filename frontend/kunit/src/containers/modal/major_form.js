@@ -36,20 +36,49 @@ const Topic = styled.h3`
 `
 
 const MajorForm = () => {
+  const [isCaptcha, setIsCaptcha] = useState('')
+  const [value, setValue] = useState({
+    name_major_th: '',
+    name_major_en: '',
+    code_major: '',
+  })
+
+  const handleOnChange = (key, e) => {
+    switch (key) {
+      case 'code_major': {
+        if (e.target.value.length <= 3)
+          setValue({ ...value, [key]: e.target.value })
+        break
+      }
+
+      default: {
+        setValue({ ...value, [key]: e.target.value })
+        break
+      }
+    }
+  }
+
   const onChange = value => {
     console.log('Captcha value:', value)
   }
   return (
     <>
-      <Topic> ชื่อภาควิชา (ภาษาไทย)</Topic>
-      <InputName type="text" placeholder="วิศวกรรมคอมพิวเตอร์" />
-      <Topic> ชื่อภาควิชา (ภาษาอังกฤษ)</Topic>
+      <Topic> ชื่อภาควิชา (ภาษาไทย)*</Topic>
+      <InputName
+        type="text"
+        placeholder="วิศวกรรมคอมพิวเตอร์"
+        value={value.name_major_th}
+        onChange={e => handleOnChange('name_major_th', e)}
+      />
+      <Topic> ชื่อภาควิชา (ภาษาอังกฤษ)*</Topic>
       <InputName
         type="text"
         placeholder="Computer Engineering Faculty of Engineering"
+        value={value.name_major_en}
+        onChange={e => handleOnChange('name_major_en', e)}
       />
       <GroupLine>
-        <Topic> รหัสภาควิชา</Topic>
+        <Topic> รหัสภาควิชา*</Topic>
         <InputName
           type="text"
           placeholder="E09"
@@ -57,6 +86,8 @@ const MajorForm = () => {
           text_transform="uppercase"
           margin="auto auto auto .5rem"
           text_align="center"
+          value={value.code_major}
+          onChange={e => handleOnChange('code_major', e)}
         />
       </GroupLine>
       <GroupReCaptcha>

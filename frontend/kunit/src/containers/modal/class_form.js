@@ -74,6 +74,17 @@ const Topic = styled.h3`
 
 const SelectCustom = styled(Select)`
   width: 100%;
+  height: 2rem;
+  font-size: 14px;
+  & div.Select-control {
+    height: 2rem;
+  }
+  & div.Select-input {
+    height: 2rem;
+  }
+  & div.Select-placeholder {
+    line-height: 2rem;
+  }
 `
 
 const ClassForm = () => {
@@ -90,8 +101,6 @@ const ClassForm = () => {
   const handleChangeGroup = (key, e) => {
     setValue({ ...value, [key]: e.label })
   }
-
-  // .slice(0, 5)
 
   const handleOnChange = (key, e) => {
     switch (key) {
@@ -132,14 +141,14 @@ const ClassForm = () => {
 
   return (
     <>
-      <Topic> ชื่อวิชา (ภาษาไทย)</Topic>
+      <Topic> ชื่อวิชา (ภาษาไทย)*</Topic>
       <InputName
         type="text"
         placeholder="เทนนิสเพื่อสุขภาพ"
         onChange={e => handleOnChange('name_th', e)}
         value={value.name_th}
       />
-      <Topic> ชื่อวิชา (ภาษาอังกฤษ)</Topic>
+      <Topic> ชื่อวิชา (ภาษาอังกฤษ)*</Topic>
       <InputName
         type="text"
         placeholder="Tennis for Health"
@@ -147,7 +156,7 @@ const ClassForm = () => {
         value={value.name_en}
       />
       <GroupLine>
-        <Topic>รหัสวิชา</Topic>
+        <Topic>รหัสวิชา*</Topic>
         <InputName
           type="text"
           placeholder="01175113"
@@ -163,11 +172,10 @@ const ClassForm = () => {
           placeholder={value.class_group}
           onChange={e => handleChangeGroup('class_group', e)}
           options={options}
-          // filterOptions={filterOptions}
         />
       </GroupLine>
       <GroupLine>
-        <Topic>หน่วยกิต</Topic>
+        <Topic>หน่วยกิต*</Topic>
         <InputName
           type="text"
           placeholder="1"
