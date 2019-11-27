@@ -73,6 +73,13 @@ const Button = styled.button`
   }
 `
 
+const Spinner = styled.div`
+  & div.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+`
+
 const MajorForm = props => {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState('')
@@ -185,9 +192,9 @@ const MajorForm = props => {
         </Button>
         <Button onClick={submitdForm}>
           {loading ? (
-            <div class="spinner-border text-success" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
+            <Spinner>
+              <div class="spinner-border text-Spinner" />
+            </Spinner>
           ) : (
             'กดยืนยัน'
           )}
