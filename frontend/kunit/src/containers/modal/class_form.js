@@ -133,7 +133,7 @@ const Button = styled.button`
   }
 `
 
-const ClassForm = () => {
+const ClassForm = props => {
   const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     class_group: 'เลือกกลุ่มสาระของวิชา',
@@ -201,6 +201,7 @@ const ClassForm = () => {
         }
       )
       // console.log(res)
+      props.setIsDone(true)
       setValue({
         class_group: 'เลือกกลุ่มสาระของวิชา',
         name_th: '',
@@ -225,7 +226,6 @@ const ClassForm = () => {
       value.unit !== ''
     ) {
       if (captcha) {
-        alert('ขอบคุณสำหรัความช่วยเหลือครับ/ค่ะ :D')
         postData()
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {

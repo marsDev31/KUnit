@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import Major from './major_form'
 import Class from './class_form'
 import ic_cancel_white from '../../assets/icon/ic_cancel_white.svg'
+import Alert from './alert'
 
 const BackDrop = styled.div`
   width: 100%;
@@ -69,24 +70,28 @@ const TabLine = styled.div`
 
 const ModalCaontainer = () => {
   const [section, setSection] = useState(0)
-
+  const [isDone, setIsDone] = useState(true)
   return (
     <BackDrop>
-      <Card>
-        <TabClass onClick={() => setSection(0)} section={section}>
-          เพิ่มวิชาใหม่
-        </TabClass>
-        <TabMajor onClick={() => setSection(1)} section={section}>
-          เพิ่มภาควิชาใหม่
-        </TabMajor>
-        <TabLine />
-        {
+      {isDone ? (
+        <Alert />
+      ) : (
+        <Card>
+          <TabClass onClick={() => setSection(0)} section={section}>
+            เพิ่มวิชาใหม่
+          </TabClass>
+          <TabMajor onClick={() => setSection(1)} section={section}>
+            เพิ่มภาควิชาใหม่
+          </TabMajor>
+          <TabLine />
           {
-            1: <Major />,
-            0: <Class />,
-          }[section]
-        }
-      </Card>
+            {
+              1: <Major setIsDone={setIsDone} />,
+              0: <Class setIsDone={setIsDone} />,
+            }[section]
+          }
+        </Card>
+      )}
     </BackDrop>
   )
 }

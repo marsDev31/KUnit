@@ -73,7 +73,7 @@ const Button = styled.button`
   }
 `
 
-const MajorForm = () => {
+const MajorForm = props => {
   const [captcha, setCaptcha] = useState('')
   const [value, setValue] = useState({
     name_major_th: '',
@@ -107,6 +107,7 @@ const MajorForm = () => {
         }
       )
       // console.log(res)
+      props.setIsDone(true)
       setValue({
         name_major_th: '',
         name_major_en: '',
@@ -126,7 +127,6 @@ const MajorForm = () => {
       value.code_major !== ''
     ) {
       if (captcha) {
-        alert('ขอบคุณสำหรัความช่วยเหลือครับ/ค่ะ :D')
         postData()
       } else alert('โปรดยืนยัน reCAPTCHA')
     } else {
