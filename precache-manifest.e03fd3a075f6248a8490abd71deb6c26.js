@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/mark-github.207687a1.svg"
   },
   {
-    "revision": "b0f07b0c119a53642308",
+    "revision": "2ea8ee54c30361065957",
     "url": "/KUnit/static/css/main.dfef6630.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/mortar-board.daa0112e.svg"
   },
   {
-    "revision": "b0f07b0c119a53642308",
-    "url": "/KUnit/static/js/main.b0f07b0c.chunk.js"
+    "revision": "2ea8ee54c30361065957",
+    "url": "/KUnit/static/js/main.2ea8ee54.chunk.js"
   },
   {
     "revision": "08926dd316c29c64fe518d1659d48029",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/KUnit/static/css/1.9b4bd708.chunk.css"
   },
   {
-    "revision": "fa5ef23e7ce34a8f287786d452d14e59",
+    "revision": "6423ebc97b7d81ecbc7ae0982c4b384d",
     "url": "/KUnit/index.html"
   }
 ];
