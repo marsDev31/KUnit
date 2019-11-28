@@ -40,7 +40,7 @@ const Card = styled.div`
   position: relative;
   cursor: auto;
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     min-width: 308px;
     padding: .75rem;
   `}

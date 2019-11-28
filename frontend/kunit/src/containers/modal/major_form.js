@@ -76,7 +76,7 @@ const Button = styled.button`
     cursor: pointer;
   }
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     margin: 0;
   `}
 `

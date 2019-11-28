@@ -38,7 +38,7 @@ const InputName = styled.input`
   padding: 0.5rem;
   margin: ${props => props.margin || '0.25rem 1rem 1.25rem 0'};
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     margin: ${props => props.margin || '0.25rem 1rem 0.75rem 0'};
   `}
 
@@ -53,11 +53,11 @@ const GroupWrap = styled.div`
     ${media.lessThan('447px')` 
     margin-bottom: 1.25rem;
   `}
-    ${media.lessThan('360px')`
+    ${media.lessThan('420px')`
     margin-bottom: 0.75rem;
   `}
   }
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     margin-bottom: 0.75rem;
   `}
 `
@@ -74,8 +74,8 @@ const GroupLine = styled.div`
     align-items: flex-start;
   `}
   }
-  /* 360px */
-  ${media.lessThan('360px')` 
+  /* 420px */
+  ${media.lessThan('420px')` 
     flex-direction: column;
     align-items: flex-start;
     margin: ${props => props.margin || '0 auto 0.75rem auto'};
@@ -94,7 +94,7 @@ const ReCAPTCHACustom = styled(ReCAPTCHA)`
     margin: 0.25rem auto;
   `}
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     margin: 0.15rem auto;
   `}
 `
@@ -188,7 +188,7 @@ const Button = styled.button`
     cursor: pointer;
   }
 
-  ${media.lessThan('360px')`
+  ${media.lessThan('420px')`
     margin: 0;
   `}
 `
@@ -357,7 +357,7 @@ const ClassForm = props => {
           <InputName
             type="text"
             placeholder="01175113"
-            width="8ch"
+            width="10ch"
             margin="auto 1rem auto .5rem"
             text_align="center"
             onChange={e => handleOnChange('code', e)}
@@ -406,7 +406,7 @@ const ClassForm = props => {
           <InputName
             type="text"
             placeholder="0-2-1"
-            width="6ch"
+            width="8ch"
             margin="auto auto auto .5rem"
             text_align="center"
             onChange={e => handleOnChange('hours', e)}
