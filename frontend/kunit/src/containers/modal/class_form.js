@@ -124,25 +124,38 @@ const Topic = styled.h3`
 const SelectCustom = styled(Select)`
   width: 100%;
   height: 2rem;
+  box-sizing: border-box;
   font-size: 14px;
   & div.Select-control {
     height: 2rem;
     border-color: ${props => props.color_border || '#ced4da'};
   }
-  & div.Select-input {
-    height: 2rem;
+  & .Select-input {
+    height: 28px;
+    display: flex !important;
+    align-items: center;
+  }
+  & input {
+    padding: 0;
   }
   & div.Select-placeholder {
-    line-height: 2rem;
-    ::after {
-      content: ' *';
+    color: ${props =>
+      props.group !== 'เลือกกลุ่มสาระของวิชา' ? '#000' : '#8e8e8e'};
+    /* line-height: 2rem; */
+    ::before {
+      content: '* ';
+      margin-right: 1ch;
       ${props =>
         props.group !== 'เลือกกลุ่มสาระของวิชา' &&
-        `content: '';
+        `
+          content: '';
+          margin-right: 0;
         `}
       color: #c97e7f;
       font-size: 16px;
     }
+    display: flex;
+    align-items: center;
   }
 `
 
