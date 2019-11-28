@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/mark-github.207687a1.svg"
   },
   {
-    "revision": "760719a8a5f6fab191c4",
+    "revision": "b0f07b0c119a53642308",
     "url": "/KUnit/static/css/main.dfef6630.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/done_green.82944545.svg"
   },
   {
-    "revision": "d189b2e575e5004ad107",
-    "url": "/KUnit/static/js/1.d189b2e5.chunk.js"
+    "revision": "8cb2373834ab552018f8",
+    "url": "/KUnit/static/js/1.8cb23738.chunk.js"
   },
   {
     "revision": "6739abc9df1229ec5cc4",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/mortar-board.daa0112e.svg"
   },
   {
-    "revision": "760719a8a5f6fab191c4",
-    "url": "/KUnit/static/js/main.760719a8.chunk.js"
+    "revision": "b0f07b0c119a53642308",
+    "url": "/KUnit/static/js/main.b0f07b0c.chunk.js"
   },
   {
     "revision": "08926dd316c29c64fe518d1659d48029",
@@ -56,11 +56,11 @@ self.__precacheManifest = [
     "url": "/KUnit/static/media/ic_cancel_white.425d0f8e.svg"
   },
   {
-    "revision": "d189b2e575e5004ad107",
+    "revision": "8cb2373834ab552018f8",
     "url": "/KUnit/static/css/1.9b4bd708.chunk.css"
   },
   {
-    "revision": "075d7b5f03ed918febf36cac2d127e60",
+    "revision": "fa5ef23e7ce34a8f287786d452d14e59",
     "url": "/KUnit/index.html"
   }
 ];
