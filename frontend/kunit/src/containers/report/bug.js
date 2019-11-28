@@ -24,7 +24,11 @@ const Button = styled.a`
 
 const BugComponent = () => {
   return (
-    <Button href="http://m.me/marsdev31" target="_blank">
+    <Button
+      href="http://m.me/marsdev31"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       แจ้งปัญหา
     </Button>
   )

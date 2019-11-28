@@ -43,14 +43,26 @@ export default class Footer extends Component {
         <Text style={{ fontSize: 16 }}>
           ~ writen with{' '}
           <Image src={Heart} width="23" height="23" alt="icon-heart" /> on{' '}
-          <a href="https://github.com/marsDev31/KUnit" target="_blank">
+          <a
+            href="https://github.com/marsDev31/KUnit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={Github} width="23" height="23" alt="icon-github" />
           </a>{' '}
           at <strong style={{ fontSize: 20 }}>KU</strong>
         </Text>
-        <PowerBy href="http://fb.com/marsDev31/" target="_blank">
+        <PowerBy
+          href="http://fb.com/marsDev31/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           power by <strong style={{ fontSize: 18 }}> marsdev31 </strong>
-          <a href="http://fb.com/marsDev31/" target="_blank">
+          <a
+            href="http://fb.com/marsDev31/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <MarsDev src={img_marsdev} />
           </a>
         </PowerBy>
