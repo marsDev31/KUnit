@@ -1,11 +1,17 @@
 import React, { useState, useContext } from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import Major from './major_form'
 import Class from './class_form'
 import ic_cancel_white from '../../assets/icon/ic_cancel_white.svg'
 import Alert from './alert'
 import { ShowRequestFormContext } from '../../utility/context/modal_request'
 import media from 'styled-media-query'
+
+const GlobalStyled = createGlobalStyle`
+  body{
+    overflow: hidden;
+  }
+`
 
 const BackDrop = styled.div`
   width: 100%;
@@ -91,6 +97,7 @@ const ModalCaontainer = () => {
     <>
       {state.showRequestForm ? (
         <BackDrop onClick={handleBackdrop}>
+          <GlobalStyled />
           {isDone ? (
             <Alert dispatch={dispatch} setIsDone={setIsDone} />
           ) : (

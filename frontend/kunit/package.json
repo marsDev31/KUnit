@@ -2,7 +2,7 @@
   "name": "kunit-ne",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://wisticejent.github.io/KUnit",
+  "homepage": "https://marsdev31.github.io/KUnit",
   "dependencies": {
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
