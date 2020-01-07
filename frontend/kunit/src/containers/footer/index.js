@@ -41,7 +41,7 @@ export default class Footer extends Component {
     return (
       <Container>
         <Text style={{ fontSize: 16 }}>
-          ~ writen with{' '}
+          ~ written with{' '}
           <Image src={Heart} width="23" height="23" alt="icon-heart" /> on{' '}
           <a
             href="https://github.com/marsDev31/KUnit"
