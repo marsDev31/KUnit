@@ -17,7 +17,7 @@
     "react-facebook-sdk": "^1.1.1",
     "react-google-recaptcha": "^2.0.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.2",
+    "react-scripts": "^5.0.1",
     "react-select": "^1.2.1",
     "react-toastify": "^4.1.0",
     "react-tooltip": "^3.9.0",
